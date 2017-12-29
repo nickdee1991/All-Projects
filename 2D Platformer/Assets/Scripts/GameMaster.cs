@@ -7,6 +7,15 @@ public class GameMaster : MonoBehaviour
 
     public static GameMaster gm;
 
+    [SerializeField]
+    private int maxLives = 3;
+
+    private static int _remainingLives;
+    public static int RemainingLives
+    {
+         get { return _remainingLives;  }
+    }
+
     private void Awake()
     {
         if (gm == null)
@@ -15,12 +24,17 @@ public class GameMaster : MonoBehaviour
         }
     }
 
+
+
     public Transform playerPrefab;
     public Transform spawnPoint;
     public float spawnDelay = 2;
     public Transform spawnPrefab;
 
     public CameraShake cameraShake;
+
+    [SerializeField]
+    private GameObject gameOverUI;
 
     private void Start()
     {
@@ -29,6 +43,16 @@ public class GameMaster : MonoBehaviour
             Debug.LogError("No camera shake referenced in GameMaster");
         }
 
+        {
+            _remainingLives = maxLives;
+        }
+
+    }
+
+    public void EndGame()
+    {
+        Debug.Log("GAME OVER, BITCH!");
+        gameOverUI.SetActive(true);
     }
 
     public IEnumerator _RespawnPlayer()
@@ -44,7 +68,16 @@ public class GameMaster : MonoBehaviour
     public static void KillPlayer (Player player)
     {
         Destroy(player.gameObject);
-        gm.StartCoroutine (gm._RespawnPlayer());
+        _remainingLives -= 1;
+        if (_remainingLives <= 0)
+        {
+            gm.EndGame();
+        } else
+        {
+            gm.StartCoroutine(gm._RespawnPlayer());
+        }
+
+        
     }
 
 
@@ -55,7 +88,7 @@ public class GameMaster : MonoBehaviour
     public void _KillEnemy(Enemy _enemy)
     {
         Transform _clone = Instantiate (_enemy.deathParticles, _enemy.transform.position, Quaternion.identity);
-        Destroy(_clone, 5f);
+        Destroy(_clone, 4f);
         cameraShake.Shake(_enemy.shakeAmt, _enemy.shakeLength);
         Destroy(_enemy.gameObject);
     }

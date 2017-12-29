@@ -29,7 +29,7 @@ namespace UnityStandardAssets._2D
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
-            playerGraphics = transform.FindChild("Graphics");
+            playerGraphics = transform.Find("Graphics");
             if (playerGraphics == null)
             {
                 Debug.LogError("Let's freak out! There is no 'Graphics' object as a child of player");
