@@ -1,4 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
+
 
 [System.Serializable]
 public class Sound
@@ -19,7 +23,6 @@ public class Sound
     public bool loop = false;
 
     private AudioSource source;
-
 
     public void SetSource (AudioSource _source)
     {
@@ -51,8 +54,18 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     Sound[] sounds;
 
-    private void Awake()
+    //[SerializeField]
+    //private AudioClip IntroMusic;
+
+    //[SerializeField]
+    //private AudioClip Level1Music;
+
+
+
+    void Awake()
     {
+
+
         if (instance != null)
         {
             if (instance != this)
@@ -64,6 +77,7 @@ public class AudioManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this);
+
         }
     }
 
@@ -80,12 +94,12 @@ public class AudioManager : MonoBehaviour
     }
 
     //private void Update()
-    //{
-    // if (Time.time > 5f)
     // {
-            //StopSound("Music");
-    //  }
-    //}
+    //if (Time.time > 5f)
+    //{
+    // StopSound("Music");
+    // }
+    // }
 
     public void PlaySound (string _name)
     {
@@ -99,7 +113,7 @@ public class AudioManager : MonoBehaviour
         }
 
         // no sounds with _name
-        Debug.LogWarning("AudioManager: Sound not foind in list: " + _name);
+        Debug.LogWarning("AudioManager: Sound not found in list: " + _name);
     }
 
     public void StopSound(string _name)
@@ -116,4 +130,5 @@ public class AudioManager : MonoBehaviour
         // no sounds with _name
         Debug.LogWarning("AudioManager: Sound not foind in list: " + _name);
     }
+
 }

@@ -30,29 +30,31 @@ public class Tiling : MonoBehaviour {
         SpriteRenderer sRenderer = GetComponent<SpriteRenderer>();
         spriteWidth = sRenderer.sprite.bounds.size.x;
 		}
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         //does it still need buddys if not do nothing maaaaate
-        if (hasALeftBuddy == false || hasARightBuddy == false);
-        //calculate the cameras extend (half the width) of what the camera can see in world coordinates
-        float camHorizontalExtend = cam.orthographicSize * Screen.width / Screen.height;
-
-        // calculate the x position where the camera can see the edge of the sprite (element)
-        float edgeVisiblePositionRight = (myTransform.position.x + spriteWidth / 2) - camHorizontalExtend;
-        float edgeVisiblePositionLeft = (myTransform.position.x - spriteWidth / 2) + camHorizontalExtend;
-
-        //checking if we can see the edge of the element and then callling MakeNewBuddy if we can
-        if (cam.transform.position.x >= edgeVisiblePositionRight - offsetX && hasARightBuddy == false)
+        if (hasALeftBuddy == false || hasARightBuddy == false)
         {
-            MakeNewBuddy(1);
-            hasARightBuddy = true;
-        }
-        else if (cam.transform.position.x <= edgeVisiblePositionLeft + offsetX && hasALeftBuddy == false)
-        {
-            MakeNewBuddy(-1);
-            hasALeftBuddy = true;
+            //calculate the cameras extend (half the width) of what the camera can see in world coordinates
+            float camHorizontalExtend = cam.orthographicSize * Screen.width / Screen.height;
+
+            // calculate the x position where the camera can see the edge of the sprite (element)
+            float edgeVisiblePositionRight = (myTransform.position.x + spriteWidth / 2) - camHorizontalExtend;
+            float edgeVisiblePositionLeft = (myTransform.position.x - spriteWidth / 2) + camHorizontalExtend;
+
+            //checking if we can see the edge of the element and then callling MakeNewBuddy if we can
+            if (cam.transform.position.x >= edgeVisiblePositionRight - offsetX && hasARightBuddy == false)
+            {
+                MakeNewBuddy(1);
+                hasARightBuddy = true;
+            }
+            else if (cam.transform.position.x <= edgeVisiblePositionLeft + offsetX && hasALeftBuddy == false)
+            {
+                MakeNewBuddy(-1);
+                hasALeftBuddy = true;
+            }
         }
     }
 

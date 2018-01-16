@@ -5,9 +5,14 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 
+    RaycastHit2D foundHit;
+
     public float fireRate = 0;
     public int Damage = 25;
     public LayerMask whatToHit;
+
+    [SerializeField]
+    private GameObject topScreen;
 
     public Transform BulletTrailPrefab;
     public Transform HitPrefab;
@@ -21,7 +26,6 @@ public class Weapon : MonoBehaviour
     CameraShake camShake;
 
     public string weaponShootSound = "DefaultShot";
-    
 
     float timeToFire = 0;
     Transform firePoint;
@@ -38,7 +42,7 @@ public class Weapon : MonoBehaviour
             Debug.LogError("No firepoint= WHAT?!");
         }
 
-
+        //GameObject top = GameObject.FindWithTag("TopScreen");
     }
 
     private void Start()
@@ -63,6 +67,7 @@ public class Weapon : MonoBehaviour
             {
                 Shoot();
             }
+            
         }
         else
         {
@@ -72,26 +77,37 @@ public class Weapon : MonoBehaviour
                 Shoot();
             }
         }
+
+
     }
     void Shoot ()
     {
+        //creating a new vector and assigning new screentoworld point to x and y - translate mouse position from screen coords into game world
         Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint (Input.mousePosition).x, Camera.main.ScreenToWorldPoint (Input.mousePosition).y);
+        //taking tip of weapons and storing its position as vector2
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         RaycastHit2D hit = Physics2D.Raycast (firePointPosition, mousePosition-firePointPosition, 100, whatToHit);
+
+        if (hit.collider != null)
+        {
+            Debug.Log("Target Position: " + hit.collider.name);
+        }
 
         Debug.DrawLine(firePointPosition, (mousePosition-firePointPosition) *100, Color.cyan);
         if (hit.collider != null)
         {
             Debug.DrawLine(firePointPosition, hit.point, Color.red);
-            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            Enemy enemy = hit.collider.GetComponent<Enemy>();          
+
             if (enemy != null)
             {
                 enemy.DamageEnemy(Damage);
-                //Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage ");
+                Debug.Log("We hit " + hit.collider.name + " and did " + Damage + " damage ");
             }
+            
         }
 
-        if (Time.time >= timeToSpawnEffect)
+            if (Time.time >= timeToSpawnEffect)
         {
             Vector3 hitPos;
             Vector3 hitNormal;

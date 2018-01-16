@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour {
@@ -23,11 +24,17 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update()
         {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
+        //if we press the left mouse button
         if (Input.GetMouseButton(0))
         {
+            //we create a ray
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
+            //if the ray hits
             if (Physics.Raycast(ray, out hit, 100, movementMask))
             {
 

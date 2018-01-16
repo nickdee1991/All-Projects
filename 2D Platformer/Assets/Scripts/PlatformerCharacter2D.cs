@@ -27,6 +27,9 @@ namespace UnityStandardAssets._2D
 
         AudioManager audioManager;
 
+        public KeyCode rightmouse;
+
+
         void Awake()
         {
             // Setting up references.
@@ -57,6 +60,26 @@ namespace UnityStandardAssets._2D
 
             m_Grounded = Physics2D.OverlapCircle(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
             m_Anim.SetBool("Ground", m_Grounded);
+
+            //if (wasGrounded != m_Grounded && m_Grounded == true)
+            // {
+            //     audioManager.PlaySound(landingSoundName);
+            // }
+
+            //When right mouse button is pressed player descent is slowed by 12, when released value returns to normal
+            if (Input.GetKeyDown(rightmouse))
+            {
+                GetComponent<Rigidbody2D>().drag = 14;
+            }
+            if (Input.GetKeyUp(rightmouse))
+            {
+                GetComponent <Rigidbody2D>().drag = 0;
+            }
+
+            //if (Input.GetKeyDown())
+
+               
+
 
             if (wasGrounded != m_Grounded && m_Grounded == true)
             {

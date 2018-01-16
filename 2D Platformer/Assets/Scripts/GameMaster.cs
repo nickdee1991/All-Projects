@@ -109,7 +109,7 @@ public class GameMaster : MonoBehaviour
 
         // add particles
         Transform _clone = Instantiate (_enemy.deathParticles, _enemy.transform.position, Quaternion.identity);
-        Destroy(_clone, 4f);
+        Destroy(_clone, 3f);
 
         // go camerashake
         cameraShake.Shake(_enemy.shakeAmt, _enemy.shakeLength);
