@@ -67,18 +67,14 @@ namespace UnityStandardAssets._2D
             // }
 
             //When right mouse button is pressed player descent is slowed by 12, when released value returns to normal
-            if (Input.GetKeyDown(rightmouse))
+            if (Input.GetMouseButton(1))
             {
                 GetComponent<Rigidbody2D>().drag = 14;
-            }
-            if (Input.GetKeyUp(rightmouse))
+            }else
             {
-                GetComponent <Rigidbody2D>().drag = 0;
+                GetComponent<Rigidbody2D>().drag = 0;
             }
 
-            //if (Input.GetKeyDown())
-
-               
 
 
             if (wasGrounded != m_Grounded && m_Grounded == true)

@@ -88,6 +88,20 @@ public class Weapon : MonoBehaviour
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         RaycastHit2D hit = Physics2D.Raycast (firePointPosition, mousePosition-firePointPosition, 100, whatToHit);
 
+        //trying to implement secondary weapon by defining a new vector2
+        Vector2 secondaryPosition = new Vector2(firePoint.position.x, firePoint.position.y);
+        RaycastHit2D secondaryHit = Physics2D.Raycast(firePointPosition, mousePosition - firePointPosition, 100, whatToHit);
+
+        if (secondaryHit.collider.name==("TopScreen") && Input.GetMouseButton(1))
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().drag = 14;
+            Debug.Log("WE FUCKING DID IT, YOU CUNT YOU MAGNIFICENT CUNT!!! " + hit.collider.name);
+        }
+        else
+        {           
+            GetComponent<Rigidbody2D>().drag = 0;
+        }
+
         if (hit.collider != null)
         {
             Debug.Log("Target Position: " + hit.collider.name);
