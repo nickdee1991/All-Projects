@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets._2D;
 
+[RequireComponent(typeof(PlatformerCharacter2D))]
 public class Weapon : MonoBehaviour
 {
-
+    
     RaycastHit2D foundHit;
 
     public float fireRate = 0;
@@ -12,7 +14,7 @@ public class Weapon : MonoBehaviour
     public LayerMask whatToHit;
 
     [SerializeField]
-    private GameObject topScreen;
+    private GameObject Player;
 
     public Transform BulletTrailPrefab;
     public Transform HitPrefab;
@@ -41,12 +43,13 @@ public class Weapon : MonoBehaviour
         {
             Debug.LogError("No firepoint= WHAT?!");
         }
-
-        //GameObject top = GameObject.FindWithTag("TopScreen");
+    
     }
+
 
     private void Start()
     {
+
        camShake = GameMaster.gm.GetComponent<CameraShake>();
         if (camShake == null)
             Debug.LogError("No CameraShake found on GM objects");
@@ -63,7 +66,7 @@ public class Weapon : MonoBehaviour
     {
         if (fireRate == 0)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetMouseButton(0))
             {
                 Shoot();
             }
@@ -71,12 +74,19 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            if (Input.GetButton ("Fire1") && Time.time > timeToFire)
+            if (Input.GetMouseButton(0) && Time.time > timeToFire)
                     {
                 timeToFire = Time.time + 1 / fireRate;
                 Shoot();
             }
         }
+
+        // check for player grounding for topscreen function
+            if (Player.GetComponent<PlatformerCharacter2D>().m_Grounded == true)
+            {
+                Player.GetComponent<Rigidbody2D>().drag = 0;
+            }
+
 
 
     }
@@ -88,24 +98,23 @@ public class Weapon : MonoBehaviour
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         RaycastHit2D hit = Physics2D.Raycast (firePointPosition, mousePosition-firePointPosition, 100, whatToHit);
 
-        //trying to implement secondary weapon by defining a new vector2
-        Vector2 secondaryPosition = new Vector2(firePoint.position.x, firePoint.position.y);
-        RaycastHit2D secondaryHit = Physics2D.Raycast(firePointPosition, mousePosition - firePointPosition, 100, whatToHit);
-
-        if (secondaryHit.collider.name==("TopScreen") && Input.GetMouseButton(1))
+        //first attempt to reduce player drag by hitting TopScreen collider with ray mouse1
+        // check whether mouse1 is held down
+        // and retreving the ground check from PlatformerCharacter2D to see if player is grounded
+        if (hit.collider.name == ("TopScreen") && (Input.GetMouseButtonDown(0)) != true && (Player.GetComponent<PlatformerCharacter2D>().m_Grounded != true))
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().drag = 14;
-            Debug.Log("WE FUCKING DID IT, YOU CUNT YOU MAGNIFICENT CUNT!!! " + hit.collider.name);
+            Player.GetComponent<Rigidbody2D>().drag = 14;
+            Debug.Log("raycast 'hit' has collided with " + hit.collider.name);
         }
-        else
-        {           
-            GetComponent<Rigidbody2D>().drag = 0;
+        else if (Player.GetComponent<PlatformerCharacter2D>().m_Grounded == true)
+        {          
+            Player.GetComponent<Rigidbody2D>().drag = 0;
         }
 
-        if (hit.collider != null)
-        {
-            Debug.Log("Target Position: " + hit.collider.name);
-        }
+        //if (hit.collider != null)
+       // {
+          //  Debug.Log("Target Position: " + hit.collider.name);
+       // }
 
         Debug.DrawLine(firePointPosition, (mousePosition-firePointPosition) *100, Color.cyan);
         if (hit.collider != null)
@@ -169,9 +178,9 @@ public class Weapon : MonoBehaviour
         Destroy(clone.gameObject, 0.02f);
 
         // Shake the camera
-        camShake.Shake(camShakeAmt, camShakeLength);
+        //camShake.Shake(camShakeAmt, camShakeLength);
 
         // Play.ShootSound
-        audioManager.PlaySound(weaponShootSound);
+        //audioManager.PlaySound(weaponShootSound);
             }
 }
