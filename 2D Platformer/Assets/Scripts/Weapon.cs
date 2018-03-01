@@ -103,18 +103,24 @@ public class Weapon : MonoBehaviour
         // and retreving the ground check from PlatformerCharacter2D to see if player is grounded
         if (hit.collider.name == ("TopScreen") && (Input.GetMouseButtonDown(0)) != true && (Player.GetComponent<PlatformerCharacter2D>().m_Grounded != true))
         {
-            Player.GetComponent<Rigidbody2D>().drag = 14;
+            Player.GetComponent<Rigidbody2D>().drag = 10;
             Debug.Log("raycast 'hit' has collided with " + hit.collider.name);
         }
         else if (Player.GetComponent<PlatformerCharacter2D>().m_Grounded == true)
-        {          
+        {
             Player.GetComponent<Rigidbody2D>().drag = 0;
         }
 
-        //if (hit.collider != null)
-       // {
-          //  Debug.Log("Target Position: " + hit.collider.name);
-       // }
+        // if player raycast meets bottomscreen collider perform jump mid air
+        if (hit.collider.name == ("BottomScreen") && (Input.GetMouseButtonDown(0)) != true && (Player.GetComponent<PlatformerCharacter2D>().m_Grounded != true))
+        {
+            //Player.GetComponent<PlatformerCharacter2D>().Move() = true;
+            Debug.Log("raycast 'hit' has collided with " + hit.collider.name);
+        }
+        else if (Player.GetComponent<PlatformerCharacter2D>().m_Grounded == true)
+        {
+            Player.GetComponent<Rigidbody2D>().drag = 0;
+        }
 
         Debug.DrawLine(firePointPosition, (mousePosition-firePointPosition) *100, Color.cyan);
         if (hit.collider != null)

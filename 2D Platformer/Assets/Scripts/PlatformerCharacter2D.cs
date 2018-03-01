@@ -66,17 +66,6 @@ namespace UnityStandardAssets._2D
             //     audioManager.PlaySound(landingSoundName);
             // }
 
-            //When right mouse button is pressed player descent is slowed by 12, when released value returns to normal
-            //if (Input.GetMouseButton(1))
-           // {
-              //  GetComponent<Rigidbody2D>().drag = 14;
-           // }else
-            //{
-             //   GetComponent<Rigidbody2D>().drag = 0;
-            //}
-
-
-
             if (wasGrounded != m_Grounded && m_Grounded == true)
             {
                 audioManager.PlaySound(landingSoundName);

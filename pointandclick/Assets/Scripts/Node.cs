@@ -39,13 +39,13 @@ public abstract class Node : MonoBehaviour {
         //turn on all reachable nodes colliders
         foreach (Node node in reachableNodes)
         {
-        if (node.col != null)
-        {
-        node.col.enabled = true;
+            if (node.col != null)
+            {
+                node.col.enabled = true;
             }
-       
         }
     }
+
     public void Leave()
     {
         //turn off all reachable nodes colliders

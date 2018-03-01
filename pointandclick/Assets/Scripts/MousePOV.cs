@@ -19,10 +19,9 @@ public class MousePOV : MonoBehaviour
 
     private Quaternion yAxis;
     private Quaternion xAxis;
-    private bool m_cursorIsLocked = true;
     private CameraRig rig;
 
-    private void Start()
+    void Start()
     {
         rig = GetComponent<CameraRig>();
     }
