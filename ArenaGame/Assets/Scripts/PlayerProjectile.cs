@@ -4,50 +4,43 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour {
 
-    private enum State { Idle, Throwing }
+    //private enum State { Idle, Throwing }
     private float spearsThrown = 0f;
-
-
-    public GameObject spear;
+    public Rigidbody spear;
     public Transform projectilePoint;
+    public float throwForce = 2500;
 
-    State Throwing;
-    State Idle;
+    [SerializeField]
+    private Camera cam;
+
+
+    //State Throwing;
+    //State Idle;
 
     // Use this for initialization
     void Start ()
     {
-        Idle = State.Idle;
-        projectilePoint = transform.Find("ProjectilePoint");
-        spear = Resources.Load("Throwable") as GameObject;
-        print(Idle);
+        //Idle = State.Idle;
 	}
 	
-	// Update is called once per frame
 	void Update ()
     {
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetButtonDown("Fire1"))
         {
-            Throw();
-            Throwing = State.Throwing;
-            print(Throwing);
-        }
-        else
-        {
-            print(Idle);
+            //Throwing = State.Throwing;
+            Throw();           
         }
 	}
 
     void Throw ()
     {
-        GameObject projectile = Instantiate(spear) as GameObject;
-        projectile.transform.position = transform.position + projectilePoint.transform.forward * 4;
-        Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        rb.velocity = projectilePoint.transform.forward * 25;
+        cam = GetComponent<Camera>();
+        Rigidbody spearInstance;
+        spearInstance = Instantiate(spear, projectilePoint.transform.position, projectilePoint.transform.rotation) as Rigidbody;      
+        spearInstance.AddForce(projectilePoint.forward * throwForce);
         spearsThrown ++;
-        print(spearsThrown);
         {
-            if (spearsThrown >= 10)
+            if (spearsThrown >= 20)
             {
                 Destroy(GameObject.Find("Throwable(Clone)"));
             }
