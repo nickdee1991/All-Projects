@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//[RequireComponent(typeof(PlayerHealth))]
 public class Throwable : MonoBehaviour {
 
     public float flyTime;
@@ -9,8 +10,10 @@ public class Throwable : MonoBehaviour {
 
     private bool flying = true;
     private Rigidbody rb;
+    private Rigidbody rbEnemy;
     private float stopTime;
     private Transform anchor;
+    public Camera deathCam;
 
     void Start ()
     {
@@ -26,8 +29,7 @@ public class Throwable : MonoBehaviour {
         }
 
         if (this.flying)
-        {
-           // this.transform.rotation = Quaternion.LookRotation(rb.velocity);
+        { 
             this.transform.LookAt(transform.position + rb.velocity);
         } else if (this.anchor != null)
         {
@@ -36,7 +38,8 @@ public class Throwable : MonoBehaviour {
         }
         
     }
-
+    // Throwable collider will become child on whatever it collides with and reset its transform to the parents relative position 
+    //(ie the throwable will stick into the object it hits)
     private void OnCollisionEnter(Collision collision)
     {
         if (this.flying)
@@ -44,24 +47,28 @@ public class Throwable : MonoBehaviour {
             this.flying = false;
             this.transform.position = collision.contacts[0].point;
             this.childCollider.isTrigger = true;
-            Debug.Log( "hit " + name );
+            Debug.Log( "hit " + collision );
 
             GameObject anchor = new GameObject("Arrow_Anchor");
             anchor.transform.position = this.transform.position;
             anchor.transform.rotation = this.transform.rotation;
             anchor.transform.parent = collision.transform;
-            this.anchor = anchor.transform;
+            this.anchor = anchor.transform;            
 
             Destroy(rb);
             collision.gameObject.SendMessage("arrowHit", SendMessageOptions.DontRequireReceiver);
         }
 
-        if (collision.gameObject.tag.Equals("Head") == true)
+        //Check if throwable has collided with Enemy.Head, if so, disable kinematic, add gravity and apply force to head.
+        if (collision.gameObject.tag.Equals("Head"))
         {
-            print("!!hit head!!");
+            rbEnemy = collision.gameObject.GetComponent<Rigidbody>();
+            rbEnemy.isKinematic = false;
+            rbEnemy.useGravity = true;
+            rbEnemy.AddForce(transform.forward * 400);
+            
+            Debug.Log("hit " + name);
         }
-
-
     }
 
 
