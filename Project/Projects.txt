@@ -1,6 +1,0 @@
-2d Platformer(Hashward Brownley) - Platformer set in old victorian England where the protagonist uses an umbrella to navigate the level. Using the umbrella with physics and the environment.
-
-VR game (The Boy) - a 1hr VR demo where the player is an apprentice on a building site in suburban australia. Mess up simple tasks , get abused by tradies, take long smoko, 
-Good idea that needs further thought
-
-RPG game (RPG01) - simple rpg game that can be built off the tutorial i'm doing, havent put any thought into what it'll be but always wanted to make a morrowind-esque game.
