@@ -24,6 +24,8 @@ public class AnimController : MonoBehaviour {
     {
         bool Throw = Input.GetMouseButton(0);
 
+        bool Jump = Input.GetKeyDown(KeyCode.Space);
+
         float translationV = Input.GetAxis("Vertical") * speed;
         float translationH = Input.GetAxis("Horizontal") * speed;
         translationV *= Time.deltaTime;
@@ -38,6 +40,15 @@ public class AnimController : MonoBehaviour {
         } else
         {
             animator.SetBool("throwBool", false);
+        }
+
+        if (Jump)
+        {
+            animator.SetBool("Jumping", true);
+        }
+        else
+        {
+            animator.SetBool("Jumping", false);
         }
 
 

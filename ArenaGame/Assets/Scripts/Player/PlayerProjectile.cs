@@ -8,12 +8,11 @@ public class PlayerProjectile : MonoBehaviour {
     public Rigidbody spear;
     public Transform projectilePoint;
     public float throwForce = 2500;
-    //private Camera deathCam;
 
     // Use this for initialization
     void Start ()
     {
-        //deathCam = Camera.tag("DeathCamera");
+
     }
 	
 	void Update ()
@@ -51,7 +50,7 @@ public class PlayerProjectile : MonoBehaviour {
         {
             // rb.isKinematic = false;
            // deathCam = GameObject.FindGameObjectWithTag("DeathCamera");
-            Debug.Log("collided with " + name);
+           // Debug.Log("collided with " + name);
         }
     }
 }

@@ -17,5 +17,5 @@ public class ROADMAP : MonoBehaviour {
     // Add more heads and have them selectable on start screen
     // Add audio to players, throwsounds, deathsounds, jumpgrunt, footstep, simple song
     // more environmental factors PVE to add e.g lava pit, traps, fall death, 
-    // possible add buffs and debuffs (e.g bigger head "GONGHEAD" or bigger torso, slower movement, no jump, less throw cooldown)
+    // possible add buffs and debuffs (e.g bigger head "GONGHEAD" or bigger torso, slower movement, no jump, less throw cooldown)  
 }
