@@ -7,9 +7,9 @@ public class ROADMAP : MonoBehaviour {
     // SCRAP THOSE TREES, REWORK WITH MORE DETAIL
     // Make another pass at animations for Jumping, Throwing, Sidestepping and possibly death anim
     // Rework level for more objects/cover etc
-    // add throwing cooldown
-    // Create an endgame when a "Head" component is hit, disable all cameras except for player DeathCam for 3 seconds then restart game
-    // rig up chest collider to catch enemy throwable on collision and add +1 throwable to soft inventory
+    // add throwing cooldown - COMPLETE
+    // Create an endgame when a "Head" component is hit, disable all cameras except for player DeathCam for 3 seconds then restart game - COMPLETE
+    // rig up chest collider to catch enemy throwable on collision and add +1 throwable to soft inventory - COMPLETE
     // Rework start screen, add level select
     // make 2 more levels
     // wire up LAN component to both players

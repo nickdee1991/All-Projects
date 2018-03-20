@@ -4,43 +4,78 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour {
 
-    //private enum State { Idle, Throwing }
-    private float spearsThrown = 0f;
+    private float throwableInScene = 0;
+    public float throwableAmmo;
     public Rigidbody spear;
     public Transform projectilePoint;
     public float throwForce = 2500;
 
-    [SerializeField]
-    private Camera cam;
+    public GameObject throwable1;
+    public GameObject throwable2;
+    public GameObject throwable3;
 
 
-    //State Throwing;
-    //State Idle;
+    public float Cooldown = 1;
+    public float cooldownTimer;
 
     // Use this for initialization
     void Start ()
     {
-        //Idle = State.Idle;
-	}
+        throwableAmmo = 3;
+    }
 	
 	void Update ()
     {
-		if (Input.GetButtonDown("Fire1"))
+        if (throwableAmmo < 0)
+        {
+            throwableAmmo = 0;
+        }
+
+        if (Input.GetButtonDown("Fire1") && cooldownTimer == 0)
         {
             //Throwing = State.Throwing;
-            Throw();           
+            if (throwableAmmo > 0)
+            {
+                Throw();
+            }
+            Debug.Log("Cooldown started");
+            cooldownTimer = Cooldown;           
+        }
+
+        if (cooldownTimer > 0)
+        {
+            cooldownTimer -= Time.deltaTime;
+        }
+
+        if (cooldownTimer < 0)
+        {
+            cooldownTimer = 0;
         }
 	}
 
     void Throw ()
     {
-        cam = GetComponent<Camera>();
         Rigidbody spearInstance;
         spearInstance = Instantiate(spear, projectilePoint.transform.position, projectilePoint.transform.rotation) as Rigidbody;      
         spearInstance.AddForce(projectilePoint.forward * throwForce);
-        spearsThrown ++;
+        throwableInScene ++;
+        throwableAmmo--;
+
+        if (throwableAmmo == 2)
         {
-            if (spearsThrown >= 20)
+            throwable3.SetActive(false);
+        }
+        if (throwableAmmo == 1)
+        {
+            throwable2.SetActive(false);
+        }
+        if (throwableAmmo == 0)
+        {
+            throwable1.SetActive(false);
+        }
+
+        {
+            if (throwableInScene >= 20)
             {
                 Destroy(GameObject.Find("Throwable(Clone)"));
             }

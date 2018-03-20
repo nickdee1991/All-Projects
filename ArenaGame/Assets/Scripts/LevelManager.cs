@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-
 public class LevelManager : MonoBehaviour {
 
     public Camera normalCam1;
@@ -12,73 +11,101 @@ public class LevelManager : MonoBehaviour {
     public Camera normalCam2;
     public Camera deathCam2;
 
-    private Rigidbody rbEnemy;
-
     public Head2collision head2;
     public Head1collision head1;
 
-    public int Player1hit;
-    public int Player2hit;
+    public GameObject Player2head;
+    public GameObject Player1head;
+
+    public GameObject playerWin1;
+    public GameObject playerWin2;
+
+    public bool player1Win = false;
+    public bool player2Win = false;
+
+    static int levelRound;
+
+    //static LevelManager instance = null;
+
+    void Awake()
+    {
+        //    //handy code for checking music manager between scenes and avoiding duplication 
+        //    //this is called a singleton (must reuse)
+        //    if (instance != null)
+        //    {
+        //        Destroy(gameObject);
+        //        print("Duplicate Scene Manager found, commiting suicide");
+        //    }
+        //    else
+        //    {
+        //        instance = this;
+        //        GameObject.DontDestroyOnLoad(gameObject);
+        //    }
+    }
 
     private void Start()
     {
-        normalCam2.enabled = true;
-        deathCam2.enabled = false;
+        head2 = Player2head.GetComponent<Head2collision>();        
+        head1 = Player1head.GetComponent<Head1collision>();
 
-        deathCam1.enabled = false;
-        normalCam1.enabled = true;
-
-        DontDestroyOnLoad(this);
-
-        head2 = GetComponent<Head2collision>();
-        head1 = GetComponent<Head1collision>();
-
-        head2.Player2hit = 0;
-        head1.Player1hit = 0;
-
-        if (head2.Player1Win == true)
+        if (levelRound == 3)
         {
-            normalCam2.enabled = false;
-            deathCam2.enabled = true;
-
-            StartCoroutine("WaitThreeSeconds");
-
-            normalCam2.enabled = true;
-            deathCam2.enabled = false;
-            head2.Player1Win = false;
-        }
-
-        if (head1.Player2Win == true)
-        {
-            normalCam1.enabled = false;
-            deathCam1.enabled = true;
-
-            StartCoroutine("WaitThreeSeconds");
-
-            deathCam1.enabled = false;
-            normalCam1.enabled = true;
-            head1.Player2Win = false;
+            SceneManager.LoadScene("StartMenu");
+            levelRound = 0;
         }
     }
 
     IEnumerator WaitThreeSeconds()
     {
         yield return new WaitForSeconds(3);
+        player1Win = false;
+        player2Win = false;
         print("waited 3 seconds");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Woorld");
     }
-
-
 
     public void LoadLevel(string name)
-	{
-        Debug.Log ("Level load requested for: " + name);
+    {
+        Debug.Log("Level load requested for: " + name);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-	public void QuitRequest(string name)
-	{
-		Debug.Log ("Level quit requested for: " + name);
-		Application.Quit ();
-	}
+    public void QuitRequest(string name)
+    {
+        Debug.Log("Level quit requested for: " + name);
+        Application.Quit();
+    }
+
+    private void Update()
+    {        
+
+        if (player1Win == true)
+        {
+            Debug.Log("Player1Win");
+            playerWin1.SetActive(true);
+            normalCam2.enabled = false;
+            normalCam1.enabled = false;
+            deathCam2.enabled = true;
+            player1Win = false;
+            player2Win = false;
+            levelRound++;
+            Debug.Log("Round " + levelRound);
+
+            StartCoroutine("WaitThreeSeconds");
+        }
+
+        if (player2Win == true)
+        {
+            playerWin2.SetActive(true);
+            normalCam2.enabled = false;
+            normalCam1.enabled = false;
+            deathCam1.enabled = true;
+            player1Win = false;
+            player2Win = false;
+            levelRound++;
+            Debug.Log("Round " + levelRound);
+
+            StartCoroutine("WaitThreeSeconds");
+        }
+    }
 }

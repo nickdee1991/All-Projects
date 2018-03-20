@@ -46,7 +46,6 @@ public class Throwable : MonoBehaviour
             this.flying = false;
             this.transform.position = collision.contacts[0].point;
             this.childCollider.isTrigger = true;
-            Debug.Log("hit " + name);
 
             GameObject anchor = new GameObject("Arrow_Anchor");
             anchor.transform.position = this.transform.position;
