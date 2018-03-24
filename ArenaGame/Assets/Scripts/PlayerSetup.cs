@@ -13,6 +13,7 @@ public class PlayerSetup : NetworkBehaviour {
 
     private void Start()
     {
+        //if this player is the local player, disable other player components local side so input is only working on local player
         if (!isLocalPlayer)
         {
             for (int i = 0; i < componentsToDisable.Length; i++)
@@ -27,8 +28,18 @@ public class PlayerSetup : NetworkBehaviour {
             {
                 sceneCamera.gameObject.SetActive(false);
             }
-
         }
+
+        RegisterPlayer();
+
+
+    }
+
+    //getting local player identity through NetworkIdentity component's assigned network ID
+    void RegisterPlayer()
+    {
+        string _ID = "Player " + GetComponent<NetworkIdentity>().netId;
+        transform.name = _ID;
     }
 
     private void OnDisable()

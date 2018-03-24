@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerProjectile : MonoBehaviour {
+public class PlayerProjectile : NetworkBehaviour {
 
     private float throwableInScene = 0;
     public float throwableAmmo;
@@ -14,6 +15,8 @@ public class PlayerProjectile : MonoBehaviour {
     public GameObject throwable2;
     public GameObject throwable3;
 
+    public const string PLAYER_TAG = "Player";
+
 
     public float Cooldown = 1;
     public float cooldownTimer;
@@ -21,7 +24,7 @@ public class PlayerProjectile : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        throwableAmmo = 3;
+        throwableAmmo = 10;
     }
 	
 	void Update ()
@@ -36,7 +39,7 @@ public class PlayerProjectile : MonoBehaviour {
             //Throwing = State.Throwing;
             if (throwableAmmo > 0)
             {
-                Throw();
+                cmdThrow();
             }
             Debug.Log("Cooldown started");
             cooldownTimer = Cooldown;           
@@ -53,7 +56,8 @@ public class PlayerProjectile : MonoBehaviour {
         }
 	}
 
-    void Throw ()
+    [Client]
+    void cmdThrow ()
     {
         Rigidbody spearInstance;
         spearInstance = Instantiate(spear, projectilePoint.transform.position, projectilePoint.transform.rotation) as Rigidbody;      
@@ -80,5 +84,11 @@ public class PlayerProjectile : MonoBehaviour {
                 Destroy(GameObject.Find("Throwable(Clone)"));
             }
         }
+    }
+
+    [Command]
+    void CmdPlayer (string _ID)
+    {
+        Debug.Log(_ID +  "has been shot");
     }
 }

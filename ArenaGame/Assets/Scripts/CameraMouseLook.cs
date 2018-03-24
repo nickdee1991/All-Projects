@@ -16,6 +16,7 @@ public class CameraMouseLook : MonoBehaviour
 
     void Update()
     {
+
         RotateCamera();
     }
 
@@ -46,10 +47,7 @@ public class CameraMouseLook : MonoBehaviour
             xAxisClamp = -90;
             targetRotCam.x = 270;
         }
-
-        //print(mouseY);
-
-
+        
         transform.rotation = Quaternion.Euler(targetRotCam);
         playerBody.rotation = Quaternion.Euler(targetRotBody);
 

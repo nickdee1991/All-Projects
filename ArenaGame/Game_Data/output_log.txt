@@ -17,192 +17,34 @@ Platform assembly: D:\Unity\Project\ArenaGame\Game_Data\Managed\UnityEngine.Netw
 Loading D:\Unity\Project\ArenaGame\Game_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: D:\Unity\Project\ArenaGame\Game_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading D:\Unity\Project\ArenaGame\Game_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.019 seconds
+- Completed reload, in  0.021 seconds
 Platform assembly: D:\Unity\Project\ArenaGame\Game_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: D:\Unity\Project\ArenaGame\Game_Data\Managed\System.dll (this message is harmless)
-desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initialized touch support.
-A tree couldn't be loaded because the prefab is missing.
+UnloadTime: 1.404801 ms
+NullReferenceException: Object reference not set to an instance of an object
+  at LevelManager.Start () [0x00000] in <filename unknown>:0 
  
-(Filename:  Line: 286)
+(Filename:  Line: -1)
 
-The tree treeBG must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
- 
-(Filename:  Line: 140)
-
-The tree treeBG must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
- 
-(Filename:  Line: 140)
-
-The tree treeBG must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
- 
-(Filename:  Line: 140)
-
-The tree treeBG must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
- 
-(Filename:  Line: 140)
-
-The tree treeBG must use the Nature/Soft Occlusion shader. Otherwise billboarding/lighting will not work correctly.
- 
-(Filename:  Line: 140)
-
-UnloadTime: 1.043520 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 1768 -> priority: 1 
-  Thread -> id: 37b8 -> priority: 1 
-Level load requested for: Woorld
+  Thread -> id: 3774 -> priority: 1 
+  Thread -> id: 1678 -> priority: 1 
+Level load requested for: 
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 6.829440 ms
+UnloadTime: 48.837486 ms
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 618.
-Total: 0.501760 ms (FindLiveObjects: 0.037760 ms CreateObjectMapping: 0.016000 ms MarkObjects: 0.205120 ms  DeleteObjects: 0.242560 ms)
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 1015.
+Total: 0.704640 ms (FindLiveObjects: 0.057920 ms CreateObjectMapping: 0.030400 ms MarkObjects: 0.326720 ms  DeleteObjects: 0.288320 ms)
 
-hit Throwable(Clone)
+is local player
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit Throwable(Clone)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:7777} time {62632}, last rec time {60379} rtt {10} timeout {2000}

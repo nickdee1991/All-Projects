@@ -1,19 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+
 
 [RequireComponent(typeof(PlayerProjectile))]
-public class weaponPickup : MonoBehaviour
-{
+public class weaponPickup : NetworkBehaviour { 
+
+    public float player1ammo;
+    public GameObject player1;
+    public GameObject player2;
+
+
     private void Start()
     {
         player1.GetComponent<PlayerProjectile>();
         player2.GetComponent<PlayerProjectile>();
-        player1ammo = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerProjectile>().throwableAmmo;
+        player1ammo = player1.GetComponent<PlayerProjectile>().throwableAmmo;
     }
-    public float player1ammo;
-    public GameObject player1;
-    public GameObject player2;
+    
 
     private void OnTriggerEnter(Collider other)
     {

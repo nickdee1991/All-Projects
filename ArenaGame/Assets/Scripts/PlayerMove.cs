@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : NetworkBehaviour
 {
     public float walkSpeed = 10.0f;
     public float jumpHeight = 5.0f;
@@ -11,6 +12,11 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         CharacterController controller = GetComponent<CharacterController>();
         if (controller.isGrounded)
         {
@@ -24,6 +30,13 @@ public class PlayerMove : MonoBehaviour
         }
         moveDir.y -= gravity * Time.deltaTime;
         controller.Move(moveDir * Time.deltaTime);
+
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        base.OnStartLocalPlayer();
+        Debug.Log("is local player");
     }
 }
 

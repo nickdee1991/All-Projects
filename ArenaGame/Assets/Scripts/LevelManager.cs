@@ -62,19 +62,7 @@ public class LevelManager : MonoBehaviour {
         player2Win = false;
         print("waited 3 seconds");
         SceneManager.LoadScene("Woorld");
-    }
-
-    public void LoadLevel(string name)
-    {
-        Debug.Log("Level load requested for: " + name);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void QuitRequest(string name)
-    {
-        Debug.Log("Level quit requested for: " + name);
-        Application.Quit();
-    }
+    }   
 
     private void Update()
     {        
@@ -107,5 +95,17 @@ public class LevelManager : MonoBehaviour {
 
             StartCoroutine("WaitThreeSeconds");
         }
+    }
+
+    public void LoadLevel(string name)
+    {
+        Debug.Log("Level load requested for: " + name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void QuitRequest(string name)
+    {
+        Debug.Log("Level quit requested for: " + name);
+        Application.Quit();
     }
 }
