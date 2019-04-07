@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
@@ -50,7 +48,7 @@ public class LevelManager : MonoBehaviour {
 
         if (levelRound == 3)
         {
-            SceneManager.LoadScene("StartMenu");
+            //SceneManager.LoadScene("StartMenu");
             levelRound = 0;
         }
     }
@@ -61,7 +59,7 @@ public class LevelManager : MonoBehaviour {
         player1Win = false;
         player2Win = false;
         print("waited 3 seconds");
-        SceneManager.LoadScene("Woorld");
+        //SceneManager.LoadScene("Woorld");
     }   
 
     private void Update()
@@ -100,7 +98,7 @@ public class LevelManager : MonoBehaviour {
     public void LoadLevel(string name)
     {
         Debug.Log("Level load requested for: " + name);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+       // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitRequest(string name)
