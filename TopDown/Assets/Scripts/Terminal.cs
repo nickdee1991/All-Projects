@@ -7,8 +7,9 @@ public class Terminal : MonoBehaviour {
 
     public GameObject satellite;
     public GameObject TerminalController;
-    public float roty = 90;
     private Collider t_collider;
+    public Animator termAnimator;
+    public Animator dishAnimator;
     //private float speed = 8;
 
 	// Use this for initialization
@@ -31,8 +32,9 @@ public class Terminal : MonoBehaviour {
             if (Input.GetKey(KeyCode.E))
             {
                 TerminalController.GetComponent<TerminalsHacked>().terminalsHacked += 1;
-                satellite.transform.Rotate(0, roty, 0, 0);
+                dishAnimator.SetBool("DishRotate", true);
                 t_collider.enabled = !t_collider.enabled;
+                this.termAnimator.SetBool("TerminalUnlocked", true);
                 Debug.Log("Terminals Hacked = " + TerminalController.GetComponent<TerminalsHacked>().terminalsHacked);
             }
         }

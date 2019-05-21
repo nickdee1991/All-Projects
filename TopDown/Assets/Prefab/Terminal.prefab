@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33751170160394738}
   - component: {fileID: 23140045510326490}
   - component: {fileID: 65571493671650702}
-  - component: {fileID: 114217820351035430}
   m_Layer: 0
   m_Name: Terminal
   m_TagString: Obstacle
@@ -73,15 +72,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1553657800826042}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000027269125}
-  m_LocalPosition: {x: 7.66, y: 11, z: -24.75}
-  m_LocalScale: {x: 0.5, y: 2, z: 1}
+  m_LocalRotation: {x: -0, y: 0.70710874, z: -0, w: -0.70710486}
+  m_LocalPosition: {x: 3.66, y: 55.01, z: 53.76}
+  m_LocalScale: {x: 1, y: 4, z: 2}
   m_Children:
   - {fileID: 4653902975088694}
   - {fileID: 4576320308526068}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!4 &4576320308526068
 Transform:
   m_ObjectHideFlags: 1
@@ -256,7 +255,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 2}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &108786531340407810
 Light:
@@ -295,21 +294,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114217820351035430
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1553657800826042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2482a9b743c4404f92e158d0e4c3520, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terminalsHacked: 0
-  satellite: {fileID: 0}
-  TerminalController: {fileID: 0}
-  roty: 90
 --- !u!136 &136535642056879050
 CapsuleCollider:
   m_ObjectHideFlags: 1

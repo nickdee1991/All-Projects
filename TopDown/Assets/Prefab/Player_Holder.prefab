@@ -11677,15 +11677,17 @@ MonoBehaviour:
   sensitivity: 2
   fallMultiplier: 3
   lowJumpMultiplier: 3
-  jump: {x: 0, y: 12, z: 0}
+  waitTime: 0
+  points: 0
+  maxHealth: 100
+  health: 0
+  isSneaking: 0
   playerObj: {fileID: 1818306538307904}
   bullet: {fileID: 1143682709706712, guid: 3bdd99a20dd39604f83766e2272ccbef, type: 2}
   bulletSpawnPoint: {fileID: 1950340915871706}
+  playerWheel: {fileID: 0}
   cam: {fileID: 0}
-  waitTime: 0
-  points: 0
-  maxHealth: 40
-  health: 0
+  jump: {x: 0, y: 12, z: 0}
 --- !u!114 &114839480572293862
 MonoBehaviour:
   m_ObjectHideFlags: 1

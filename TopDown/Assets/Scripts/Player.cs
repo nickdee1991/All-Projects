@@ -15,9 +15,11 @@ public class Player : MonoBehaviour {
     public float points;
     public float maxHealth;
     public float health;
+
     private float sneakSpeed = 3f;
     private float sprintSpeed = 1.5f;
     private float wheelRotation = 500;
+    private Collider enemyHearRange;
 
     private bool isGrounded;
     public bool isSneaking;
@@ -25,7 +27,8 @@ public class Player : MonoBehaviour {
     public GameObject playerObj;
     public GameObject bullet;
     public GameObject bulletSpawnPoint;
-    public GameObject playerWheel;
+    public GameObject playerWheel1;
+    public GameObject playerWheel2;
 
     private Transform bulletSpawn;
     private Rigidbody rb;
@@ -35,15 +38,17 @@ public class Player : MonoBehaviour {
     //Methods
     private void Start()
     {
+        enemyHearRange = GetComponent<SphereCollider>();
         isGrounded = true;
 
         rb = GetComponent<Rigidbody>();
+        Vector3 vel = rb.velocity;
         jump = new Vector3(transform.position.x, jumpHeight, transform.position.z);
 
         health = maxHealth;
     }
 
-    private void Update()
+    public void Update()
     {
         
         #region Player Movement
@@ -51,14 +56,24 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
-            playerWheel.transform.Rotate(new Vector3(0, Time.deltaTime * wheelRotation, 0));
+            playerWheel1.transform.Rotate(new Vector3(0, 0, Time.deltaTime * -wheelRotation));
+            playerWheel2.transform.Rotate(new Vector3(0, 0, Time.deltaTime * -wheelRotation));
+
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                Sprint();
-            } else if (Input.GetKey(KeyCode.LeftControl)) {
+                StartCoroutine(Sprint());
+            }
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
                 Sneak();
             }
 
+        }
+
+        if (rb.velocity.magnitude < 0.2)
+        {
+            isSneaking = true;
+            // do idle animations
         }
 
         if (Input.GetKey(KeyCode.A))
@@ -69,12 +84,23 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(Vector3.back * movementSpeed * Time.deltaTime);
-            playerWheel.transform.Rotate(new Vector3(0, Time.deltaTime *- wheelRotation, 0));
+            playerWheel1.transform.Rotate(new Vector3(0, 0, Time.deltaTime * wheelRotation));
+            playerWheel2.transform.Rotate(new Vector3(0, 0, Time.deltaTime * wheelRotation));
         }
 
         if (Input.GetKey(KeyCode.D))
         {
            transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.Z))
+        {
+            transform.Rotate(Vector3.up * -movementSpeed * 15 * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.C))
+        {
+            transform.Rotate(Vector3.up * movementSpeed * 15 * Time.deltaTime);
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
@@ -96,18 +122,29 @@ public class Player : MonoBehaviour {
         #endregion End Player Movement
 
         //shooting
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(1))
         {
-            Shoot();
+            //Play 'Prepare weapon animation'
+            Debug.Log("WEAPON PREPARED");
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot();
+            }
         }
 
         if (health <= 0)
+        {
             Die();
+        }
     }
 
-    void Sprint()
+    IEnumerator Sprint()
     {
         transform.Translate(Vector3.forward * movementSpeed * sprintSpeed * Time.deltaTime);
+        yield return new WaitForSeconds(1);
+        transform.Translate(Vector3.forward * movementSpeed /1 * Time.deltaTime);
+        StopCoroutine(Sprint());
+
     }
 
     void Sneak()
@@ -134,7 +171,7 @@ public class Player : MonoBehaviour {
     }
 
     //player death and move camera to enemy
-    void Die()
+    public void Die()
     {
         print("you died");
         Destroy(this.gameObject);
@@ -158,6 +195,15 @@ public class Player : MonoBehaviour {
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy") && isSneaking == false)
+        {
+            Debug.Log("Footsteps Heard");
+            other.GetComponent<Enemy>().Attack();
+        }
+    }
+
     //Player grounded
     void OnCollisionEnter(Collision other)
     {
@@ -165,8 +211,10 @@ public class Player : MonoBehaviour {
         {
             isGrounded = true;
             print("grounded");
-        } else {
-            isGrounded = false;
+        } else if (isGrounded != true){
+            {
+                isGrounded = false;
+            }
             print("not grounded");
         }
     }

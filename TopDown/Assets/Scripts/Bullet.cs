@@ -70,6 +70,9 @@ public class Bullet : MonoBehaviour
             Destroy(this.gameObject);
             //bulletHitPlayer = Instantiate(playerHitParticle.transform, other.transform.position, Quaternion.identity);
             Debug.Log("player hit");
+
+            if (player.GetComponent<Player>().health <= 0)
+                player.GetComponent<Player>().Die();
         }
     }
 }

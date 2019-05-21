@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class OutOfBounds : MonoBehaviour {
 
-    public GameObject player;
+    private GameObject player;
 
 	// Use this for initialization
 	void Start ()

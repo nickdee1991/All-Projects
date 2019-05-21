@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour {
     private float patrolWaitTime;
     private float currentTime;
     private bool shot;
+    private bool isMoving;
+    private float wheelRotation = 150;
 
     public bool detectedEnemy;
 
@@ -33,7 +35,10 @@ public class Enemy : MonoBehaviour {
     public GameObject player;
     public GameObject deathParticle;
     public GameObject bullet;
+    public GameObject enemyWheel1;
+    public GameObject enemyWheel2;
 
+    public Animator animator;
 
     public LineRenderer enemySight;
     public Gradient redColor;
@@ -51,12 +56,17 @@ public class Enemy : MonoBehaviour {
 
         player = GameObject.FindWithTag("Player");
         pistolHolder = this.transform.GetChild(1);
-        bulletSpawnPoint = pistolHolder.GetChild(2);
+        bulletSpawnPoint = pistolHolder.GetChild(1);
 
     }
 
     public void Update()
     {
+        if (isMoving == true)
+        {
+            enemyWheel1.transform.Rotate(new Vector3(0,  0, Time.deltaTime * wheelRotation));
+            enemyWheel2.transform.Rotate(new Vector3(0,  0, Time.deltaTime * wheelRotation));
+        }
 
         //counting down when to shoot
         if (shot && currentTime < waitTime)
@@ -83,7 +93,7 @@ public class Enemy : MonoBehaviour {
 
         transform.position = Vector3.MoveTowards(transform.position, moveSpots[patrolSpot].position, patrolSpeed * Time.deltaTime);
 
-        if (Vector3.Distance(transform.position, moveSpots[patrolSpot].position) < 0.2F)
+        if (Vector3.Distance(transform.position, moveSpots[patrolSpot].position) < 0.5F)
         {
             PatrolPath();
         }
@@ -98,10 +108,12 @@ public class Enemy : MonoBehaviour {
                 enemySight.SetPosition(1, hitInfo.point);
                 //enemySight.colorGradient = greenColor;
                 //Debug.Log("enemy looking at " + hitInfo.collider);
-                Debug.DrawRay(transform.position, hitInfo.point, Color.red);
+                Debug.DrawRay(transform.position, hitInfo.point, Color.green);
 
                 if (hitInfo.collider.CompareTag("Player"))
                 {
+                    isMoving = false;
+                    Debug.DrawRay(transform.position, hitInfo.point, Color.red);
                     Attack();
                 } else {
                     {
@@ -132,6 +144,7 @@ public class Enemy : MonoBehaviour {
     {
         if (patrolWaitTime <= 0 && detectedEnemy == false)
         {
+            isMoving = true;
             //Debug.Log("Detection = " + detectedEnemy);
             patrolSpot = (patrolSpot + 1) % moveSpots.Length;
             patrolWaitTime = startWaitTime;
@@ -149,6 +162,7 @@ public class Enemy : MonoBehaviour {
             //transform.rotation = Quaternion.Lerp(lookStart, lookEnd, lookRot);
         } else {
             patrolWaitTime -= Time.deltaTime;
+            isMoving = false;
         }
     }
 
@@ -190,6 +204,7 @@ public class Enemy : MonoBehaviour {
         if (Vector3.Distance(transform.position, player.transform.position) < stopDistance)
         {
             patrolSpeed = 0;
+            isMoving = false;
         }
         else
         {
@@ -212,6 +227,7 @@ public class Enemy : MonoBehaviour {
 
     public void MoveToTarget()
     {
+        isMoving = true;
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, patrolSpeed * 2 * Time.deltaTime);
     }
 }
