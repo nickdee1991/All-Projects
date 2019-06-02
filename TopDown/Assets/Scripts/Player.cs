@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
 
     private bool isGrounded;
     public bool isSneaking;
+    public bool hasKeycard = false;
 
     public GameObject playerObj;
     public GameObject bullet;
@@ -124,8 +125,7 @@ public class Player : MonoBehaviour {
         //shooting
         if (Input.GetMouseButton(1))
         {
-            //Play 'Prepare weapon animation'
-            Debug.Log("WEAPON PREPARED");
+            //Debug.Log("WEAPON PREPARED");
             if (Input.GetMouseButtonDown(0))
             {
                 Shoot();
@@ -142,7 +142,7 @@ public class Player : MonoBehaviour {
     {
         transform.Translate(Vector3.forward * movementSpeed * sprintSpeed * Time.deltaTime);
         yield return new WaitForSeconds(1);
-        transform.Translate(Vector3.forward * movementSpeed /1 * Time.deltaTime);
+        //transform.Translate(Vector3.forward * movementSpeed /1 * Time.deltaTime);
         StopCoroutine(Sprint());
 
     }
@@ -210,12 +210,12 @@ public class Player : MonoBehaviour {
         if (other.gameObject.tag == "Ground")
         {
             isGrounded = true;
-            print("grounded");
+            //print("grounded");
         } else if (isGrounded != true){
             {
                 isGrounded = false;
             }
-            print("not grounded");
+            //print("not grounded");
         }
     }
 }

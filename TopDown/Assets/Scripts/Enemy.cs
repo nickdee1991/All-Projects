@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public enum  NicksFantasyWorld { Resume = 3, Stop = 0 }
      
 public class Enemy : MonoBehaviour {
 
@@ -14,7 +12,7 @@ public class Enemy : MonoBehaviour {
     public float waitTime;
     public float sightDistance;
     public float stopDistance;
-    public float patrolSpeed = 5;
+    public float patrolSpeed = 2.5f;
     public float startWaitTime;
 
     private float patrolWaitTime;
@@ -118,7 +116,7 @@ public class Enemy : MonoBehaviour {
                 } else {
                     {
                         detectedEnemy = false;
-                        patrolSpeed = 5;
+                        patrolSpeed = 3;
                         //Debug.Log("Detection = " + GetComponent<Patrol>().detectedEnemy);
                         enemySight.SetPosition(1, hitInfo.point);
                         enemySight.colorGradient = greenColor;
@@ -171,7 +169,7 @@ public class Enemy : MonoBehaviour {
         //destroy object, spawn particle effect, give point to player
         print(this.gameObject.name + " has died!");
         deathParticleSpawn = Instantiate(deathParticle.transform, deathParticleSpawn.transform.position, Quaternion.identity);
-        Destroy(this.gameObject);        
+        Destroy(this.gameObject, 1f);        
         player.GetComponent<Player>().points += pointsToGive;
 
     }

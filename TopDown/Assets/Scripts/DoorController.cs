@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour {
 
-    public GameObject door;
     public float openingSpeed = 10;
     public bool isOpening;
 
@@ -17,9 +16,9 @@ public class DoorController : MonoBehaviour {
 	void Update () {
 		if (isOpening == true)
         {
-            door.transform.Translate(Vector3.up * Time.deltaTime * openingSpeed);
+            transform.Translate(Vector3.up * Time.deltaTime * openingSpeed);
         }
-        if (door.transform.position.y > 7f)
+        if (transform.position.y > 7f)
         {
             isOpening = false;
         }

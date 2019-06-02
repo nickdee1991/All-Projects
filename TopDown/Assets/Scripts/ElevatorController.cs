@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElevatorController : MonoBehaviour {
+public class ElevatorController : MonoBehaviour
+{
 
     private GameObject player;
     public GameObject elevator;
@@ -11,14 +12,15 @@ public class ElevatorController : MonoBehaviour {
     public bool ElevatorKeyActivated;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         ElevatorKeyActivated = false;
         player = GameObject.FindGameObjectWithTag("Player");
-	}
+    }
 
-    public void OnTriggerEnter(Collider other)
+    private void OnMouseDown()
     {
-        if (other.gameObject == player && ElevatorKeyActivated == true)
+        if (ElevatorKeyActivated == true)
         {
             animatorOuter.SetBool("ElevatorOuterOpen", true);
             animatorInner.SetBool("ElevatorInnerOpen", true);
