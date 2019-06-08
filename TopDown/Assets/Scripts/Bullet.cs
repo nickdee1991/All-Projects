@@ -25,6 +25,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<SphereCollider>());
     }
 
     //Method
@@ -43,7 +44,7 @@ public class Bullet : MonoBehaviour
         {
             //enemy is hit and health is reduced
             triggeringEnemy = other.gameObject;
-            triggeringEnemy.GetComponent<Enemy>().health -= damage;
+            triggeringEnemy.GetComponent<Guard>().health -= damage;
             Destroy(this.gameObject);
             Debug.Log("hit enemy");
         }
@@ -69,7 +70,7 @@ public class Bullet : MonoBehaviour
             player.GetComponent<Player>().health -= 20;
             Destroy(this.gameObject);
             //bulletHitPlayer = Instantiate(playerHitParticle.transform, other.transform.position, Quaternion.identity);
-            Debug.Log("player hit");
+            print("Colliding with" + other.gameObject.GetComponent<Collider>());
 
             if (player.GetComponent<Player>().health <= 0)
                 player.GetComponent<Player>().Die();

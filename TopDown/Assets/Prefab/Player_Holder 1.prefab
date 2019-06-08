@@ -191,7 +191,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4870895200844364}
   - component: {fileID: 33350994694149892}
-  - component: {fileID: 65891704977012954}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -361,11 +360,10 @@ GameObject:
   - component: {fileID: 4956744081857670}
   - component: {fileID: 33843103860651506}
   - component: {fileID: 23332943093146700}
-  - component: {fileID: 65793593646258954}
   m_Layer: 0
   m_Name: bulletSpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
@@ -823,14 +821,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1958929505394550}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.53, y: 28.824, z: -24.74}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: -9.87, y: 0.66, z: -120.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4870895200844364}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!4 &4264905388059806
 Transform:
   m_ObjectHideFlags: 1
@@ -1280,7 +1278,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1564319102460456}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0.25, y: -0, z: -0.859}
+  m_LocalPosition: {x: 0.2, y: -0.64, z: -0.777}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 4584801912684754}
@@ -2831,7 +2829,7 @@ BoxCollider:
   m_GameObject: {fileID: 1969103581459116}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2843,34 +2841,10 @@ BoxCollider:
   m_GameObject: {fileID: 1807955851833596}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65793593646258954
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1564319102460456}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65891704977012954
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1217275948597420}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.65, z: 1}
-  m_Center: {x: 0, y: 0.35, z: 0.18}
 --- !u!65 &65932496442532960
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -37481,7 +37455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98fd34e4756f7344cb42b619a712c2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 6
   jumpHeight: 4
   fallingMovement: 0
   sensitivity: 2
@@ -37492,6 +37466,7 @@ MonoBehaviour:
   maxHealth: 100
   health: 0
   isSneaking: 0
+  hasKeycard: 0
   playerObj: {fileID: 1958929505394550}
   bullet: {fileID: 1143682709706712, guid: 3bdd99a20dd39604f83766e2272ccbef, type: 2}
   bulletSpawnPoint: {fileID: 1564319102460456}
@@ -37524,7 +37499,7 @@ SphereCollider:
   m_GameObject: {fileID: 1958929505394550}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 6
   m_Center: {x: 0, y: 0, z: 0}

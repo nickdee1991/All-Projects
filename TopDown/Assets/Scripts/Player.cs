@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -16,7 +17,7 @@ public class Player : MonoBehaviour {
     public float maxHealth;
     public float health;
 
-    private float sneakSpeed = 3f;
+    private float sneakSpeed = 2.5f;
     private float sprintSpeed = 1.5f;
     private float wheelRotation = 500;
     private Collider enemyHearRange;
@@ -39,9 +40,8 @@ public class Player : MonoBehaviour {
     //Methods
     private void Start()
     {
-        enemyHearRange = GetComponent<SphereCollider>();
-        isGrounded = true;
-
+        enemyHearRange = this.GetComponent<SphereCollider>();
+        isSneaking = false;
         rb = GetComponent<Rigidbody>();
         Vector3 vel = rb.velocity;
         jump = new Vector3(transform.position.x, jumpHeight, transform.position.z);
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour {
 
     public void Update()
     {
-        
+
         #region Player Movement
 
         if (Input.GetKey(KeyCode.W))
@@ -59,6 +59,7 @@ public class Player : MonoBehaviour {
             transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
             playerWheel1.transform.Rotate(new Vector3(0, 0, Time.deltaTime * -wheelRotation));
             playerWheel2.transform.Rotate(new Vector3(0, 0, Time.deltaTime * -wheelRotation));
+            isSneaking = false;
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -73,7 +74,7 @@ public class Player : MonoBehaviour {
 
         if (rb.velocity.magnitude < 0.2)
         {
-            isSneaking = true;
+            //isSneaking = true;
             // do idle animations
         }
 
@@ -91,7 +92,7 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.D))
         {
-           transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
+            transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.Z))
@@ -150,7 +151,7 @@ public class Player : MonoBehaviour {
     void Sneak()
     {
         Debug.Log("I'm Sneaking");
-        transform.Translate(Vector3.forward *- sneakSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * -sneakSpeed * Time.deltaTime);
         isSneaking = true;
     }
 
@@ -158,6 +159,8 @@ public class Player : MonoBehaviour {
     {
         bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
         bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
+        Physics.IgnoreCollision(bullet.GetComponent<Collider>(), this.GetComponent<SphereCollider>());
+        Physics.IgnoreCollision(bullet.GetComponent<Collider>(), this.GetComponent<BoxCollider>());
     }
 
 
@@ -175,7 +178,7 @@ public class Player : MonoBehaviour {
     {
         print("you died");
         Destroy(this.gameObject);
-        Application.LoadLevel(Application.loadedLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void CameraScreenPointToRay()
@@ -195,12 +198,12 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy") && isSneaking == false)
         {
             Debug.Log("Footsteps Heard");
-            other.GetComponent<Enemy>().Attack();
+            other.GetComponent<Guard>().Attack();
         }
     }
 
