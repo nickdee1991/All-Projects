@@ -61,7 +61,5 @@ public class SceneManager1 : MonoBehaviour {
         startGame = false;
         //Application.LoadLevel("Level1");
         SceneManager.LoadScene("Level1");
-
-        //TODO add transition into scene. Add plane over camera that turns transparent to fade in
     }
 }

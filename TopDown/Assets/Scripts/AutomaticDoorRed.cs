@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AutomaticDoorRed : MonoBehaviour {
 
+    private AudioSource audio;
     private GameObject player;
     public GameObject redAccessPanel;
 
@@ -13,12 +14,13 @@ public class AutomaticDoorRed : MonoBehaviour {
     private bool doorOpen = false;
     private bool doorPassive = true;
 
-    private float distance = 2.5f;
+    private float distance = 3f;
     private float lerpTime = .2f;
     private float currentLerpTime = 0;
 
     private void Start()
     {
+        audio = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         startPos = transform.position;
         endPos = transform.position + Vector3.up * distance;
@@ -51,11 +53,13 @@ public class AutomaticDoorRed : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            audio.Play();
             doorOpen = true;
             OpenDoor();
         }
         if (other.gameObject.CompareTag("Player") && player.GetComponent<Player>().hasKeycard == true && redAccessPanel.GetComponent<RedAccessPanel>().unlocked == true)
         {
+            audio.Play();
             Debug.Log("Door Opening");
             doorOpen = true;
             OpenDoor();
@@ -64,13 +68,15 @@ public class AutomaticDoorRed : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy")&& doorOpen == true)
         {
+            audio.Play();
             doorOpen = false;
             CloseDoor();
         }
-        if (other.gameObject.CompareTag("Player") && player.GetComponent<Player>().hasKeycard == true && redAccessPanel.GetComponent<RedAccessPanel>().unlocked == true)
+        if (other.gameObject.CompareTag("Player") && player.GetComponent<Player>().hasKeycard == true && redAccessPanel.GetComponent<RedAccessPanel>().unlocked == true && doorOpen == true)
         {
+            audio.Play();
             doorOpen = false;
             CloseDoor();
         }

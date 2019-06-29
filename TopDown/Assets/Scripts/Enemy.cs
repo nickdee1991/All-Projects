@@ -226,6 +226,6 @@ public class Enemy : MonoBehaviour {
     public void MoveToTarget()
     {
         isMoving = true;
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, patrolSpeed * 2 * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.localPosition, patrolSpeed * 2 * Time.deltaTime);
     }
 }

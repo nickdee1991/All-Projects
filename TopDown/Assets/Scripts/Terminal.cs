@@ -10,11 +10,12 @@ public class Terminal : MonoBehaviour {
     private Collider t_collider;
     public Animator termAnimator;
     public Animator dishAnimator;
-    //private float speed = 8;
+    private AudioSource audio;
 
 	// Use this for initialization
 	void Start ()
     {
+        audio = GetComponent<AudioSource>();
     //terminalsHacked = TerminalController.GetComponent<TerminalsHacked>().terminalsHacked;
     t_collider = this.GetComponent<Collider>();
     }
@@ -31,6 +32,7 @@ public class Terminal : MonoBehaviour {
         {
             if (Input.GetKey(KeyCode.E))
             {
+                audio.Play();
                 TerminalController.GetComponent<TerminalsHacked>().terminalsHacked += 1;
                 dishAnimator.SetBool("DishRotate", true);
                 t_collider.enabled = !t_collider.enabled;

@@ -1,0 +1,346 @@
+fileFormatVersion: 2
+guid: effc1d32b8d3f064ab651ddd960f6403
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Camera
+    100004: Cube
+    100006: Cube.001
+    100008: Cube.002
+    100010: Cube.003
+    100012: Cube.004
+    100014: Icosphere
+    100016: Icosphere.001
+    100018: Icosphere.002
+    100020: Icosphere.003
+    100022: Icosphere.004
+    100024: Icosphere.005
+    100026: Icosphere.006
+    100028: Icosphere.007
+    100030: Icosphere.008
+    100032: Icosphere.009
+    100034: Icosphere.010
+    100036: Icosphere.011
+    100038: Icosphere.012
+    100040: Icosphere.013
+    100042: Icosphere.014
+    100044: Icosphere.015
+    100046: Icosphere.016
+    100048: Icosphere.017
+    100050: Icosphere.018
+    100052: Icosphere.019
+    100054: Icosphere.020
+    100056: Icosphere.021
+    100058: Icosphere.022
+    100060: Icosphere.023
+    100062: Icosphere.024
+    100064: Icosphere.025
+    100066: Icosphere.026
+    100068: Icosphere.027
+    100070: Icosphere.028
+    100072: Icosphere.029
+    100074: Icosphere.030
+    100076: Icosphere.031
+    100078: Icosphere.032
+    100080: Light
+    400000: //RootNode
+    400002: Camera
+    400004: Cube
+    400006: Cube.001
+    400008: Cube.002
+    400010: Cube.003
+    400012: Cube.004
+    400014: Icosphere
+    400016: Icosphere.001
+    400018: Icosphere.002
+    400020: Icosphere.003
+    400022: Icosphere.004
+    400024: Icosphere.005
+    400026: Icosphere.006
+    400028: Icosphere.007
+    400030: Icosphere.008
+    400032: Icosphere.009
+    400034: Icosphere.010
+    400036: Icosphere.011
+    400038: Icosphere.012
+    400040: Icosphere.013
+    400042: Icosphere.014
+    400044: Icosphere.015
+    400046: Icosphere.016
+    400048: Icosphere.017
+    400050: Icosphere.018
+    400052: Icosphere.019
+    400054: Icosphere.020
+    400056: Icosphere.021
+    400058: Icosphere.022
+    400060: Icosphere.023
+    400062: Icosphere.024
+    400064: Icosphere.025
+    400066: Icosphere.026
+    400068: Icosphere.027
+    400070: Icosphere.028
+    400072: Icosphere.029
+    400074: Icosphere.030
+    400076: Icosphere.031
+    400078: Icosphere.032
+    400080: Light
+    2000000: Camera
+    2100000: trunk
+    2100002: yellow
+    2100004: green
+    2100006: darker green
+    2100008: dark brown
+    2100010: lighter green
+    2100012: light brown
+    2100014: stone
+    2100016: trunklight
+    2100018: trunklightest
+    2300000: Cube
+    2300002: Cube.001
+    2300004: Cube.002
+    2300006: Cube.003
+    2300008: Cube.004
+    2300010: Icosphere
+    2300012: Icosphere.001
+    2300014: Icosphere.002
+    2300016: Icosphere.003
+    2300018: Icosphere.004
+    2300020: Icosphere.005
+    2300022: Icosphere.006
+    2300024: Icosphere.007
+    2300026: Icosphere.008
+    2300028: Icosphere.009
+    2300030: Icosphere.010
+    2300032: Icosphere.011
+    2300034: Icosphere.012
+    2300036: Icosphere.013
+    2300038: Icosphere.014
+    2300040: Icosphere.015
+    2300042: Icosphere.016
+    2300044: Icosphere.017
+    2300046: Icosphere.018
+    2300048: Icosphere.019
+    2300050: Icosphere.020
+    2300052: Icosphere.021
+    2300054: Icosphere.022
+    2300056: Icosphere.023
+    2300058: Icosphere.024
+    2300060: Icosphere.025
+    2300062: Icosphere.026
+    2300064: Icosphere.027
+    2300066: Icosphere.028
+    2300068: Icosphere.029
+    2300070: Icosphere.030
+    2300072: Icosphere.031
+    2300074: Icosphere.032
+    3300000: Cube
+    3300002: Cube.001
+    3300004: Cube.002
+    3300006: Cube.003
+    3300008: Cube.004
+    3300010: Icosphere
+    3300012: Icosphere.001
+    3300014: Icosphere.002
+    3300016: Icosphere.003
+    3300018: Icosphere.004
+    3300020: Icosphere.005
+    3300022: Icosphere.006
+    3300024: Icosphere.007
+    3300026: Icosphere.008
+    3300028: Icosphere.009
+    3300030: Icosphere.010
+    3300032: Icosphere.011
+    3300034: Icosphere.012
+    3300036: Icosphere.013
+    3300038: Icosphere.014
+    3300040: Icosphere.015
+    3300042: Icosphere.016
+    3300044: Icosphere.017
+    3300046: Icosphere.018
+    3300048: Icosphere.019
+    3300050: Icosphere.020
+    3300052: Icosphere.021
+    3300054: Icosphere.022
+    3300056: Icosphere.023
+    3300058: Icosphere.024
+    3300060: Icosphere.025
+    3300062: Icosphere.026
+    3300064: Icosphere.027
+    3300066: Icosphere.028
+    3300068: Icosphere.029
+    3300070: Icosphere.030
+    3300072: Icosphere.031
+    3300074: Icosphere.032
+    4300000: Cube
+    4300002: Icosphere
+    4300004: Icosphere.001
+    4300006: Icosphere.002
+    4300008: Icosphere.003
+    4300010: Icosphere.004
+    4300012: Icosphere.005
+    4300014: Icosphere.006
+    4300016: Icosphere.007
+    4300018: Icosphere.008
+    4300020: Icosphere.009
+    4300022: Icosphere.010
+    4300024: Icosphere.011
+    4300026: Icosphere.012
+    4300028: Icosphere.013
+    4300030: Icosphere.014
+    4300032: Icosphere.015
+    4300034: Icosphere.016
+    4300036: Icosphere.017
+    4300038: Cube.001
+    4300040: Icosphere.018
+    4300042: Icosphere.019
+    4300044: Icosphere.020
+    4300046: Icosphere.021
+    4300048: Icosphere.022
+    4300050: Cube.002
+    4300052: Icosphere.024
+    4300054: Icosphere.025
+    4300056: Icosphere.023
+    4300058: Icosphere.026
+    4300060: Icosphere.027
+    4300062: Icosphere.028
+    4300064: Icosphere.029
+    4300066: Icosphere.030
+    4300068: Icosphere.031
+    4300070: Icosphere.032
+    4300072: Cube.003
+    4300074: Cube.004
+    10800000: Light
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dark brown
+    second: {fileID: 2100000, guid: 5a9c93a6b0085cd42b7bc8e15590061f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: darker green
+    second: {fileID: 2100000, guid: 50c0de13fbbb0574c8247ff976141356, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: green
+    second: {fileID: 2100000, guid: 5e454a1181a7b7f45a04e98f5d0e6583, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light brown
+    second: {fileID: 2100000, guid: 222e4d0f09a646e4aad4cbf584e3c0d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lighter green
+    second: {fileID: 2100000, guid: 5ce9e68a0dd420347921fc7d9a862587, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone
+    second: {fileID: 2100000, guid: ea0b021647ffde646abd239a5a0bacea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trunk
+    second: {fileID: 2100000, guid: e871b7bd7e1221b4da7cbaf061d59355, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trunklight
+    second: {fileID: 2100000, guid: b7dcf82e856292244bd953bca7fff212, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: trunklightest
+    second: {fileID: 2100000, guid: 1c82ecca406a73c439f86e643379eaaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yellow
+    second: {fileID: 2100000, guid: 0ed1551edae670b4789989fb6d008652, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

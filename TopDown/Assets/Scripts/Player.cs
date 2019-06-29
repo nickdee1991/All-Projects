@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
     public float maxHealth;
     public float health;
 
+    public float playerWeaponRange = 7.5f;
     private float sneakSpeed = 2.5f;
     private float sprintSpeed = 1.5f;
     private float wheelRotation = 500;
@@ -24,23 +25,33 @@ public class Player : MonoBehaviour {
 
     private bool isGrounded;
     public bool isSneaking;
-    public bool hasKeycard = false;
 
+    public bool hasKeycard = false;
+    public bool hasGardenKey = false;
+
+    public GameObject weaponEffect;
     public GameObject playerObj;
     public GameObject bullet;
-    public GameObject bulletSpawnPoint;
+    public Transform bulletSpawnPoint;
     public GameObject playerWheel1;
     public GameObject playerWheel2;
+    private AudioSource audio;
 
     private Transform bulletSpawn;
     private Rigidbody rb;
+    private Animator anim;
     public Camera cam;
     public Vector3 jump;
+    public RaycastHit hitInfo;
+    public LineRenderer playerSight;
 
     //Methods
     private void Start()
     {
-        enemyHearRange = this.GetComponent<SphereCollider>();
+        audio = GetComponent<AudioSource>();
+        playerSight = GetComponent<LineRenderer>();
+        anim = GetComponentInChildren<Animator>();
+        enemyHearRange = GetComponent<SphereCollider>();
         isSneaking = false;
         rb = GetComponent<Rigidbody>();
         Vector3 vel = rb.velocity;
@@ -126,12 +137,29 @@ public class Player : MonoBehaviour {
         //shooting
         if (Input.GetMouseButton(1))
         {
+            anim.SetBool("WeaponHolster", false);
+            anim.SetBool("WeaponDeploy", true);
             //Debug.Log("WEAPON PREPARED");
             if (Input.GetMouseButtonDown(0))
             {
                 Shoot();
             }
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            anim.SetBool("WeaponDeploy", false);
+        }
+
+            if (Input.GetMouseButtonUp(1))
+        {
+            anim.SetBool("WeaponDeploy", false);
+            anim.SetBool("WeaponHolster", true);
+        }
+        else
+        {
+            anim.SetBool("WeaponHolster", false);
+        }
+
 
         if (health <= 0)
         {
@@ -143,22 +171,50 @@ public class Player : MonoBehaviour {
     {
         transform.Translate(Vector3.forward * movementSpeed * sprintSpeed * Time.deltaTime);
         yield return new WaitForSeconds(1);
-        //transform.Translate(Vector3.forward * movementSpeed /1 * Time.deltaTime);
         StopCoroutine(Sprint());
 
     }
 
     void Sneak()
     {
-        Debug.Log("I'm Sneaking");
+        //Debug.Log("I'm Sneaking");
         transform.Translate(Vector3.forward * -sneakSpeed * Time.deltaTime);
         isSneaking = true;
     }
 
     void Shoot()
     {
-        bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
-        bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
+
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+        if (Physics.Raycast(bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.forward.normalized, out hitInfo, playerWeaponRange))
+        {
+            if (hitInfo.collider != null)
+            {
+                audio.Play();
+                //playerSight.SetPosition(1, hitInfo.point);
+                bulletSpawn = Instantiate(weaponEffect.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
+                Destroy(bulletSpawn.gameObject, .5f);
+                Debug.DrawRay(bulletSpawnPoint.transform.position, hitInfo.point, Color.green);
+                Debug.Log("Shooting at " + hitInfo.transform.name);
+                if (hitInfo.transform.gameObject.CompareTag("Enemy"))
+                {
+                    print("Hit enemy");
+                    hitInfo.collider.gameObject.GetComponent<GuardPatrol>().Die();
+                }
+            }
+        }
+        else
+        {
+            {
+                //If don't hit, then draw red line to the direction we are sensing,
+                //Note hit.point will remain 0,0,0 at this point, because we don't hit anything
+                //So you cannot use hit.point
+                Debug.DrawLine(bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.forward + (fwd * playerWeaponRange), Color.red);
+            }
+        }
+        //bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
+        //bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
         Physics.IgnoreCollision(bullet.GetComponent<Collider>(), this.GetComponent<SphereCollider>());
         Physics.IgnoreCollision(bullet.GetComponent<Collider>(), this.GetComponent<BoxCollider>());
     }
@@ -177,7 +233,7 @@ public class Player : MonoBehaviour {
     public void Die()
     {
         print("you died");
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 2f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -185,7 +241,7 @@ public class Player : MonoBehaviour {
     {
         //player facing mouse
         Plane playerPlane = new Plane(Vector3.up, transform.position);
-        Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         float hitDist = 0.0f;
 
         if (playerPlane.Raycast(ray, out hitDist))
@@ -203,7 +259,8 @@ public class Player : MonoBehaviour {
         if (other.CompareTag("Enemy") && isSneaking == false)
         {
             Debug.Log("Footsteps Heard");
-            other.GetComponent<Guard>().Attack();
+            //other.GetComponent<Guard>().Attack();
+            other.GetComponent<GuardPatrol>().Attack();
         }
     }
 

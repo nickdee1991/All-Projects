@@ -46,16 +46,14 @@ public class Bullet : MonoBehaviour
             triggeringEnemy = other.gameObject;
             triggeringEnemy.GetComponent<Guard>().health -= damage;
             Destroy(this.gameObject);
-            Debug.Log("hit enemy");
+            Debug.Log("hit " + other.name);
         }
 
         if (other.gameObject.tag == "Obstacle")
         {
-            //Debug.Log("hit wall");
-
             //if bullet hits wall, destroy bullet and spawn effect TODO: destory effects after time/spawn no.
-            bulletHitWall = Instantiate(wallParticle.transform, this.transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            bulletHitWall = Instantiate(wallParticle.transform, transform.position, Quaternion.identity);
+            Destroy(this);
             bulletHolesSpawned++;
 
             if (bulletHolesSpawned >= 5)
