@@ -30,7 +30,7 @@ public class Terminal : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 audio.Play();
                 TerminalController.GetComponent<TerminalsHacked>().terminalsHacked += 1;

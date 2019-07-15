@@ -18,8 +18,21 @@ public class StartMenu : MonoBehaviour {
 		
 	}
 
-    private void OnMouseDown()
+    public void StartGame()
     {
         SceneManager.LoadScene("Level1");
+        Debug.Log("Application Loading");
+    }
+
+    public void Training()
+    {
+        SceneManager.LoadScene("Training");
+        Debug.Log("Loading Training");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+        Debug.Log("Quit Game");
     }
 }

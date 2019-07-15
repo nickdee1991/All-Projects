@@ -260,7 +260,7 @@ public class Player : MonoBehaviour {
         {
             Debug.Log("Footsteps Heard");
             //other.GetComponent<Guard>().Attack();
-            other.GetComponent<GuardPatrol>().Attack();
+            other.GetComponentInChildren<GuardPatrol>().Attack();
         }
     }
 
