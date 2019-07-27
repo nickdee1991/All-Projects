@@ -7,6 +7,6 @@ public class ReturnToMenu : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
     }
 }

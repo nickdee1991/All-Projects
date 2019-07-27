@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
     public Transform bulletSpawnPoint;
     public GameObject playerWheel1;
     public GameObject playerWheel2;
-    private AudioSource audio;
+    private AudioSource audioShoot;
 
     private Transform bulletSpawn;
     private Rigidbody rb;
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour {
     //Methods
     private void Start()
     {
-        audio = GetComponent<AudioSource>();
+        audioShoot = GetComponent<AudioSource>();
         playerSight = GetComponent<LineRenderer>();
         anim = GetComponentInChildren<Animator>();
         enemyHearRange = GetComponent<SphereCollider>();
@@ -191,7 +191,7 @@ public class Player : MonoBehaviour {
         {
             if (hitInfo.collider != null)
             {
-                audio.Play();
+                audioShoot.Play();
                 //playerSight.SetPosition(1, hitInfo.point);
                 bulletSpawn = Instantiate(weaponEffect.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
                 Destroy(bulletSpawn.gameObject, .5f);
@@ -215,8 +215,8 @@ public class Player : MonoBehaviour {
         }
         //bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
         //bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
-        Physics.IgnoreCollision(bullet.GetComponent<Collider>(), this.GetComponent<SphereCollider>());
-        Physics.IgnoreCollision(bullet.GetComponent<Collider>(), this.GetComponent<BoxCollider>());
+        //Physics.IgnoreCollision(bullet.GetComponent<Collider>(), this.GetComponent<SphereCollider>());
+        //Physics.IgnoreCollision(bullet.GetComponent<Collider>(), this.GetComponent<BoxCollider>());
     }
 
 

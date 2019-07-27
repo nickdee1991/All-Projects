@@ -8,16 +8,22 @@ public class MaintenanceRobot : MonoBehaviour {
     public GameObject text2;
     private GameObject player;
     public GameObject terminal;
+    private AudioSource audioClip;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        audioClip = GetComponent<AudioSource>();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        audioClip.Play();
     }
 
     private void OnTriggerStay(Collider other)
     {
-        transform.LookAt(player.transform);
-
+        transform.LookAt(player.transform);       
         if (other.gameObject == player && terminal.GetComponent<ReceptionDoorTerminal>().ReceptionDoorOpen == false)
         {
             text.gameObject.SetActive(true);

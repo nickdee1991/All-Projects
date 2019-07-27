@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class FinishL2 : MonoBehaviour {
 
+    public GameObject atriumSwitch;
+
     private void OnMouseDown()
     {
-        Debug.Log("finish");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (atriumSwitch.GetComponent<AtriumSwitch>().atriumSwitchActivated == true)
+        {
+            Debug.Log("finish");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }

@@ -5,16 +5,14 @@ using UnityEngine;
 public class ElevatorEnteredCheck : MonoBehaviour {
 
     private GameObject player;
+    private Animator elevatoranimator;
     public bool ElevatorEntered = false;
+    public GameObject terminal;
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
+        elevatoranimator = GetComponent<Animator>();
         Physics.IgnoreCollision(player.GetComponent<SphereCollider>(), this.GetComponent<BoxCollider>());
-    }
-
-    public void Update()
-    {
-        //ElevatorEntered = false;
     }
 
     public void OnTriggerStay(Collider other)
@@ -22,14 +20,17 @@ public class ElevatorEnteredCheck : MonoBehaviour {
         //Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), player.GetComponent<SphereCollider>());
         if (other.gameObject == player)
         {
-            Debug.Log("Player in elevator " + ElevatorEntered);
+            //Debug.Log("Player in elevator " + ElevatorEntered);
             ElevatorEntered = true;
         }
     }
     public void OnTriggerExit(Collider other)
     {
-        Debug.Log("Player in elevator " + ElevatorEntered);
+        //Debug.Log("Player in elevator " + ElevatorEntered);
         ElevatorEntered = false;
+        //terminal.GetComponent<ElevatorController>().ElevatorDescended = false;
+        elevatoranimator.SetBool("ElevatorAscend", false);
+        elevatoranimator.SetBool("ElevatorDescend", false);
     }
 
 }

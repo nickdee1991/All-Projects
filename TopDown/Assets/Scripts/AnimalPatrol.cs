@@ -21,13 +21,10 @@ public class AnimalPatrol : MonoBehaviour {
 
     private float currentTime;
 
-    public Animator animator;
-
     public RaycastHit hitInfo;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
         //converts the waypoints into positions the Guard can move to.
         Vector3[] waypoints = new Vector3[pathHolder.childCount];
         for (int i = 0; i < waypoints.Length; i++)
@@ -40,7 +37,6 @@ public class AnimalPatrol : MonoBehaviour {
 
     IEnumerator FollowPath (Vector3[] waypoints)
     {
-        animator.SetBool("isMoving", true);
         transform.position = waypoints[0];
 
         int targetWaypointIndex = 1;
@@ -52,7 +48,7 @@ public class AnimalPatrol : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, patrolSpeed * Time.deltaTime);
             if (transform.position == targetWaypoint)
             {
-                targetWaypointIndex = (Random.Range(-1 , waypoints.Length));
+                targetWaypointIndex = (Random.Range(0 , waypoints.Length));
                 targetWaypoint = waypoints[targetWaypointIndex];
                 yield return new WaitForSeconds(waypointWaitTime);
                 yield return StartCoroutine(TurnToFace(targetWaypoint));

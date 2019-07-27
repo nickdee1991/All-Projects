@@ -22,7 +22,7 @@ public class GuardPatrol : MonoBehaviour {
     public float sightDistance;
     public float waitTime = 1;
     public float stopDistance = 1;
-    public float timeToSpotPlayer = 0.5f;
+    public float timeToSpotPlayer = 2f;
 
     private float playerVisibleTimer;
     private float wheelRotation = 150;
@@ -66,6 +66,7 @@ public class GuardPatrol : MonoBehaviour {
         //nav.autoBraking = false;
 
         GoToNextPoint();
+        PlayerLastPos();
     }
 
     private void Update()
@@ -88,7 +89,7 @@ public class GuardPatrol : MonoBehaviour {
         if (playerVisibleTimer >= timeToSpotPlayer)
         {
             detectedEnemy = true;
-            //Attack();
+            Attack();
         } else {
             detectedEnemy = false;           
         }
@@ -180,6 +181,11 @@ public class GuardPatrol : MonoBehaviour {
         destPoint = (destPoint + 1) % patrolPoints.Length;
     }
 
+    IEnumerator PlayerLastPos()
+    {
+        return null;
+    }
+
     public bool CanSeePlayer()
     {
         if (Vector3.Distance(transform.position, playerPosition.position) < viewDistance)
@@ -190,7 +196,11 @@ public class GuardPatrol : MonoBehaviour {
             {
                 if (!Physics.Linecast(transform.position, playerPosition.position, viewMask))
                 {
-                    Attack();
+                    //Debug.Log("Can See Player. Attacking.."); - Yes the enemy is constantly updating to check that it can see player.
+                    //need to store this and reference it once enemy loses sight
+                    //Attack();
+                    Vector3 lastKnownPos = (playerPosition.position);
+                    Debug.Log(lastKnownPos);
                     return true;
                 }
             }

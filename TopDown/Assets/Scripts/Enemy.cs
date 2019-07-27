@@ -151,13 +151,6 @@ public class Enemy : MonoBehaviour {
             //look at next patrol point
             transform.LookAt(moveSpots[patrolSpot]);
 
-            //var lookRot = lookRotationSpeed * Time.deltaTime;
-
-            //var targetRotation = Quaternion.LookRotation(moveSpots[patrolSpot].transform.position - transform.position);
-
-            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookRot);
-
-            //transform.rotation = Quaternion.Lerp(lookStart, lookEnd, lookRot);
         } else {
             patrolWaitTime -= Time.deltaTime;
             isMoving = false;
