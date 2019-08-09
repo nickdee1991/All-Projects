@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4569500162745988}
   - component: {fileID: 33321405278669054}
   - component: {fileID: 23542651175203316}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,9 +36,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4758739278081890}
-  m_Layer: 0
+  - component: {fileID: 64476257339665484}
+  m_Layer: 9
   m_Name: table&chair2
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +54,7 @@ GameObject:
   - component: {fileID: 4907244799777676}
   - component: {fileID: 33683401773993706}
   - component: {fileID: 23856986821504474}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,15 +80,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1818354254076506}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00000058114523}
-  m_LocalPosition: {x: 30.28, y: 0.42700195, z: 41.1}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: -0, y: 0.9790895, z: -0, w: 0.20343}
+  m_LocalPosition: {x: -69.54, y: 25.409, z: -30.91}
+  m_LocalScale: {x: 0.730296, y: 0.730296, z: 0.730296}
   m_Children:
   - {fileID: 4907244799777676}
   - {fileID: 4569500162745988}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 156.52501, z: 0}
 --- !u!4 &4907244799777676
 Transform:
   m_ObjectHideFlags: 1
@@ -187,3 +188,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1984221599982080}
   m_Mesh: {fileID: 4300000, guid: 7c8bfc2d7a90c904b866bef66989c076, type: 3}
+--- !u!64 &64476257339665484
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1818354254076506}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 0}

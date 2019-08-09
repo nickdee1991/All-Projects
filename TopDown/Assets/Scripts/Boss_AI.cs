@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 
+
+
 public class Boss_AI : MonoBehaviour {
 
     private GameObject player;
-    private GameObject guard;
+    public GameObject guard;
+    public GameObject[] guardGroup;
+    public GameObject guardShell;
+    
 
     public float rotation = 50;
     public float sightDistance;
@@ -23,10 +28,12 @@ public class Boss_AI : MonoBehaviour {
 
     Color originalSpotlightColour;
 
-    private void Awake()
+    public void Awake()
     {
         guard = GameObject.FindGameObjectWithTag("Enemy");
+        //guardGroup = GameObject.FindGameObjectsWithTag("");
         player = GameObject.FindGameObjectWithTag("Player");
+        Debug.Log(guard);
     }
 
     void Start()
@@ -36,7 +43,7 @@ public class Boss_AI : MonoBehaviour {
         originalSpotlightColour = spotlight.color;
     }
 
-	private void Update () {
+	public void Update () {
         transform.Rotate (new Vector3(0, Time.deltaTime * rotation, 0 ));
 
         if (CanSeePlayer())
@@ -51,7 +58,7 @@ public class Boss_AI : MonoBehaviour {
 
         if (playerVisibleTimer >= timeToSpotPlayer)
         {
-            guard.GetComponent<GuardPatrol>().Attack();
+            guardShell.BroadcastMessage("Attack");
             Debug.Log("Can See player, Alerting Guards");
             detectedEnemy = true;
         }
@@ -65,7 +72,6 @@ public class Boss_AI : MonoBehaviour {
     {
         if (Vector3.Distance(transform.position, playerPosition.position) < viewDistance)
         {
-            //Debug.Log("Yes dododododo");
             Vector3 dirToPlayer = (playerPosition.position - transform.position).normalized;
             float angleBetweenGuardAndPlayer = Vector3.Angle(transform.forward, dirToPlayer);
             if (angleBetweenGuardAndPlayer < viewAngle / 2f)

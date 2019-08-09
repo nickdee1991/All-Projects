@@ -90,7 +90,9 @@ public class GuardPatrol : MonoBehaviour {
         {
             detectedEnemy = true;
             Attack();
+            Debug.Log("Attacking Player");
         } else {
+            //Debug.Log("Lost Sight of player");
             detectedEnemy = false;           
         }
 
@@ -143,6 +145,8 @@ public class GuardPatrol : MonoBehaviour {
 
             //look at player
             nav.SetDestination(playerPosition.localPosition);
+        //if (nav.Raycast(this.gameObject.transform, player.GetComponent<Collider>() ))
+            
 
             #region shoot at player 
 

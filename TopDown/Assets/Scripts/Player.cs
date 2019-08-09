@@ -92,6 +92,12 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
+
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                Sneak();
+                transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
+            }
         }
 
         if (Input.GetKey(KeyCode.S))
@@ -178,7 +184,7 @@ public class Player : MonoBehaviour {
     void Sneak()
     {
         //Debug.Log("I'm Sneaking");
-        transform.Translate(Vector3.forward * -sneakSpeed * Time.deltaTime);
+        movementSpeed = sneakSpeed;
         isSneaking = true;
     }
 
@@ -259,7 +265,6 @@ public class Player : MonoBehaviour {
         if (other.CompareTag("Enemy") && isSneaking == false)
         {
             Debug.Log("Footsteps Heard");
-            //other.GetComponent<Guard>().Attack();
             other.GetComponentInChildren<GuardPatrol>().Attack();
         }
     }
@@ -267,7 +272,7 @@ public class Player : MonoBehaviour {
     //Player grounded
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Ground")
+        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Obstacle")
         {
             isGrounded = true;
             //print("grounded");

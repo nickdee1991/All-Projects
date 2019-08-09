@@ -47,41 +47,41 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.001
-    second: {fileID: 2100000, guid: b77295343c9d90a45813de1cdce399ec, type: 2}
+    second: {fileID: 2100000, guid: 2d35e1daf5477744a861992af96aabb7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.002
-    second: {fileID: 2100000, guid: a50dca06783d2fc4895270a0cf3ebb78, type: 2}
+    second: {fileID: 2100000, guid: 25694ff24c7fc68479f221922b2a8075, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.003
-    second: {fileID: 2100000, guid: 6468d6799727ea44e90bf1b966f85eb3, type: 2}
+    second: {fileID: 2100000, guid: e148d316ef5ff2744ac4afe581ead097, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.004
-    second: {fileID: 2100000, guid: c65a2794d10a9c44f9c2bb7ff5721b0d, type: 2}
+    second: {fileID: 2100000, guid: 0a817f1ea8ef91a408112db29d95c392, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.005
-    second: {fileID: 2100000, guid: c14f8623045ab744285c5688249ab624, type: 2}
+    second: {fileID: 2100000, guid: 0dbf06461466f1847957efd49bb49355, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.006
-    second: {fileID: 2100000, guid: 882abe1bac8104f40ba9b427023b3f36, type: 2}
+    second: {fileID: 2100000, guid: a2c4066b03b0037419284498c7f6ccda, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.007
-    second: {fileID: 2100000, guid: c502c45ef1f1771418b8523bcc5c45a2, type: 2}
+    second: {fileID: 2100000, guid: b968e867003febd4b84b2c7fde45f104, type: 2}
   materials:
     importMaterials: 1
-    materialName: 1
-    materialSearch: 0
+    materialName: 0
+    materialSearch: 1
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
