@@ -20,12 +20,14 @@ public class ElevatorEnteredCheck : MonoBehaviour {
         //Physics.IgnoreCollision(this.GetComponent<BoxCollider>(), player.GetComponent<SphereCollider>());
         if (other.gameObject == player)
         {
+            player.transform.parent = transform;
             //Debug.Log("Player in elevator " + ElevatorEntered);
             ElevatorEntered = true;
         }
     }
     public void OnTriggerExit(Collider other)
     {
+        player.transform.parent = null;
         //Debug.Log("Player in elevator " + ElevatorEntered);
         ElevatorEntered = false;
         //terminal.GetComponent<ElevatorController>().ElevatorDescended = false;

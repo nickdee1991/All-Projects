@@ -25,7 +25,8 @@ public class GardenKey : MonoBehaviour {
     private void OnMouseDown()
     {
         player.GetComponent<Player>().hasGardenKey = true;
-        Destroy(this.gameObject, 0.5f);
+        Destroy(gameObject, 0.5f);
+        floatingText.gameObject.SetActive(false);
         Debug.Log("Garden Key = " + player.GetComponent<Player>().hasGardenKey);
     }
 }

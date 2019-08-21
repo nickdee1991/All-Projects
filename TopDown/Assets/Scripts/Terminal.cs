@@ -11,13 +11,18 @@ public class Terminal : MonoBehaviour {
     public Animator termAnimator;
     public Animator dishAnimator;
     private AudioSource audio;
+    private TextMesh text;
+    private string terminalCount;
 
 	// Use this for initialization
 	void Start ()
     {
-        audio = GetComponent<AudioSource>();
-    //terminalsHacked = TerminalController.GetComponent<TerminalsHacked>().terminalsHacked;
-    t_collider = this.GetComponent<Collider>();
+        text = GetComponentInChildren<TextMesh>();
+        text.text = "Bridge Terminal";
+        text.color = Color.yellow;
+        //terminalsHacked = TerminalController.GetComponent<TerminalsHacked>().terminalsHacked;
+        audio = GetComponent<AudioSource>();    
+        t_collider = GetComponent<CapsuleCollider>();
     }
 	
 	// Update is called once per frame
@@ -26,17 +31,21 @@ public class Terminal : MonoBehaviour {
 	
 	}
 
-    public void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                audio.Play();
-                TerminalController.GetComponent<TerminalsHacked>().terminalsHacked += 1;
-                dishAnimator.SetBool("DishRotate", true);
                 t_collider.enabled = !t_collider.enabled;
-                this.termAnimator.SetBool("TerminalUnlocked", true);
+                audio.Play();
+                //terminalCount = TerminalController.GetComponent<TerminalsHacked>().terminalsHacked;
+                text.text = "Terminal Hacked";
+                text.color = Color.green;
+                    //TerminalController.GetComponent<TerminalsHacked>().terminalsHacked;
+                TerminalController.GetComponent<TerminalsHacked>().terminalsHacked ++;
+                dishAnimator.SetBool("DishRotate", true);
+                termAnimator.SetBool("TerminalUnlocked", true);
                 Debug.Log("Terminals Hacked = " + TerminalController.GetComponent<TerminalsHacked>().terminalsHacked);
             }
         }

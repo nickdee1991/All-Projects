@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutomaticDoorRed : MonoBehaviour {
 
-    private AudioSource audio;
+    private AudioSource audioDoor;
     private GameObject player;
     public GameObject redAccessPanel;
 
@@ -20,7 +20,7 @@ public class AutomaticDoorRed : MonoBehaviour {
 
     private void Start()
     {
-        audio = GetComponent<AudioSource>();
+        audioDoor = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         startPos = transform.position;
         endPos = transform.position + Vector3.up * distance;
@@ -53,13 +53,14 @@ public class AutomaticDoorRed : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            audio.Play();
+            audioDoor.Play();
             doorOpen = true;
             OpenDoor();
         }
         if (other.gameObject.CompareTag("Player") && player.GetComponent<Player>().hasKeycard == true && redAccessPanel.GetComponent<RedAccessPanel>().unlocked == true)
         {
-            audio.Play();
+
+            audioDoor.Play();
             Debug.Log("Door Opening");
             doorOpen = true;
             OpenDoor();
@@ -70,13 +71,13 @@ public class AutomaticDoorRed : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Enemy")&& doorOpen == true)
         {
-            audio.Play();
+            audioDoor.Play();
             doorOpen = false;
             CloseDoor();
         }
         if (other.gameObject.CompareTag("Player") && player.GetComponent<Player>().hasKeycard == true && redAccessPanel.GetComponent<RedAccessPanel>().unlocked == true && doorOpen == true)
         {
-            audio.Play();
+            audioDoor.Play();
             doorOpen = false;
             CloseDoor();
         }

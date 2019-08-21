@@ -18,7 +18,7 @@ public class GuardPatrol : MonoBehaviour {
 
     Color originalSpotlightColour;
 
-    public float health;
+    public float health = 3;
     public float sightDistance;
     public float waitTime = 1;
     public float stopDistance = 1;
@@ -221,6 +221,8 @@ public class GuardPatrol : MonoBehaviour {
         }
     }
 
+    #region TurnToFace (deprecated)
+
     IEnumerator TurnToFace (Vector3 lookTarget)
     {
         animator.SetBool("isMoving", false);
@@ -234,4 +236,7 @@ public class GuardPatrol : MonoBehaviour {
             yield return null;
         }
     }
+
+    #endregion
+
 }

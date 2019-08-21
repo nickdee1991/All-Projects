@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
-    //Variables
     public float movementSpeed;
     public float jumpHeight;
     public float fallingMovement;
@@ -35,19 +34,24 @@ public class Player : MonoBehaviour {
     public Transform bulletSpawnPoint;
     public GameObject playerWheel1;
     public GameObject playerWheel2;
-    private AudioSource audioShoot;
+    public AudioSource audioShoot;
+    public AudioSource audioJump;
+    public AudioSource audioLand;
+    public Light weaponLight;
 
     private Transform bulletSpawn;
     private Rigidbody rb;
     private Animator anim;
+    public Animator deathAnim;
     public Camera cam;
     public Vector3 jump;
     public RaycastHit hitInfo;
     public LineRenderer playerSight;
+    public CameraShake cameraShake;
 
-    //Methods
     private void Start()
     {
+        weaponLight.enabled = false;
         audioShoot = GetComponent<AudioSource>();
         playerSight = GetComponent<LineRenderer>();
         anim = GetComponentInChildren<Animator>();
@@ -62,7 +66,6 @@ public class Player : MonoBehaviour {
 
     public void Update()
     {
-
         #region Player Movement
 
         if (Input.GetKey(KeyCode.W))
@@ -76,28 +79,11 @@ public class Player : MonoBehaviour {
             {
                 StartCoroutine(Sprint());
             }
-            if (Input.GetKey(KeyCode.LeftControl))
-            {
-                Sneak();
-            }
-
-        }
-
-        if (rb.velocity.magnitude < 0.2)
-        {
-            //isSneaking = true;
-            // do idle animations
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
-
-            if (Input.GetKey(KeyCode.LeftControl))
-            {
-                Sneak();
-                transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
-            }
+            transform.Translate(Vector3.left * movementSpeed * Time.deltaTime); 
         }
 
         if (Input.GetKey(KeyCode.S))
@@ -140,11 +126,13 @@ public class Player : MonoBehaviour {
 
         #endregion End Player Movement
 
+        #region PlayerShooting
         //shooting
         if (Input.GetMouseButton(1))
         {
             anim.SetBool("WeaponHolster", false);
             anim.SetBool("WeaponDeploy", true);
+            weaponLight.enabled = true;
             //Debug.Log("WEAPON PREPARED");
             if (Input.GetMouseButtonDown(0))
             {
@@ -160,12 +148,14 @@ public class Player : MonoBehaviour {
         {
             anim.SetBool("WeaponDeploy", false);
             anim.SetBool("WeaponHolster", true);
+            weaponLight.enabled = false;
         }
         else
         {
             anim.SetBool("WeaponHolster", false);
         }
 
+#endregion
 
         if (health <= 0)
         {
@@ -190,19 +180,20 @@ public class Player : MonoBehaviour {
 
     void Shoot()
     {
-
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
         if (Physics.Raycast(bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.forward.normalized, out hitInfo, playerWeaponRange))
         {
+            // if weapon hits a target
             if (hitInfo.collider != null)
             {
+                //StartCoroutine(cameraShake.Shake(.05f, .15f));
                 audioShoot.Play();
-                //playerSight.SetPosition(1, hitInfo.point);
                 bulletSpawn = Instantiate(weaponEffect.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
                 Destroy(bulletSpawn.gameObject, .5f);
                 Debug.DrawRay(bulletSpawnPoint.transform.position, hitInfo.point, Color.green);
                 Debug.Log("Shooting at " + hitInfo.transform.name);
+                // weapon hit enemy
                 if (hitInfo.transform.gameObject.CompareTag("Enemy"))
                 {
                     print("Hit enemy");
@@ -225,9 +216,9 @@ public class Player : MonoBehaviour {
         //Physics.IgnoreCollision(bullet.GetComponent<Collider>(), this.GetComponent<BoxCollider>());
     }
 
-
     void Jump()
     {
+        audioJump.Play();
         rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
         isGrounded = false;
         Vector3 velocity = rb.velocity;
@@ -237,9 +228,16 @@ public class Player : MonoBehaviour {
 
     //player death and move camera to enemy
     public void Die()
+    {        
+        StartCoroutine(IsDead());
+    }
+
+    IEnumerator IsDead()
     {
+        deathAnim.SetBool("isDead", true);
         print("you died");
-        Destroy(this.gameObject, 2f);
+        Destroy(gameObject, 5f);
+        yield return new WaitForSeconds(4);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -260,6 +258,7 @@ public class Player : MonoBehaviour {
         }
     }
 
+    //sneaking trigger
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy") && isSneaking == false)
@@ -272,9 +271,13 @@ public class Player : MonoBehaviour {
     //Player grounded
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Obstacle")
+        if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Obstacle" && isGrounded == false)
         {
-            isGrounded = true;
+            isGrounded = true;           
+            if (other.gameObject.tag == "Ground" && isGrounded == true)
+            {
+                audioLand.Play();
+            }
             //print("grounded");
         } else if (isGrounded != true){
             {

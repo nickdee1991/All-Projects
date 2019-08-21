@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public Transform bulletHitWall;
     public Transform bulletHitPlayer;
     public ParticleSystem bulletHole;
+    private AudioSource audioSource;
 
     public float speed;
     public float maxDist;
@@ -35,11 +36,13 @@ public class Bullet : MonoBehaviour
         maxDist += 1 * Time.deltaTime;
 
         if (maxDist >= 5)
-            Destroy(this.gameObject);
+            Destroy(gameObject);
     }
 
     public void OnTriggerEnter(Collider other)
     {
+        audioSource.Play();
+
         if (other.gameObject.tag == "Enemy")
         {
             //enemy is hit and health is reduced
