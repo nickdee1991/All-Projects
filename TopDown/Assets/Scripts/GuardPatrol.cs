@@ -145,6 +145,12 @@ public class GuardPatrol : MonoBehaviour {
 
             //look at player
             nav.SetDestination(playerPosition.localPosition);
+
+        //trying to auto kill player once enemy reaches them
+        if (nav.destination == playerPosition.localPosition)
+        {
+            Debug.Log("POINT BLANK @ PLAYER");
+        }
         //if (nav.Raycast(this.gameObject.transform, player.GetComponent<Collider>() ))
             
 

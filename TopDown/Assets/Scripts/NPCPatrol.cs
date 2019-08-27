@@ -22,8 +22,6 @@ public class NPCPatrol : MonoBehaviour {
     private float currentTime;
 
     private int destPoint = 0;
-
-    private bool shot;
     public bool isMoving;
 
     private NavMeshAgent nav;
@@ -59,16 +57,6 @@ public class NPCPatrol : MonoBehaviour {
         //close to the current one.
         if (!nav.pathPending && nav.remainingDistance < stopDistance)       
             GoToNextPoint();        
-
-        //counting down when to shoot
-        if (shot && currentTime < waitTime)
-        {
-            currentTime += 1 * Time.deltaTime;
-        }
-        if (currentTime >= waitTime)
-        {
-            currentTime = 0;
-        }
 
 
         //if the health of this object reaches X then destroy and spawn particle effect

@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
 
     public bool hasKeycard = false;
     public bool hasGardenKey = false;
+    public bool hasIDcard = false;
 
     public GameObject weaponEffect;
     public GameObject playerObj;
@@ -51,6 +52,8 @@ public class Player : MonoBehaviour {
 
     private void Start()
     {
+        hasIDcard = false;
+        Debug.Log(hasIDcard);
         weaponLight.enabled = false;
         audioShoot = GetComponent<AudioSource>();
         playerSight = GetComponent<LineRenderer>();
