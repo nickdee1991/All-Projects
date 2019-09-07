@@ -14,10 +14,13 @@ public class L3Grate1 : MonoBehaviour {
         anim = GetComponent<Animator>();
     }
 
-    private void OnMouseDown()
+    private void OnMouseOver()
     {
-        audioGrate.Play();
-        grate1open = true;
-        anim.SetBool("grate1open", true);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            audioGrate.Play();
+            grate1open = true;
+            anim.SetBool("grate1open", true);
+        }
     }
 }

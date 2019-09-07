@@ -11,25 +11,19 @@ public class Terminal : MonoBehaviour {
     public Animator termAnimator;
     public Animator dishAnimator;
     private AudioSource audio;
-    private TextMesh text;
+    private TMPro.TextMeshPro text;
     private string terminalCount;
 
 	// Use this for initialization
 	void Start ()
     {
-        text = GetComponentInChildren<TextMesh>();
+        text = GetComponentInChildren<TMPro.TextMeshPro>();
         text.text = "Bridge Terminal";
         text.color = Color.yellow;
         //terminalsHacked = TerminalController.GetComponent<TerminalsHacked>().terminalsHacked;
         audio = GetComponent<AudioSource>();    
         t_collider = GetComponent<CapsuleCollider>();
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	
-	}
 
     private void OnTriggerStay(Collider other)
     {
@@ -39,8 +33,9 @@ public class Terminal : MonoBehaviour {
             {
                 t_collider.enabled = !t_collider.enabled;
                 audio.Play();
+                satellite.GetComponent<AudioSource>().Play();
                 //terminalCount = TerminalController.GetComponent<TerminalsHacked>().terminalsHacked;
-                text.text = "Terminal Hacked";
+                text.text = "Terminal Hacked " + TerminalController.GetComponent<TerminalsHacked>().terminalsHacked + "/3";
                 text.color = Color.green;
                     //TerminalController.GetComponent<TerminalsHacked>().terminalsHacked;
                 TerminalController.GetComponent<TerminalsHacked>().terminalsHacked ++;

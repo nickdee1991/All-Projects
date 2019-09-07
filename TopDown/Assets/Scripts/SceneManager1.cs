@@ -23,7 +23,7 @@ public class SceneManager1 : MonoBehaviour {
         {
             startGame = true;
         }
-        else if (sceneName == "Level1")
+        else if (sceneName == "Opening")
         {
             // Do something...
         }
@@ -60,6 +60,6 @@ public class SceneManager1 : MonoBehaviour {
         yield return new WaitForSeconds(3);
         startGame = false;
         //Application.LoadLevel("Level1");
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Opening");
     }
 }

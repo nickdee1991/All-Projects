@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 4777166840745204}
   - component: {fileID: 33091911327886942}
   - component: {fileID: 23252196783414576}
+  - component: {fileID: 136771765320631368}
+  - component: {fileID: 65500550685215462}
+  - component: {fileID: 114872961782512210}
   m_Layer: 0
   m_Name: WeaponRack
   m_TagString: Untagged
@@ -35,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1798446677693854}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 16.986, y: 19.47, z: -33.346}
-  m_LocalScale: {x: 16.5126, y: 66.05038, z: 99.07556}
+  m_LocalPosition: {x: 39.353, y: 54.07, z: 37.61}
+  m_LocalScale: {x: 17.833609, y: 71.33441, z: 107.00161}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -87,3 +90,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1798446677693854}
   m_Mesh: {fileID: 4300004, guid: 3029fa390ff95ba4bad914f7202128b7, type: 3}
+--- !u!65 &65500550685215462
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798446677693854}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04133503, y: 0.019999996, z: 0.019999996}
+  m_Center: {x: -0.010667517, y: 0, z: 0}
+--- !u!114 &114872961782512210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798446677693854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45a3481ee454564cb0cc473eff21261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &136771765320631368
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798446677693854}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.01
+  m_Height: 0.019999996
+  m_Direction: 1
+  m_Center: {x: -0.075, y: 0, z: 0}

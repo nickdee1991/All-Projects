@@ -13,10 +13,13 @@ public class IDcard : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void OnMouseDown()
+    private void OnMouseOver()
     {
-        Aud.Play();
-        player.GetComponent<Player>().hasIDcard = true;
-        Destroy(gameObject);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Aud.Play();
+            player.GetComponent<Player>().hasIDcard = true;
+            Destroy(gameObject);
+        }
     }
 }

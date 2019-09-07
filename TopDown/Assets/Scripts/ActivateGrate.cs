@@ -14,12 +14,14 @@ public class ActivateGrate : MonoBehaviour {
         audioGrate = GetComponent<AudioSource>();
 
     }
-    private void OnMouseDown()
+    private void OnMouseOver()
     {
-        audioGrate.Play();
-        Debug.Log("Grate Opening");
-        anim.SetBool("ActivateGrate", true);
-
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            audioGrate.Play();
+            Debug.Log("Grate Opening");
+            anim.SetBool("ActivateGrate", true);
+        }
     }
 
     void OnTriggerEnter(Collider other)

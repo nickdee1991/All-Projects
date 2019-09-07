@@ -10,7 +10,7 @@ public class OutOfBounds : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnTriggerEnter(Collider other)

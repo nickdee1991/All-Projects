@@ -27,6 +27,7 @@ public class Bullet : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<SphereCollider>());
+        audioSource = GetComponent<AudioSource>();
     }
 
     //Method
@@ -48,7 +49,7 @@ public class Bullet : MonoBehaviour
             //enemy is hit and health is reduced
             triggeringEnemy = other.gameObject;
             triggeringEnemy.GetComponent<Guard>().health -= damage;
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             Debug.Log("hit " + other.name);
         }
 
@@ -67,9 +68,10 @@ public class Bullet : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
+            audioSource.Play();
             //player is hit and health is reduced
             player.GetComponent<Player>().health -= 20;
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             //bulletHitPlayer = Instantiate(playerHitParticle.transform, other.transform.position, Quaternion.identity);
             print("Colliding with" + other.gameObject.GetComponent<Collider>());
 

@@ -12,7 +12,7 @@ public class ElevatorEnteredCheck : MonoBehaviour {
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         elevatoranimator = GetComponent<Animator>();
-        Physics.IgnoreCollision(player.GetComponent<SphereCollider>(), this.GetComponent<BoxCollider>());
+        Physics.IgnoreCollision(player.GetComponent<SphereCollider>(), GetComponent<BoxCollider>());
     }
 
     public void OnTriggerStay(Collider other)

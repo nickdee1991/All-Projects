@@ -5,24 +5,24 @@ using UnityEngine.AI;
 
 public class GuardPatrol : MonoBehaviour {
 
-    public float patrolSpeed = 3;
-    public float waypointWaitTime = 0.5f;
-    public float turnSpeed = 90;
     private GameObject player;
     public LayerMask viewMask;
 
     public Light spotlight;
 
-    public float viewDistance;
-    public float viewAngle;
-
     Color originalSpotlightColour;
 
+    public float viewDistance;
+    public float viewAngle;
+    public float patrolSpeed = 3;
+    public float waypointWaitTime = 0.5f;
+    public float turnSpeed = 90;
+    public float stunnedTime = 5f;
     public float health = 3;
     public float sightDistance;
     public float waitTime = 1;
     public float stopDistance = 1;
-    public float timeToSpotPlayer = 2f;
+    public float timeToSpotPlayer = .5f;
 
     private float playerVisibleTimer;
     private float wheelRotation = 150;
@@ -30,15 +30,16 @@ public class GuardPatrol : MonoBehaviour {
 
     private int destPoint = 0;
 
-    private bool shot;
+    public bool detectedEnemy;
     public bool isMoving;
+    public bool DisablePlayer = false;
+    private bool shot;
 
 
     private NavMeshAgent nav;
-    public bool detectedEnemy;
 
-    public Transform playerPosition;
     public Transform[] patrolPoints;
+    public Transform playerPosition;
     public Transform deathParticleSpawn;
     public Transform bulletSpawnPoint;
     private Transform bulletSpawned;
@@ -130,10 +131,28 @@ public class GuardPatrol : MonoBehaviour {
     public void Die()
     {
         //destroy object, spawn particle effect, give point to player
-        print(this.gameObject.name + " has died!");
+        print(gameObject.name + " has died!");
         deathParticleSpawn = Instantiate(deathParticle.transform, deathParticleSpawn.transform.position, Quaternion.identity);
-        Destroy(this.gameObject, 1f);
+        //Destroy(gameObject, 1f);
 
+        StartCoroutine(isStunned());
+
+    }
+
+    IEnumerator isStunned()
+    {
+        gameObject.GetComponent<Animator>().enabled = false;
+        gameObject.GetComponent<GuardPatrol>().isMoving = false;
+        gameObject.GetComponent<GuardPatrol>().timeToSpotPlayer = stunnedTime;
+        gameObject.GetComponentInChildren<Light>().enabled = false;
+        gameObject.GetComponent<NavMeshAgent>().speed = 0;
+        yield return new WaitForSeconds(5);
+        gameObject.GetComponent<Animator>().enabled = true;
+        gameObject.GetComponent<GuardPatrol>().isMoving = true;
+        gameObject.GetComponent<GuardPatrol>().timeToSpotPlayer = timeToSpotPlayer;
+        gameObject.GetComponentInChildren<Light>().enabled = true;
+        gameObject.GetComponent<NavMeshAgent>().speed = 3;
+        StopCoroutine(isStunned());
     }
 
     //target player and fire
@@ -147,12 +166,12 @@ public class GuardPatrol : MonoBehaviour {
             nav.SetDestination(playerPosition.localPosition);
 
         //trying to auto kill player once enemy reaches them
-        if (nav.destination == playerPosition.localPosition)
+        if (DisablePlayer == true)
         {
-            Debug.Log("POINT BLANK @ PLAYER");
+            player.GetComponent<Player>().health = 0;
         }
         //if (nav.Raycast(this.gameObject.transform, player.GetComponent<Collider>() ))
-            
+
 
             #region shoot at player 
 
@@ -245,4 +264,12 @@ public class GuardPatrol : MonoBehaviour {
 
     #endregion
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("colliding with player");
+            DisablePlayer = true;
+        }
+    }
 }

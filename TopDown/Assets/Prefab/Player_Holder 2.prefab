@@ -252,6 +252,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1541217025055792
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4106785911795308}
+  - component: {fileID: 23597618346475582}
+  - component: {fileID: 102410967897748096}
+  m_Layer: 1
+  m_Name: deathScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1568628624812266
 GameObject:
   m_ObjectHideFlags: 1
@@ -590,8 +607,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1831100337538896}
-  m_LocalRotation: {x: -0, y: 0.00000053644175, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1, y: 0.7, z: -83.6}
+  m_LocalRotation: {x: -0, y: 0.5000012, z: -0, w: 0.8660248}
+  m_LocalPosition: {x: -1.227, y: 63.412, z: -44.996}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 4075241383299328}
@@ -611,6 +628,19 @@ Transform:
   m_Father: {fileID: 4704707612208782}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!4 &4106785911795308
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541217025055792}
+  m_LocalRotation: {x: 0.7071068, y: 0.00000018864051, z: -0.000000020053145, w: 0.7071068}
+  m_LocalPosition: {x: -2.96999, y: 1.0000055, z: -0.68998575}
+  m_LocalScale: {x: 0.024209838, y: 0.024209782, z: 0.024209801}
+  m_Children: []
+  m_Father: {fileID: 224520214908129014}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!4 &4122009356097704
 Transform:
   m_ObjectHideFlags: 1
@@ -1442,6 +1472,41 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100004, guid: 244f42ac772ddf8469dcc93de49b33c2, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!23 &23597618346475582
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541217025055792}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 2100000, guid: bedb9e4bf320baf428d50ca950e07b2d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2429,6 +2494,29 @@ TextMesh:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707215496339926}
   m_Text: CONNECTING...
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: bedb9e4bf320baf428d50ca950e07b2d, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278193919
+--- !u!102 &102410967897748096
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541217025055792}
+  m_Text: 'REMOTE - LINK- LOST
+
+    SENDING- RESCUE- BOT'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -7691,19 +7779,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 6
-  jumpHeight: 4
+  jumpHeight: 5
   fallingMovement: 0
   sensitivity: 2
   fallMultiplier: 3
   lowJumpMultiplier: 3
   waitTime: 6
   points: 0
-  maxHealth: 1000
+  maxHealth: 3
   health: 0
   playerWeaponRange: 5
   isSneaking: 0
   hasKeycard: 0
   hasGardenKey: 0
+  hasIDcard: 0
+  weaponCharged: 0
   weaponEffect: {fileID: 1648430584527140, guid: d3a275027da54a6419a405cb9590be5f,
     type: 2}
   playerObj: {fileID: 1831100337538896}
@@ -7715,11 +7805,11 @@ MonoBehaviour:
   audioJump: {fileID: 82925289080500510}
   audioLand: {fileID: 82508839590384744}
   weaponLight: {fileID: 108769327086582988}
-  deathAnim: {fileID: 0}
+  deathAnim: {fileID: 95010312783283276}
   cam: {fileID: 0}
   jump: {x: 0, y: 12, z: 0}
   playerSight: {fileID: 0}
-  cameraShake: {fileID: 0}
+  cameraShake: {fileID: 114054032131799886}
 --- !u!114 &114358497632192926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -45512,6 +45602,7 @@ RectTransform:
   m_Children:
   - {fileID: 4122009356097704}
   - {fileID: 4788247745064228}
+  - {fileID: 4106785911795308}
   m_Father: {fileID: 4216124902255776}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}

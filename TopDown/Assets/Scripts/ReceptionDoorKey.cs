@@ -5,15 +5,11 @@ using UnityEngine;
 public class ReceptionDoorKey : MonoBehaviour {
 
     public bool fusePickedUp = false;
-    public GameObject floatingText;
+    private AudioSource Aud;
 
-    private void OnMouseEnter()
+    private void Start()
     {
-        floatingText.gameObject.SetActive(true);
-    }
-    private void OnMouseExit()
-    {
-        floatingText.gameObject.SetActive(false);
+        Aud = GetComponent<AudioSource>();
     }
 
     private void OnMouseDown()
@@ -21,5 +17,6 @@ public class ReceptionDoorKey : MonoBehaviour {
         fusePickedUp = true;
         Debug.Log("Reception Door Fuse Picked Up");
         gameObject.SetActive(false);
+        Aud.Play();
     }
 }

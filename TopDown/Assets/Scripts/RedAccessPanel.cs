@@ -17,9 +17,9 @@ public class RedAccessPanel : MonoBehaviour {
         audioDoor = GetComponent<AudioSource>();
     }
 
-    void OnMouseDown()
+    void OnMouseOver()
     {
-        if (player.GetComponent<Player>().hasKeycard == true)
+        if (player.GetComponent<Player>().hasKeycard == true && Input.GetKeyDown(KeyCode.E))
         {
             audioDoor.Play();
             anim.SetBool("AutodoorOpen", true);

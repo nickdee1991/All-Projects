@@ -12,10 +12,13 @@ public class KeycardRed : MonoBehaviour
         audio = GetComponent<AudioSource>();
     }
 
-    private void OnMouseDown()
+    private void OnMouseOver()
     {
-        audio.Play();
-        player.GetComponent<Player>().hasKeycard = true;
-        Destroy(this.gameObject, 1f);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            audio.Play();
+            player.GetComponent<Player>().hasKeycard = true;
+            Destroy(this.gameObject, 1f);
+        }
     }
 }

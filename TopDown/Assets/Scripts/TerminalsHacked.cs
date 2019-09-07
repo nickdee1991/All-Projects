@@ -9,12 +9,12 @@ public class TerminalsHacked : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        terminalsHacked = 0;
+        terminalsHacked = 1;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (terminalsHacked >= 3)
+        if (terminalsHacked >= 4)
         {
             animator.SetBool("BridgeActivated", true);
         }

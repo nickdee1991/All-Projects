@@ -28,6 +28,7 @@ public class Player : MonoBehaviour {
     public bool hasKeycard = false;
     public bool hasGardenKey = false;
     public bool hasIDcard = false;
+    public bool weaponCharged;
 
     public GameObject weaponEffect;
     public GameObject playerObj;
@@ -52,8 +53,8 @@ public class Player : MonoBehaviour {
 
     private void Start()
     {
+        weaponCharged = true;
         hasIDcard = false;
-        Debug.Log(hasIDcard);
         weaponLight.enabled = false;
         audioShoot = GetComponent<AudioSource>();
         playerSight = GetComponent<LineRenderer>();
@@ -131,13 +132,13 @@ public class Player : MonoBehaviour {
 
         #region PlayerShooting
         //shooting
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) )
         {
             anim.SetBool("WeaponHolster", false);
             anim.SetBool("WeaponDeploy", true);
             weaponLight.enabled = true;
             //Debug.Log("WEAPON PREPARED");
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && weaponCharged == true)
             {
                 Shoot();
             }
@@ -190,22 +191,27 @@ public class Player : MonoBehaviour {
             // if weapon hits a target
             if (hitInfo.collider != null)
             {
-                //StartCoroutine(cameraShake.Shake(.05f, .15f));
+                StartCoroutine(cameraShake.Shake(.05f, .15f));
                 audioShoot.Play();
                 bulletSpawn = Instantiate(weaponEffect.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
                 Destroy(bulletSpawn.gameObject, .5f);
                 Debug.DrawRay(bulletSpawnPoint.transform.position, hitInfo.point, Color.green);
                 Debug.Log("Shooting at " + hitInfo.transform.name);
+
                 // weapon hit enemy
                 if (hitInfo.transform.gameObject.CompareTag("Enemy"))
                 {
                     print("Hit enemy");
                     hitInfo.collider.gameObject.GetComponent<GuardPatrol>().Die();
+                    weaponCharged = false;
+                }
+                if (hitInfo.transform.gameObject.CompareTag("Fusebox"))
+                {
+                    GameObject.FindGameObjectWithTag("Fusebox").GetComponent<fuseboxinteractable>().fuseBoxDestroyed = true;
+                    Debug.Log("shooting at fusebox");
                 }
             }
-        }
-        else
-        {
+        }else{
             {
                 //If don't hit, then draw red line to the direction we are sensing,
                 //Note hit.point will remain 0,0,0 at this point, because we don't hit anything
@@ -213,17 +219,13 @@ public class Player : MonoBehaviour {
                 Debug.DrawLine(bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.forward + (fwd * playerWeaponRange), Color.red);
             }
         }
-        //bulletSpawn = Instantiate(bullet.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
-        //bulletSpawn.rotation = bulletSpawnPoint.transform.rotation;
-        //Physics.IgnoreCollision(bullet.GetComponent<Collider>(), this.GetComponent<SphereCollider>());
-        //Physics.IgnoreCollision(bullet.GetComponent<Collider>(), this.GetComponent<BoxCollider>());
     }
 
     void Jump()
     {
         audioJump.Play();
-        rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
         isGrounded = false;
+        rb.AddForce(0, jumpHeight, 0, ForceMode.Impulse);
         Vector3 velocity = rb.velocity;
         velocity.y += jumpHeight;
         rb.velocity = velocity;

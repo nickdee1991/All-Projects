@@ -20,7 +20,7 @@ public class StartMenu : MonoBehaviour {
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Opening");
         Debug.Log("Application Loading");
     }
 

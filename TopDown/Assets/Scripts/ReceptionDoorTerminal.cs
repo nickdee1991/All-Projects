@@ -9,6 +9,12 @@ public class ReceptionDoorTerminal : MonoBehaviour {
     public GameObject floatingText;
     public Animator animator;
     public bool ReceptionDoorOpen = false;
+    private AudioSource Aud;
+
+    private void Start()
+    {
+        Aud = GetComponent<AudioSource>();
+    }
 
     // Use this for initialization
     private void OnMouseEnter()
@@ -28,6 +34,7 @@ public class ReceptionDoorTerminal : MonoBehaviour {
             //door.transform.Translate(Vector3.up * Time.deltaTime * 200f);
             animator.SetBool("ReceptionDoorOpen", true);
             ReceptionDoorOpen = true;
+            Aud.Play();
         }
     }
 }

@@ -8,9 +8,11 @@ public class FinishL3 : MonoBehaviour {
     public BoxCollider playerCol;
     private Animator anim;
     public BoxCollider EndGame;
+    public bool dataRetreived;
 
 	// Use this for initialization
 	void Start () {
+        dataRetreived = false;
         player = GameObject.FindGameObjectWithTag("Player");
         //playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider>();
         anim = GetComponent<Animator>();
@@ -19,7 +21,7 @@ public class FinishL3 : MonoBehaviour {
     public void OnTriggerEnter(Collider other)
     {
         Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<SphereCollider>());
-        if (other.GetComponent<Collider>() == playerCol)
+        if (other.GetComponent<Collider>() == playerCol && dataRetreived == true)
         {
             anim.SetTrigger("L3ElevatorUp");
         }

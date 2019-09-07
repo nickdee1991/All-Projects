@@ -10,17 +10,20 @@ public class ServerTerminal : MonoBehaviour {
     private GameObject player;
     public AudioSource Audgranted;
     public AudioSource Auddenied;
+    public bool serverComputerHacked;
 
     public Animator server45anim;
 
     private void Start()
     {
+        serverComputerHacked = false;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void OnMouseDown()
+
+    private void OnMouseOver()
     {
-        if(player.GetComponent<Player>().hasIDcard == true)
+        if(player.GetComponent<Player>().hasIDcard == true && Input.GetKeyDown(KeyCode.E))
         {
             Audgranted.Play();
             server45anim.SetBool("server45open", true);
@@ -30,11 +33,12 @@ public class ServerTerminal : MonoBehaviour {
             server45.GetComponent<Renderer>().material.color = Color.green;
         }
 
-        if (player.GetComponent<Player>().hasIDcard == false)
+        if (player.GetComponent<Player>().hasIDcard == false && Input.GetKeyDown(KeyCode.E))
         {
             Auddenied.Play();
             Debug.Log("doesnothaveIDcard");
             objNotComplete.SetActive(true);
+            serverComputerHacked = true;
         }
     }
 }

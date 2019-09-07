@@ -12,6 +12,8 @@ TagManager:
   - Traffic
   - Switch
   - PivotPoint
+  - Fusebox
+  - fireEffect
   layers:
   - Default
   - TransparentFX
