@@ -24,12 +24,15 @@ public class Player : MonoBehaviour {
 
     private bool isGrounded;
     public bool isSneaking;
+    private bool isDead;
 
     public bool hasKeycard = false;
     public bool hasGardenKey = false;
     public bool hasIDcard = false;
     public bool weaponCharged;
 
+
+    public GameObject taserLED;
     public GameObject weaponEffect;
     public GameObject playerObj;
     public GameObject bullet;
@@ -39,6 +42,7 @@ public class Player : MonoBehaviour {
     public AudioSource audioShoot;
     public AudioSource audioJump;
     public AudioSource audioLand;
+    public AudioSource audioDeath;
     public Light weaponLight;
 
     private Transform bulletSpawn;
@@ -53,6 +57,9 @@ public class Player : MonoBehaviour {
 
     private void Start()
     {
+        Cursor.visible = false;
+        taserLED.GetComponent<Renderer>().material.color = Color.green;
+        isDead = false;
         weaponCharged = true;
         hasIDcard = false;
         weaponLight.enabled = false;
@@ -81,7 +88,7 @@ public class Player : MonoBehaviour {
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                StartCoroutine(Sprint());
+                //StartCoroutine(Sprint());
             }
         }
 
@@ -204,6 +211,7 @@ public class Player : MonoBehaviour {
                     print("Hit enemy");
                     hitInfo.collider.gameObject.GetComponent<GuardPatrol>().Die();
                     weaponCharged = false;
+                    taserLED.GetComponent<Renderer>().material.color = Color.red;
                 }
                 if (hitInfo.transform.gameObject.CompareTag("Fusebox"))
                 {
@@ -233,12 +241,17 @@ public class Player : MonoBehaviour {
 
     //player death and move camera to enemy
     public void Die()
-    {        
-        StartCoroutine(IsDead());
+    {
+        if (isDead == false)
+        {
+            audioDeath.Play();
+            StartCoroutine(IsDead());
+            isDead = true;
+        } 
     }
 
     IEnumerator IsDead()
-    {
+    {        
         deathAnim.SetBool("isDead", true);
         print("you died");
         Destroy(gameObject, 5f);

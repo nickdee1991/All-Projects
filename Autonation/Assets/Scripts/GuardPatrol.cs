@@ -20,7 +20,7 @@ public class GuardPatrol : MonoBehaviour {
     public float stunnedTime = 5f;
     public float health = 3;
     public float sightDistance;
-    public float waitTime = 1;
+    public float waitTime = .75f;
     public float stopDistance = 1;
     public float timeToSpotPlayer = .5f;
 

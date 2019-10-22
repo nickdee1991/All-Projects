@@ -27,10 +27,10 @@ public class TrafficDespawn : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Traffic"))
-        {
-            Destroy(other.gameObject);
+        {            
             trafficSpawnSpot = Random.Range(0, trafficSpawns.Length);
-            Instantiate(traffic, trafficSpawns[trafficSpawnSpot].position, trafficSpawns[trafficSpawnSpot].transform.rotation);
+            other.gameObject.transform.position = trafficSpawns[trafficSpawnSpot].position;
+            other.gameObject.transform.rotation = trafficSpawns[trafficSpawnSpot].rotation;
         }
     }
 }

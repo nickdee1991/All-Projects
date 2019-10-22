@@ -6,6 +6,7 @@ public class WeaponCharged : MonoBehaviour {
 
     private GameObject player;
     private AudioSource Aud;
+    public GameObject taserLED;
 
         private void Start()
     {
@@ -20,6 +21,7 @@ public class WeaponCharged : MonoBehaviour {
         {
             Aud.Play();
             player.GetComponent<Player>().weaponCharged = true;
+            taserLED.GetComponent<Renderer>().material.color = Color.green;
             Debug.Log("weapon charged");
         }
     }

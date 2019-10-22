@@ -35,7 +35,7 @@ public class MaintenanceRobotL2 : MonoBehaviour {
         if (other.gameObject == player)
         {
             text.gameObject.SetActive(false);
-            transform.LookAt(grate.transform);
+            //transform.LookAt(grate.transform);
         }
     }
 }

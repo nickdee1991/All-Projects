@@ -46,6 +46,7 @@ public class Bullet : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy")
         {
+            audioSource.Play();
             //enemy is hit and health is reduced
             triggeringEnemy = other.gameObject;
             triggeringEnemy.GetComponent<Guard>().health -= damage;
@@ -55,6 +56,7 @@ public class Bullet : MonoBehaviour
 
         if (other.gameObject.tag == "Obstacle")
         {
+            audioSource.Play();
             //if bullet hits wall, destroy bullet and spawn effect TODO: destory effects after time/spawn no.
             bulletHitWall = Instantiate(wallParticle.transform, transform.position, Quaternion.identity);
             Destroy(this);

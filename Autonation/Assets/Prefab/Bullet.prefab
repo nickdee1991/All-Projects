@@ -227,7 +227,7 @@ MonoBehaviour:
     type: 2}
   bulletHole: {fileID: 198183134267429632, guid: 06923afc382831d4eaf308550a08482e,
     type: 2}
-  speed: 50
+  speed: 60
   maxDist: 0
   damage: 1
   wallParticle: {fileID: 1411892254665168, guid: 06923afc382831d4eaf308550a08482e,
