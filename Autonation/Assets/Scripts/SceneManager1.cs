@@ -9,6 +9,7 @@ public class SceneManager1 : MonoBehaviour {
     public Animator monitorAnimator;
 
     private bool startGame;
+    private bool pauseGame;
 
     // Use this for initialization
     void Start()

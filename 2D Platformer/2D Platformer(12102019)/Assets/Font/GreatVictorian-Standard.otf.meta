@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: bf9b716e8b34b6449a798d223404890d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Great Victorian
+  fontNames:
+  - Great Victorian
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a10502d13e694a048847f2f2e4bfc41e, type: 3}
+  - {fileID: 12800000, guid: 8aa852addade7284db5571e9a4275db9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

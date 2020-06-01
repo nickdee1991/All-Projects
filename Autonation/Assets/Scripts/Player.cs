@@ -75,7 +75,7 @@ public class Player : MonoBehaviour {
         health = maxHealth;
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         #region Player Movement
 
@@ -168,11 +168,18 @@ public class Player : MonoBehaviour {
 
 #endregion
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         if (health <= 0)
         {
             Die();
         }
     }
+
+
 
     IEnumerator Sprint()
     {
@@ -198,7 +205,7 @@ public class Player : MonoBehaviour {
             // if weapon hits a target
             if (hitInfo.collider != null)
             {
-                StartCoroutine(cameraShake.Shake(.05f, .15f));
+                //StartCoroutine(cameraShake.Shake(.025f, .005f));
                 audioShoot.Play();
                 bulletSpawn = Instantiate(weaponEffect.transform, bulletSpawnPoint.transform.position, Quaternion.identity);
                 Destroy(bulletSpawn.gameObject, .5f);
@@ -291,17 +298,19 @@ public class Player : MonoBehaviour {
     {
         if (other.gameObject.tag == "Ground" || other.gameObject.tag == "Obstacle" && isGrounded == false)
         {
-            isGrounded = true;           
+            isGrounded = true;
             if (other.gameObject.tag == "Ground" && isGrounded == true)
             {
                 audioLand.Play();
             }
-            //print("grounded");
-        } else if (isGrounded != true){
+           else if (isGrounded != true)
             {
-                isGrounded = false;
+                {
+                    isGrounded = false;
+                }
             }
-            //print("not grounded");
+
+
         }
     }
 }

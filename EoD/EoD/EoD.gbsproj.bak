@@ -1,0 +1,318 @@
+{
+    "settings": {
+        "showCollisions": true,
+        "showConnections": true,
+        "worldScrollX": 756,
+        "worldScrollY": 909,
+        "zoom": 400,
+        "customColorsWhite": "E8F8E0",
+        "customColorsLight": "B0F088",
+        "customColorsDark": "509878",
+        "customColorsBlack": "202850",
+        "startX": 16,
+        "startY": 17,
+        "startDirection": "up",
+        "startSceneId": "6e138877-8933-47c6-88e4-9720cf15b644",
+        "playerSpriteSheetId": "b799cff2-bbca-4c53-acd3-778e3f5d6e2f",
+        "startMoveSpeed": "0",
+        "startAnimSpeed": "2"
+    },
+    "scenes": [
+        {
+            "name": "Scene 1",
+            "backgroundId": "e2d8850e-d662-405f-8b01-a7fbd0fdb8ef",
+            "width": 20,
+            "height": 18,
+            "collisions": [
+                255,
+                255,
+                24,
+                0,
+                136,
+                1,
+                128,
+                24,
+                0,
+                136,
+                1,
+                128,
+                24,
+                0,
+                136,
+                1,
+                128,
+                24,
+                0,
+                128,
+                1,
+                0,
+                24,
+                0,
+                128,
+                1,
+                128,
+                24,
+                0,
+                136,
+                1,
+                128,
+                24,
+                0,
+                136,
+                1,
+                128,
+                24,
+                0,
+                136,
+                1,
+                128,
+                248,
+                255,
+                143
+            ],
+            "id": "6e138877-8933-47c6-88e4-9720cf15b644",
+            "x": 197,
+            "y": 218,
+            "actors": [
+                {
+                    "spriteSheetId": "3e7557ec-7348-4e25-bcba-51d0db0e0e7c",
+                    "movementType": "static",
+                    "direction": "down",
+                    "moveSpeed": "0",
+                    "animSpeed": "2",
+                    "id": "6dc0407c-82b1-4ce8-a3b1-8ebab66d6ca4",
+                    "x": 3,
+                    "y": 2
+                },
+                {
+                    "spriteSheetId": "3e7557ec-7348-4e25-bcba-51d0db0e0e7c",
+                    "movementType": "static",
+                    "direction": "down",
+                    "moveSpeed": "0",
+                    "animSpeed": "2",
+                    "id": "76fa0fa2-d01f-4d75-9a02-b968864c5374",
+                    "x": 7,
+                    "y": 2,
+                    "__type": "actor"
+                },
+                {
+                    "spriteSheetId": "3e7557ec-7348-4e25-bcba-51d0db0e0e7c",
+                    "movementType": "static",
+                    "direction": "down",
+                    "moveSpeed": "0",
+                    "animSpeed": "2",
+                    "id": "13551cd2-9a73-4f84-98b8-1d7fad193946",
+                    "x": 11,
+                    "y": 2,
+                    "__type": "actor"
+                },
+                {
+                    "spriteSheetId": "3e7557ec-7348-4e25-bcba-51d0db0e0e7c",
+                    "movementType": "static",
+                    "direction": "down",
+                    "moveSpeed": "0",
+                    "animSpeed": "2",
+                    "id": "849d08a4-f260-4031-9254-280766255d2f",
+                    "x": 3,
+                    "y": 4,
+                    "__type": "actor"
+                },
+                {
+                    "spriteSheetId": "3e7557ec-7348-4e25-bcba-51d0db0e0e7c",
+                    "movementType": "static",
+                    "direction": "down",
+                    "moveSpeed": "0",
+                    "animSpeed": "2",
+                    "id": "22e6ae99-a754-4ef6-93dc-a07a1f736e1c",
+                    "x": 7,
+                    "y": 4,
+                    "__type": "actor"
+                },
+                {
+                    "spriteSheetId": "3e7557ec-7348-4e25-bcba-51d0db0e0e7c",
+                    "movementType": "static",
+                    "direction": "down",
+                    "moveSpeed": "0",
+                    "animSpeed": "2",
+                    "id": "c028cf7f-8510-4bed-8004-b87eb92044d3",
+                    "x": 11,
+                    "y": 4,
+                    "__type": "actor"
+                },
+                {
+                    "spriteSheetId": "3e7557ec-7348-4e25-bcba-51d0db0e0e7c",
+                    "movementType": "static",
+                    "direction": "down",
+                    "moveSpeed": "0",
+                    "animSpeed": "2",
+                    "id": "01f5d779-25cf-4ec7-b6cb-87fe773330f1",
+                    "x": 3,
+                    "y": 6,
+                    "__type": "actor"
+                },
+                {
+                    "spriteSheetId": "3e7557ec-7348-4e25-bcba-51d0db0e0e7c",
+                    "movementType": "static",
+                    "direction": "down",
+                    "moveSpeed": "0",
+                    "animSpeed": "2",
+                    "id": "82fc6228-c736-4978-8a58-4f5ce8ed600b",
+                    "x": 7,
+                    "y": 6,
+                    "__type": "actor",
+                    "script": [
+                        {
+                            "id": "0603f582-8947-4c3d-8dc6-55ee13d022a6",
+                            "command": "EVENT_ACTOR_EMOTE",
+                            "args": {
+                                "actorId": "player",
+                                "emoteId": "1"
+                            }
+                        },
+                        {
+                            "id": "7e19f44d-78de-4140-9f3a-51fe8449ae91",
+                            "command": "EVENT_END"
+                        }
+                    ]
+                },
+                {
+                    "spriteSheetId": "3e7557ec-7348-4e25-bcba-51d0db0e0e7c",
+                    "movementType": "static",
+                    "direction": "down",
+                    "moveSpeed": "0",
+                    "animSpeed": "2",
+                    "id": "89e4fcb4-f9b9-434d-893c-d9711b9d466f",
+                    "x": 11,
+                    "y": 6,
+                    "__type": "actor"
+                },
+                {
+                    "spriteSheetId": "3e7557ec-7348-4e25-bcba-51d0db0e0e7c",
+                    "movementType": "static",
+                    "direction": "down",
+                    "moveSpeed": "0",
+                    "animSpeed": "3",
+                    "id": "ec71721d-e017-49aa-9d23-11e49a89b15f",
+                    "x": 7,
+                    "y": 15,
+                    "script": [
+                        {
+                            "id": "130b3a0e-a06c-465b-a706-229f415e2f9e",
+                            "command": "EVENT_ACTOR_EMOTE",
+                            "args": {
+                                "actorId": "player",
+                                "emoteId": "1"
+                            }
+                        },
+                        {
+                            "id": "63fdc05b-5f2b-4f98-84c9-a015143d7e1e",
+                            "command": "EVENT_END"
+                        }
+                    ]
+                }
+            ],
+            "triggers": []
+        }
+    ],
+    "_version": "1.2.0",
+    "author": "Nick",
+    "name": "EoD",
+    "variables": [],
+    "backgrounds": [
+        {
+            "id": "e4efef24-e780-453d-a5ba-fff1e982f420",
+            "name": "draft",
+            "width": 20,
+            "height": 18,
+            "imageWidth": 160,
+            "imageHeight": 144,
+            "filename": "draft.png",
+            "_v": 1587587891873
+        },
+        {
+            "id": "1e5f9d6a-bdbc-43e6-8c34-22f5bb5dea05",
+            "name": "placeholder",
+            "width": 20,
+            "height": 18,
+            "imageWidth": 160,
+            "imageHeight": 144,
+            "filename": "placeholder.png",
+            "_v": 1587587891874
+        },
+        {
+            "id": "e2d8850e-d662-405f-8b01-a7fbd0fdb8ef",
+            "name": "room1",
+            "width": 20,
+            "height": 18,
+            "imageWidth": 160,
+            "imageHeight": 144,
+            "filename": "room1.png",
+            "_v": 1587703326883
+        }
+    ],
+    "spriteSheets": [
+        {
+            "id": "11b5452b-187c-43a3-afb1-a1f4f74ffda2",
+            "name": "actor",
+            "numFrames": 3,
+            "type": "actor",
+            "filename": "actor.png",
+            "_v": 1587587891874
+        },
+        {
+            "id": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+            "name": "actor_animated",
+            "numFrames": 6,
+            "type": "actor_animated",
+            "filename": "actor_animated.png",
+            "_v": 1587587891874
+        },
+        {
+            "id": "3e7557ec-7348-4e25-bcba-51d0db0e0e7c",
+            "name": "enemy",
+            "numFrames": 3,
+            "type": "actor",
+            "filename": "enemy.png",
+            "_v": 1587702960779
+        },
+        {
+            "id": "511fd9cc-97f6-44db-96c3-5d31bbd9bbec",
+            "name": "enemy_animated",
+            "numFrames": 6,
+            "type": "actor_animated",
+            "filename": "enemy_animated.png",
+            "_v": 1587703009995
+        },
+        {
+            "id": "b799cff2-bbca-4c53-acd3-778e3f5d6e2f",
+            "name": "player_animated",
+            "numFrames": 6,
+            "type": "actor_animated",
+            "filename": "player_animated.png",
+            "_v": 1587588079822
+        },
+        {
+            "id": "daf95270-e30d-423b-9ee7-990ae29f57f6",
+            "name": "static",
+            "numFrames": 1,
+            "type": "static",
+            "filename": "static.png",
+            "_v": 1587587891874
+        }
+    ],
+    "music": [
+        {
+            "id": "f50428ab-a084-4591-9bba-2ba10fe7b1c6",
+            "name": "template",
+            "filename": "template.mod",
+            "_v": 1587587891794
+        }
+    ],
+    "customEvents": [
+        {
+            "id": "e3433d09-6f5d-4aec-93b8-e80af017a735",
+            "variables": {},
+            "actors": {}
+        }
+    ]
+}

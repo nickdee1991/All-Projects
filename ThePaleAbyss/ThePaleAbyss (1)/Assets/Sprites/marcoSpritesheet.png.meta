@@ -1,0 +1,452 @@
+fileFormatVersion: 2
+guid: 3d482289d5e06574a8586067d2396ee5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3732939201286944846
+    second: marcoSpritesheet_0
+  - first:
+      213: -7151488913925532473
+    second: marcoSpritesheet_1
+  - first:
+      213: -6288167552734435533
+    second: marcoSpritesheet_2
+  - first:
+      213: 6364142476998586736
+    second: marcoSpritesheet_3
+  - first:
+      213: 3440604616681749725
+    second: marcoSpritesheet_4
+  - first:
+      213: 8303609491304878979
+    second: marcoSpritesheet_5
+  - first:
+      213: 8117519768420220823
+    second: marcoSpritesheet_6
+  - first:
+      213: -5474610117704479242
+    second: marcoSpritesheet_7
+  - first:
+      213: 8173064809936582379
+    second: marcoSpritesheet_8
+  - first:
+      213: -2109901579307762086
+    second: marcoSpritesheet_9
+  - first:
+      213: 3130424967448343850
+    second: marcoSpritesheet_10
+  - first:
+      213: -1194977204028418106
+    second: marcoSpritesheet_11
+  - first:
+      213: 6802387276679203846
+    second: marcoSpritesheet_12
+  - first:
+      213: -8822714403565846520
+    second: marcoSpritesheet_13
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: marcoSpritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 634
+        width: 31
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c091ef10ae2b3a4f9018027174378f7
+      internalID: -3732939201286944846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcoSpritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 634
+        width: 31
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 501b048bbd5b90f479cf89cfbbb815d0
+      internalID: -7151488913925532473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcoSpritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 633
+        width: 31
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb5f9e6794aa25841b35f4b505f3ca24
+      internalID: -6288167552734435533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcoSpritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 634
+        width: 31
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1c11a2c7a0914d41800d1c45d891c0c
+      internalID: 6364142476998586736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcoSpritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 673
+        width: 15
+        height: 33
+      alignment: 9
+      pivot: {x: 0.5767151, y: 0.47384736}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef27d065777ccce4b881b1882a8feb4e
+      internalID: 3440604616681749725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcoSpritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 532
+        width: 31
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fbca54a9e6408c45b9484e72d420263
+      internalID: 8303609491304878979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcoSpritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 532
+        width: 31
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3674549843255c348b8775f06def0390
+      internalID: 8117519768420220823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcoSpritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 531
+        width: 31
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88a03faad9cc81f469387fe1582f93e3
+      internalID: -5474610117704479242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcoSpritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 532
+        width: 31
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4229d7652defc664699b4e22ef48eeff
+      internalID: 8173064809936582379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcoSpritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 427
+        width: 19
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fd950d9e33115749a5910f2921f2009
+      internalID: -2109901579307762086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcoSpritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 427
+        width: 37
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f82ab006da74d04f97de0903b917eb8
+      internalID: 3130424967448343850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcoSpritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 324
+        width: 31
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dddbaef2a7eab64eba828a2f0710995
+      internalID: -1194977204028418106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcoSpritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 242
+        width: 17
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e963a4501008f8449c1340e634b1afc
+      internalID: 6802387276679203846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marcoSpritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 324
+        width: 34
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b7da6825d961940a932a2a52cde1f6
+      internalID: -8822714403565846520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

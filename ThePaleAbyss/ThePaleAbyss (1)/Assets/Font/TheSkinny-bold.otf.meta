@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 24931eef7fa72ea438b17cf8bc001e19
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: The Skinny
+  fontNames:
+  - The Skinny
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8194c1ed7fddbdd41984f919032cdbb6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
