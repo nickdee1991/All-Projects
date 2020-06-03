@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5295592213114033465}
   - component: {fileID: 1157616417648672153}
   - component: {fileID: 7738056300462818067}
+  - component: {fileID: 168881769367706432}
   m_Layer: 0
   m_Name: SmokingCabinet
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890306174438474277}
-  m_LocalRotation: {x: -0.5000004, y: 0.49999967, z: 0.49999973, w: 0.50000024}
+  m_LocalRotation: {x: -0.5, y: 0.50000006, z: 0.50000006, w: 0.5}
   m_LocalPosition: {x: -2.1330512, y: 0.94860846, z: 49.729855}
   m_LocalScale: {x: 28.924103, y: 28.924103, z: 28.924103}
   m_Children: []
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &168881769367706432
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890306174438474277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.03417942, y: 0.08460321, z: 0.06565613}
+  m_Center: {x: 0.0066592083, y: 0.005717413, z: 0.00043039877}
