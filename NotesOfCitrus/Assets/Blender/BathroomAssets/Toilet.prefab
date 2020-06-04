@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 8562348705588459625}
   - component: {fileID: 2208011454639894486}
   - component: {fileID: 853111453345515989}
-  m_Layer: 0
+  - component: {fileID: 2184471023852121665}
+  m_Layer: 8
   m_Name: Toilet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &8562348705588459625
 Transform:
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946163861968893000}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -0.2800002, y: 0.25, z: 57.58}
-  m_LocalScale: {x: 24, y: 24, z: 24}
+  m_LocalScale: {x: 24.000011, y: 24, z: 24}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &2208011454639894486
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2184471023852121665
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946163861968893000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.069465764, y: 0.03858546, z: 0.16460885}
+  m_Center: {x: 0.008687541, y: -0.00000023841856, z: 0.07265616}

@@ -7,7 +7,7 @@ public class PatrolRandom: MonoBehaviour
 {
     public Transform[] patrolPoints;
     private int destPoint = 0;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     private Animator anim;
 
     // Start is called before the first frame update
@@ -43,7 +43,7 @@ public class PatrolRandom: MonoBehaviour
         //send agent to current point
         agent.destination = patrolPoints[destPoint].position;
         anim.SetBool("isMoving",true);
-        Debug.Log(destPoint);
+        //Debug.Log(destPoint);
 
         //choose next point in array
         //moving to start if needed

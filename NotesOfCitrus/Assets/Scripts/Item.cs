@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-
+    private GameManager GM;
     private GameObject player;
-    private GameObject ItemGraphic;
+    private MeshRenderer ItemGraphic;
     private AudioManager Aud;
 
     private void Start()
     {
+        GM = FindObjectOfType<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player");
-        ItemGraphic = GameObject.Find("ItemGraphic");
+        ItemGraphic = GetComponent<MeshRenderer>();
         Aud = FindObjectOfType<AudioManager>();
     }
 
@@ -21,7 +22,23 @@ public class Item : MonoBehaviour
         if (other.gameObject.Equals(player) && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Item Collected");
-            ItemGraphic.SetActive(false); // turn off item renderer
+            ItemGraphic.enabled = false; // turn off item renderer
+
+            if (gameObject.name.Equals("ObjKey"))
+            {
+                GM.EndKey = true;
+                GameObject.Find("ObjKeyHand").GetComponent<MeshRenderer>().enabled = true;
+            }
+            if (gameObject.name.Equals("ObjHammer"))
+            {
+                GM.Hammer = true;
+                GameObject.Find("ObjHammerHand").GetComponent<MeshRenderer>().enabled = true;
+            }
+            if (gameObject.name.Equals("ObjChisel"))
+            {
+                GM.Chisel = true;
+                GameObject.Find("ObjChiselHand").GetComponent<MeshRenderer>().enabled = true;
+            }
         }
     }
 }
