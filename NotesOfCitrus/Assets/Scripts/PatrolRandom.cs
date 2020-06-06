@@ -10,6 +10,8 @@ public class PatrolRandom: MonoBehaviour
     public NavMeshAgent agent;
     private Animator anim;
 
+    private int lateStart = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,13 @@ public class PatrolRandom: MonoBehaviour
 
         anim = GetComponent<Animator>();
 
+        StartCoroutine(LateStart(lateStart));
+    }
+
+    //spawn enemy only after room generation has finished
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
         GoToNextPoint();
     }
 

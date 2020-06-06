@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
-using UnityEditor.AI;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -12,9 +11,13 @@ public class GameManager : MonoBehaviour
     public Transform StartSpawn;
     private AudioManager Aud;
 
-    public MeshRenderer key;
-    public MeshRenderer hammer;
-    public MeshRenderer chisel;
+    public MeshRenderer keyHand;
+    public MeshRenderer hammerHand;
+    public MeshRenderer chiselHand;
+
+    public MeshRenderer keyObj;
+    public MeshRenderer hammerObj;
+    public MeshRenderer chiselObj;
 
     public bool EndKey;
     public bool Hammer;
@@ -29,7 +32,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         //UnityEngine.AI.NavMeshBuilder.BuildNavMeshData();
+        keyObj = GameObject.Find("ObjKey").GetComponent<MeshRenderer>();
+        hammerObj = GameObject.Find("ObjHammer").GetComponent<MeshRenderer>();
+        chiselObj = GameObject.Find("ObjChisel").GetComponent<MeshRenderer>();
 
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GameObject.Find("Main Camera").GetComponent<Animator>();
@@ -52,31 +59,41 @@ public class GameManager : MonoBehaviour
         #region checks for player items
         if (EndKey)
         {
-            key.enabled = true;
+            keyHand.enabled = true;
         }else{
-            key.enabled = false;
+            keyHand.enabled = false;
+            keyObj.enabled = true;
         }
         if (Hammer)
         {
-            hammer.enabled = true;
+            hammerHand.enabled = true;
         }else{
-            hammer.enabled = false;
+            hammerHand.enabled = false;
+            hammerObj.enabled = true;
         }
         if (Chisel)
         {
-            chisel.enabled = true;
+            chiselHand.enabled = true;
         }else{
-            chisel.enabled = false;
+            chiselHand.enabled = false;
+            chiselObj.enabled = true;
         }
         #endregion
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 
     public void Captured()
     {
-        Debug.Log("Captured " + timesCaptured);
-        timesCaptured++;
-        StartCoroutine("CapturedTimer");
+        if (timesCaptured < 3 && !isGameOver)
+        {
+            Debug.Log("Captured " + timesCaptured);
+            StartCoroutine("CapturedTimer");
+        }
+
     }
 
     public void GameOver()
@@ -92,6 +109,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<PlayerSimpleMovement>().movementSpeed = 0;
         Aud.PlaySound("CapturedVoice");
         yield return new WaitForSeconds(3.5f);
+        timesCaptured++;
         EndKey = false;
         Hammer = false;
         Chisel = false;

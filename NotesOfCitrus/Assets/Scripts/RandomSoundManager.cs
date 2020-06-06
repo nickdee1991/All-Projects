@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OfficeRobotInteracting : MonoBehaviour {
+public class RandomSoundManager : MonoBehaviour {
 
     private AudioSource audioSource;
     public AudioClip[] sound;
     private AudioClip soundPlaying;
-    public float timeBetweenSounds;
+    private float timeBetweenSounds;
+    public float SoonestTime;
+    public float FurthestTime;
 
     public void Start()
     {
-        timeBetweenSounds = Random.Range(5, 12);
+        timeBetweenSounds = Random.Range(SoonestTime, FurthestTime);
         StartCoroutine("InteractingSound");
         audioSource = GetComponent<AudioSource>();
     }

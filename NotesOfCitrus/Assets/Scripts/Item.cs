@@ -28,16 +28,19 @@ public class Item : MonoBehaviour
             {
                 GM.EndKey = true;
                 GameObject.Find("ObjKeyHand").GetComponent<MeshRenderer>().enabled = true;
+                GetComponent<Light>().enabled = false;
             }
             if (gameObject.name.Equals("ObjHammer"))
             {
                 GM.Hammer = true;
                 GameObject.Find("ObjHammerHand").GetComponent<MeshRenderer>().enabled = true;
+                GetComponent<Light>().enabled = false;
             }
             if (gameObject.name.Equals("ObjChisel"))
             {
                 GM.Chisel = true;
                 GameObject.Find("ObjChiselHand").GetComponent<MeshRenderer>().enabled = true;
+                GetComponent<Light>().enabled = false;
             }
         }
     }

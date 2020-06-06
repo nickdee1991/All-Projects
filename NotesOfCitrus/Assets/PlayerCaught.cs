@@ -6,6 +6,7 @@ public class PlayerCaught : MonoBehaviour
 {
     private GameManager GM;
     public bool Captured;
+    public GameObject enemyCapturedBy;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,9 @@ public class PlayerCaught : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Father") || collision.gameObject.CompareTag("Mother") || collision.gameObject.CompareTag("Junior") && Captured == false)
         {
+            enemyCapturedBy = collision.gameObject;
+            enemyCapturedBy.GetComponent<BoxCollider>().enabled = false;
+            StartCoroutine("EnemyColliderCooldown");
             Debug.Log("GET. CAPTURED.");
             GM.Captured();
             Captured = true;
@@ -29,7 +33,17 @@ public class PlayerCaught : MonoBehaviour
         if (other.gameObject.CompareTag("Father") || other.gameObject.CompareTag("Mother") || other.gameObject.CompareTag("Junior") && Captured == false)
         {
             Debug.Log(other.gameObject.name + "alerted, moving to your position");
+            if(other.gameObject.GetComponentInChildren<PatrolRandom>().enabled == false)
+            {
+                other.gameObject.GetComponentInChildren<PatrolRandom>().enabled = true;
+            }
             other.gameObject.GetComponent<Enemy>().MoveToTarget();
         }
+    }
+
+    IEnumerator EnemyColliderCooldown()
+    {
+        yield return new WaitForSeconds(4);
+        enemyCapturedBy.GetComponent<BoxCollider>().enabled = true;
     }
 }

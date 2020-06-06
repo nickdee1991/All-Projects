@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public LayerMask viewMask;
 
     public Transform playerPosition;
+    public Transform spawnPosition;
 
     public Light spotlight;
 
@@ -16,6 +17,7 @@ public class Enemy : MonoBehaviour
     public float viewDistance = 15;
     public float viewAngle = 150;
     public int patrolSpeed = 2;
+    private int lateStart = 1;
 
     private float playerVisibleTimer;
     public float timeToSpotPlayer = 0.5f;
@@ -26,16 +28,35 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerPosition = player.transform;
+
+        StartCoroutine(LateStart(lateStart));
+
         viewAngle = spotlight.spotAngle;
         originalSpotlightColour = spotlight.color;
     }
-    private void Update()
+
+    //spawn enemy only after room generation has finished
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        transform.parent.position = spawnPosition.position;
+        transform.parent.rotation = spawnPosition.rotation;
+        transform.position = spawnPosition.position;
+        //transform.rotation = spawnPosition.rotation;
+    }
+
+private void Update()
     {
         if (CanSeePlayer())
         {
             playerVisibleTimer += Time.deltaTime;
         }else{
             playerVisibleTimer -= Time.deltaTime;
+            if (GetComponent<PatrolRandom>().isActiveAndEnabled)
+            {
+                GetComponent<PatrolRandom>().agent.speed = 2.5f;
+            }
+            else { return; }
         }
         playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
         spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
@@ -75,12 +96,16 @@ public class Enemy : MonoBehaviour
         detectedEnemy = true;
 
         //move towards player
-        //MoveToTarget();
+        MoveToTarget();
     }
 
 
     public void MoveToTarget()
     {
-        GetComponent<PatrolRandom>().agent.destination = player.transform.position;
+        if (player.GetComponent<PlayerCaught>().Captured == false)
+        {
+            GetComponent<PatrolRandom>().agent.destination = player.transform.position;
+            GetComponent<PatrolRandom>().agent.speed = 5;
+        }
     }
 }

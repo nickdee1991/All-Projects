@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitDoor : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class ExitDoor : MonoBehaviour
         {
             rb.useGravity = true;
             Debug.Log("Found key, door unlocked");
+            SceneManager.LoadScene("Outro");
         }
     }
 }
