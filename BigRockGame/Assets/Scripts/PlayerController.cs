@@ -41,23 +41,6 @@ public class PlayerController : MonoBehaviour
     {
         Move();
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            anim.SetBool("isAttacking", true);
-        }
-        else
-        {
-            anim.SetBool("isAttacking", false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Aud.PlaySound("FistBeat");
-            anim.SetBool("isTaunting", true);
-        }else{
-            anim.SetBool("isTaunting", false);
-        }
-
         void Move()
         {
             if (charCont.isGrounded)
@@ -72,10 +55,7 @@ public class PlayerController : MonoBehaviour
 
                 if (Input.GetButton("Jump"))
                 {
-                    moveDirection.y = jumpSpeed;
-                    anim.SetBool("isJumping", true);
-                }else{
-                    anim.SetBool("isJumping", false);
+                    //do a backflip
                 }
             }
 
@@ -86,34 +66,6 @@ public class PlayerController : MonoBehaviour
 
             // Move the controller
             charCont.Move(moveDirection * Time.deltaTime);
-
-
-            if (Input.GetAxis("Vertical") > 0.1)
-            {
-                anim.SetFloat("Vertical_Moving", Input.GetAxis("Vertical"));
-                //Aud.PlaySound("Footstep1"); // grab 3 footstep sounds and play them randomly?
-
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    runSpeed = sprintSpeed;
-                    anim.SetBool("wildRun", true);
-                }else{
-                    anim.SetBool("wildRun", false);
-                }
-
-                if (Input.GetKey(KeyCode.C))
-                {
-                    runSpeed = sneakSpeed;
-                    anim.SetBool("isSneaking", true);
-                }else{
-                    anim.SetBool("isSneaking", false);
-                }
-            }
-
-            if (Input.GetAxis("Horizontal") > 0)
-            {
-                anim.SetFloat("Horizontal_Moving", Input.GetAxis("Horizontal"));
-            }
         }
     }
 }

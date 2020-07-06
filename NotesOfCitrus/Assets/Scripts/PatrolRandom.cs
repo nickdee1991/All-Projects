@@ -5,38 +5,49 @@ using UnityEngine.AI;
 
 public class PatrolRandom: MonoBehaviour
 {
+    //list for patrol points assigned to this agent
     public Transform[] patrolPoints;
+    //the current destination
     private int destPoint = 0;
     public NavMeshAgent agent;
+    private Enemy enemy;
     private Animator anim;
+    private bool isWaiting;
 
-    private int lateStart = 2;
+    private float waitTime;
 
     // Start is called before the first frame update
     void Start()
     {
+        enemy = GetComponent<Enemy>();
         agent = GetComponentInParent<NavMeshAgent>();
         agent.autoBraking = false;
 
         anim = GetComponent<Animator>();
 
-        StartCoroutine(LateStart(lateStart));
-    }
-
-    //spawn enemy only after room generation has finished
-    IEnumerator LateStart(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
         GoToNextPoint();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //choose next patrolPoint when the agent gets close to current one.
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        if (!agent.pathPending && agent.remainingDistance < 0.5f && isWaiting == false && enemy.detectedEnemy == false)
         {
-            GoToNextPoint();
+            isWaiting = true;
+            agent.isStopped = true;
+            anim.SetBool("isMoving", false);
+            StartCoroutine(WaitAtPatrolPoint());
+        }
+
+        if (!agent)
+        {
+            agent = GetComponentInParent<NavMeshAgent>();
+        }
+
+        if (enemy.detectedEnemy)
+        {
+            waitTime = 0;
+            enemy.MoveToTarget();
         }
     }
 
@@ -57,7 +68,15 @@ public class PatrolRandom: MonoBehaviour
         //choose next point in array
         //moving to start if needed
         destPoint = (destPoint + 1) % patrolPoints.Length;
+    }
 
-
+    IEnumerator WaitAtPatrolPoint()
+    {
+        waitTime = Random.Range(1, 3);
+        //Debug.Log(waitTime);
+        yield return new WaitForSeconds(waitTime);
+        isWaiting = false;
+        agent.isStopped = false;
+        GoToNextPoint();
     }
 }

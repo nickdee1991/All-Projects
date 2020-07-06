@@ -65,12 +65,13 @@ public class CameraLook : MonoBehaviour
             targetRotCam.x = 270;
         }
 
+
         transform.rotation = Quaternion.Euler(targetRotCam);
         player.rotation = Quaternion.Euler(targetRotBody);
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            //ThirdPersonCamera();
+            ThirdPersonCamera();
         }
 
 

@@ -23,6 +23,7 @@ public class Item : MonoBehaviour
         {
             Debug.Log("Item Collected");
             ItemGraphic.enabled = false; // turn off item renderer
+            Aud.PlaySound("Pickup");
 
             if (gameObject.name.Equals("ObjKey"))
             {

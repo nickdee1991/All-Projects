@@ -31,6 +31,11 @@ public class Sound
         source.pitch = pitch * (1 + Random.Range(-randomPitch / 2f, +randomPitch / 2f)); ;
         source.Play();
     }
+
+    public void Stop()
+    {
+        source.Stop();
+    }
 }
 
 public class AudioManager : MonoBehaviour
@@ -63,7 +68,19 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(string _name)
+    public void StopSound(string _name)
+    {
+        for (int i = 0; i < Sounds.Length; i++)
+        {
+            if (Sounds[i].name == _name)
+            {
+                Sounds[i].Stop();
+                return;
+            }
+        }
+    }
+
+        public void PlaySound(string _name)
     {
         for (int i = 0; i < Sounds.Length; i++)
         {
@@ -74,7 +91,7 @@ public class AudioManager : MonoBehaviour
             }
         }
 
-        //no sounds with _name found
-        Debug.Log("AudioManager: No sound found in list, " + _name);
+            //no sounds with _name found
+            Debug.Log("AudioManager: No sound found in list, " + _name);
     }
 }

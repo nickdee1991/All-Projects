@@ -39,7 +39,7 @@ public class ItemSpawner : MonoBehaviour
         //if this spawnpoint does not contain any other rooms, spawn here
         if (currentSpawn.transform.childCount == 0)
         {
-            Debug.Log(destPoint);
+            //Debug.Log(destPoint);
 
             //Instantiate item in random location/rotation and parent on start
             Item.transform.parent = spawnPoints[destPoint];

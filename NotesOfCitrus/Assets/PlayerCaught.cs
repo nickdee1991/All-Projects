@@ -7,11 +7,13 @@ public class PlayerCaught : MonoBehaviour
     private GameManager GM;
     public bool Captured;
     public GameObject enemyCapturedBy;
+    private AudioManager aud;
 
     // Start is called before the first frame update
     void Start()
     {
         GM = FindObjectOfType<GameManager>();
+        aud = FindObjectOfType<AudioManager>();
         Captured = false;
     }
 

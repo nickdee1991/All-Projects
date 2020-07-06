@@ -5,10 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public GameObject player;
+    private Animator anim;
     public LayerMask viewMask;
+    private PatrolRandom patrolRandom;
+    private AudioManager aud;
 
     public Transform playerPosition;
-    public Transform spawnPosition;
+    public Transform[] spawnPoints;
+    private int spawnPosition;
 
     public Light spotlight;
 
@@ -17,7 +21,7 @@ public class Enemy : MonoBehaviour
     public float viewDistance = 15;
     public float viewAngle = 150;
     public int patrolSpeed = 2;
-    private int lateStart = 1;
+    private int lateStart = 2;
 
     private float playerVisibleTimer;
     public float timeToSpotPlayer = 0.5f;
@@ -26,6 +30,9 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
+        patrolRandom = GetComponent<PatrolRandom>();
+        aud = FindObjectOfType<AudioManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerPosition = player.transform;
 
@@ -38,10 +45,11 @@ public class Enemy : MonoBehaviour
     //spawn enemy only after room generation has finished
     IEnumerator LateStart(float waitTime)
     {
+        spawnPosition = Random.Range(0, spawnPoints.Length);
         yield return new WaitForSeconds(waitTime);
-        transform.parent.position = spawnPosition.position;
-        transform.parent.rotation = spawnPosition.rotation;
-        transform.position = spawnPosition.position;
+        transform.parent.position = spawnPoints[spawnPosition].position;
+        transform.parent.rotation = spawnPoints[spawnPosition].rotation;
+        transform.position = spawnPoints[spawnPosition].position;
         //transform.rotation = spawnPosition.rotation;
     }
 
@@ -51,12 +59,19 @@ private void Update()
         {
             playerVisibleTimer += Time.deltaTime;
         }else{
+            detectedEnemy = false;
+            patrolRandom.enabled = true;
             playerVisibleTimer -= Time.deltaTime;
-            if (GetComponent<PatrolRandom>().isActiveAndEnabled)
+            if (patrolRandom == null)
             {
-                GetComponent<PatrolRandom>().agent.speed = 2.5f;
+                patrolRandom = GetComponent<PatrolRandom>();
+                if (patrolRandom.isActiveAndEnabled)
+                {
+                    patrolRandom.agent.speed = 2.5f;
+                }
+                else { return; }
             }
-            else { return; }
+
         }
         playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
         spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
@@ -65,10 +80,10 @@ private void Update()
         {
             detectedEnemy = true;
             Attack();
-        }
-        else
-        {
+        }else{
             detectedEnemy = false;
+            patrolRandom.enabled = true;
+            anim.SetBool("isRunning", false);
         }
     }
 
@@ -89,12 +104,14 @@ private void Update()
             }
         }
         return false;
+
     }
 
     public void Attack()
     {
         detectedEnemy = true;
-
+        StopAllCoroutines();
+        patrolRandom.enabled = false;
         //move towards player
         MoveToTarget();
     }
@@ -104,8 +121,13 @@ private void Update()
     {
         if (player.GetComponent<PlayerCaught>().Captured == false)
         {
-            GetComponent<PatrolRandom>().agent.destination = player.transform.position;
-            GetComponent<PatrolRandom>().agent.speed = 5;
+            if (patrolRandom.enabled == false)
+            {
+                patrolRandom.enabled = true;
+            }
+            anim.SetBool("isRunning", true);
+            patrolRandom.agent.destination = player.transform.position;
+            patrolRandom.agent.speed = 6;
         }
     }
 }

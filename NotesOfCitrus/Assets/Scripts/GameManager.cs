@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
-using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -33,7 +33,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
-        //UnityEngine.AI.NavMeshBuilder.BuildNavMeshData();
+        //update the mesh
+        StartCoroutine("UpdateMesh");
+
         keyObj = GameObject.Find("ObjKey").GetComponent<MeshRenderer>();
         hammerObj = GameObject.Find("ObjHammer").GetComponent<MeshRenderer>();
         chiselObj = GameObject.Find("ObjChisel").GetComponent<MeshRenderer>();
@@ -84,6 +86,15 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("Menu");
         }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+    IEnumerator UpdateMesh()
+    {
+        yield return new WaitForSeconds(1.5f);
+        NavMeshBuilder.UpdateNavMeshData();
     }
 
     public void Captured()
@@ -108,7 +119,9 @@ public class GameManager : MonoBehaviour
         anim.SetBool("CapturedTransition", true);
         player.GetComponent<PlayerSimpleMovement>().movementSpeed = 0;
         Aud.PlaySound("CapturedVoice");
+        Aud.PlaySound("Violin");
         yield return new WaitForSeconds(3.5f);
+        Aud.StopSound("Violin");
         timesCaptured++;
         EndKey = false;
         Hammer = false;

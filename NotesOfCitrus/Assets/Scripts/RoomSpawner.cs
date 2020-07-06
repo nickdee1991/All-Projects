@@ -15,15 +15,8 @@ public class RoomSpawner : MonoBehaviour
     private int destPoint;
     private int newDestPoint;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        // pick a random color
-        //Color newColor = new Color(Random.value, Random.value, Random.value, 1.0f);
-
-        // apply it on designated object's material
-        //playerTemplate.GetComponent<Renderer>().material.color = newColor;
-
         GenerateRoom();
     }
 
