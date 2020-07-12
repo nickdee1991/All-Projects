@@ -6,9 +6,9 @@ public class RoomSpawner : MonoBehaviour
 {
     private GameObject Room;
     //public GameObject playerTemplate;
-    private static int usedSpawnPoint;
+    //private static int usedSpawnPoint;
 
-    List<int> randomInts = new List<int>();
+    //List<int> randomInts = new List<int>();
 
     public Transform[] spawnPoints;
     public Transform currentSpawn;
