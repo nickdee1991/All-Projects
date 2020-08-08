@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
     IEnumerator UpdateMesh()
     {
         yield return new WaitForSeconds(1.5f);
-        NavMeshBuilder.UpdateNavMeshData();
+        //NavMeshBuilder.UpdateNavMeshData();
     }
 
     public void Captured()

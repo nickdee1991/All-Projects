@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private GameObject _posTemp;
+    private AudioSource audS;
 
-    private void Awake()
+    private void Start()
     {
-        _posTemp = GameObject.Find("PositionTemplate");
-        _posTemp.SetActive(false);
+        audS = GetComponent<AudioSource>();
+        audS.Play();
     }
 }
