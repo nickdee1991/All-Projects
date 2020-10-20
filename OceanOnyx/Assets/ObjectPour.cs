@@ -5,10 +5,20 @@ using UnityEngine;
 public class ObjectPour : MonoBehaviour
 {
     public ParticleSystem liquid;
+    public Color liquidColour;
 
     public bool includeChildren = true;
 
     private void Update()
+    {
+        ObjectIsPouring(); // check if object the player is holding is inverted
+
+        //set the particlesystem color to liquidColour variable
+        var main = liquid.main;
+        main.startColor = liquidColour;
+    }
+
+    void ObjectIsPouring()
     {
         if (Vector3.Dot(transform.up, Vector3.down) > 0)
         {
@@ -20,7 +30,8 @@ public class ObjectPour : MonoBehaviour
                 //Debug.Log("BOTTLE IS INVERTED");
             }
         }
-        else{
+        else
+        {
             liquid.Stop();
             liquid.Clear();
             if (liquid.isPlaying)

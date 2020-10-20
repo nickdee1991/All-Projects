@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 967460245}
   - component: {fileID: 967460244}
   - component: {fileID: 967460243}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HandReference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 873713231}
   - component: {fileID: 873713232}
   - component: {fileID: 873713230}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5b976209b2e3a524aa6f0f4cdd9840d8, type: 2}
+  - {fileID: 2100000, guid: 7bea7237d4eeb2743b894cf5816a4fea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -248,7 +248,7 @@ MonoBehaviour:
       m_Calls: []
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 967460242}
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0.5
   m_MovementType: 1
   m_TrackPosition: 1
   m_SmoothPosition: 0

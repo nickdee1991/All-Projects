@@ -4,6 +4,9 @@ ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
+  - first:
       74: -623603649343465320
     second: Scene
   externalObjects: {}
@@ -92,7 +95,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
