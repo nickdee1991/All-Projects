@@ -42,7 +42,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.7075472, g: 0.61660767, b: 0.056737285, a: 1}
+  m_Color: {r: 1, g: 0.9200972, b: 0.3915094, a: 1}
   m_Intensity: 2
   m_Range: 25
   m_SpotAngle: 90
@@ -53,9 +53,9 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Bias: 0
+    m_NormalBias: 0
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0

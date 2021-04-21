@@ -7,6 +7,9 @@ TagManager:
   - Ship
   - Cork
   - Interactable
+  - SpawnPoint
+  - Spawnable
+  - Cable
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - 
   - Obstacle
   - Interactable
-  - 
+  - PostProcessing
   - 
   - 
   - 

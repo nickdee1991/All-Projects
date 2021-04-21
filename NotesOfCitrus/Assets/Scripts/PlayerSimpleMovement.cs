@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class PlayerSimpleMovement : MonoBehaviour
 {
-    public int movementSpeed = 3;
+    public int defaultMovementSpeed = 3;
+
+    public int movementSpeed;
+    private int stoppedSpeed = 0;
     public int sprintSpeed = 6;
-    public int rotationSpeed = 40;
     public Animator anim;
 
     public SphereCollider noiseRange;
 
     private void Start()
     {
+        movementSpeed = defaultMovementSpeed;
         anim = GetComponentInChildren<Animator>();
         noiseRange.enabled = false;
     }
@@ -47,17 +50,32 @@ public class PlayerSimpleMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            movementSpeed = 6;
+            movementSpeed = sprintSpeed;
             anim.SetBool("isRunning", true);
             noiseRange.enabled = true;
         }else{
-            movementSpeed = 3;
+            movementSpeed = defaultMovementSpeed;
             noiseRange.enabled = false;
             anim.SetBool("isRunning", false);
         }
 
         #endregion End Player Movement
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            CheckInventory();
+        }
     }
 
-
+    void CheckInventory()
+    {
+        if (anim.GetBool("OpenInventory") == false)
+        {
+            movementSpeed = stoppedSpeed;
+            anim.SetBool("OpenInventory", true);
+        }else{
+            anim.SetBool("OpenInventory", false);
+            movementSpeed = defaultMovementSpeed;
+        }
+    }
 }

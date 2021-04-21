@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour
     {
         CheckLevel();
     }
+    private void Update()
+    {
+        //CheckLevel();
+    }
 
     void CheckLevel()
     {
@@ -101,6 +105,122 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKey(KeyCode.A))
                 {
                     transform.Translate(Vector3.back * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                break;
+            case 5:
+                //introduce swinging doors and auto forwards
+
+                transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.Self);
+
+                if (Input.GetKey(KeyCode.S))
+                {
+                    transform.Translate(Vector3.back * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime, Space.Self);
+                    transform.Translate(Vector3.back * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    transform.Rotate(Vector3.down * rotateSpeed * Time.deltaTime, Space.Self);
+                    transform.Translate(Vector3.back * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                break;
+            case 6:
+                //introduce buttons and moving platforms along with second camera angle
+                if (Input.GetKey(KeyCode.W))
+                {
+                    transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    transform.Translate(Vector3.back * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    transform.Rotate(Vector3.down * rotateSpeed * Time.deltaTime, Space.Self);
+                }
+                break;
+            case 7:
+                //several moving platforms and two button for stopping platforms to align with end door 
+                if (Input.GetKey(KeyCode.W))
+                {
+                    transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    transform.Translate(Vector3.back * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    transform.Rotate(Vector3.down * rotateSpeed * Time.deltaTime, Space.Self);
+                }
+                break;
+            case 8:
+                // multi room level with several cameras and timed door puzzle
+                if (Input.GetKey(KeyCode.W))
+                {
+                    transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    transform.Translate(Vector3.back * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    transform.Rotate(Vector3.down * rotateSpeed * Time.deltaTime, Space.Self);
+                }
+                break;
+            case 9:
+                //puzzle to push box that triggers bomb opening hole in wall that robot will escape to
+                if (Input.GetKey(KeyCode.W))
+                {
+                    transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    transform.Translate(Vector3.back * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    transform.Rotate(Vector3.down * rotateSpeed * Time.deltaTime, Space.Self);
+                }
+                break;
+            case 10:
+                //last level where you move robot to computer console to download auto-roam feature 
+                //allowing robot to escape out sewer pipe and into the world with sensitive zagorkzkiy information
+                if (Input.GetKey(KeyCode.W))
+                {
+                    transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    transform.Translate(Vector3.back * moveSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime, Space.Self);
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    transform.Rotate(Vector3.down * rotateSpeed * Time.deltaTime, Space.Self);
                 }
                 break;
 

@@ -25,17 +25,17 @@ PrefabInstance:
     - target: {fileID: 6091938804437887824, guid: d231a15a0a8cd3c4bba34e25a854f8f7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -75.97
+      value: -78.6
       objectReference: {fileID: 0}
     - target: {fileID: 6091938804437887824, guid: d231a15a0a8cd3c4bba34e25a854f8f7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 23.04
+      value: 24.9
       objectReference: {fileID: 0}
     - target: {fileID: 6091938804437887824, guid: d231a15a0a8cd3c4bba34e25a854f8f7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.66
+      value: 26.01
       objectReference: {fileID: 0}
     - target: {fileID: 6091938804437887824, guid: d231a15a0a8cd3c4bba34e25a854f8f7,
         type: 3}
@@ -80,32 +80,37 @@ PrefabInstance:
     - target: {fileID: 7224346054998602016, guid: d231a15a0a8cd3c4bba34e25a854f8f7,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.8469224
       objectReference: {fileID: 0}
     - target: {fileID: 7224346054998602016, guid: d231a15a0a8cd3c4bba34e25a854f8f7,
         type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.7573869
       objectReference: {fileID: 0}
     - target: {fileID: 7224346054998602016, guid: d231a15a0a8cd3c4bba34e25a854f8f7,
         type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.8679245
       objectReference: {fileID: 0}
     - target: {fileID: 7224346054998602016, guid: d231a15a0a8cd3c4bba34e25a854f8f7,
         type: 3}
       propertyPath: m_Range
-      value: 15
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7224346054998602016, guid: d231a15a0a8cd3c4bba34e25a854f8f7,
         type: 3}
       propertyPath: m_SpotAngle
       value: 171.2
       objectReference: {fileID: 0}
+    - target: {fileID: 7224346054998602016, guid: d231a15a0a8cd3c4bba34e25a854f8f7,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7761353340963549494, guid: d231a15a0a8cd3c4bba34e25a854f8f7,
         type: 3}
       propertyPath: m_Name
-      value: LampBack
+      value: LampBack (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8737684166607457339, guid: d231a15a0a8cd3c4bba34e25a854f8f7,
         type: 3}

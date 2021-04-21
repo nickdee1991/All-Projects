@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         hasDied = false;
     }
 
-    IEnumerator LevelComplete()
+    public IEnumerator LevelComplete()
     {
         if (hasDied != true)
         {
