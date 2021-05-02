@@ -93,13 +93,13 @@ MonoBehaviour:
     value: 1
   aperture:
     overrideState: 1
-    value: 32
+    value: 30
   focalLength:
     overrideState: 1
     value: 60
   kernelSize:
     overrideState: 1
-    value: 2
+    value: 0
 --- !u!114 &-2190834315392963266
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -136,17 +136,17 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 0
-    value: {r: 1, g: 1, b: 1, a: 1}
+    value: {r: 1, g: 0, b: 0, a: 1}
   fastMode:
     overrideState: 0
     value: 0
   dirtTexture:
     overrideState: 0
-    value: {fileID: 0}
+    value: {fileID: 2800000, guid: 6e66ec3504795f74dba263455b37e4e6, type: 3}
     defaultState: 1
   dirtIntensity:
     overrideState: 0
-    value: 0
+    value: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

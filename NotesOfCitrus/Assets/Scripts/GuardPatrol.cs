@@ -33,6 +33,8 @@ public class GuardPatrol : MonoBehaviour {
     public bool isMoving;
     private bool shot;
 
+    Vector3 lastKnownPos;
+
 
     private NavMeshAgent nav;
 
@@ -45,8 +47,6 @@ public class GuardPatrol : MonoBehaviour {
 
     public GameObject deathParticle;
     public GameObject bullet;
-    public GameObject wheel1;
-    public GameObject wheel2;
 
     public Animator animator;
 
@@ -113,14 +113,12 @@ public class GuardPatrol : MonoBehaviour {
         gameObject.GetComponent<Animator>().enabled = false;
         gameObject.GetComponent<GuardPatrol>().isMoving = false;
         gameObject.GetComponent<GuardPatrol>().timeToSpotPlayer = stunnedTime;
-        gameObject.GetComponentInChildren<Light>().enabled = false;
         gameObject.GetComponent<NavMeshAgent>().speed = 0;
         yield return new WaitForSeconds(5);
         gameObject.GetComponent<Animator>().enabled = true;
         gameObject.GetComponent<GuardPatrol>().isMoving = true;
         gameObject.GetComponent<GuardPatrol>().timeToSpotPlayer = timeToSpotPlayer;
-        gameObject.GetComponentInChildren<Light>().enabled = true;
-        gameObject.GetComponent<NavMeshAgent>().speed = 3;
+        gameObject.GetComponent<NavMeshAgent>().speed = 3; // stop this
         animator.SetBool("isMoving", true);
         StopCoroutine(isStunned());
     }
@@ -142,10 +140,7 @@ public class GuardPatrol : MonoBehaviour {
         destPoint = (destPoint + 1) % patrolPoints.Length;
     }
 
-    IEnumerator PlayerLastPos()
-    {
-        return null;
-    }
+
 
     public bool CanSeePlayer()
     {
@@ -160,13 +155,19 @@ public class GuardPatrol : MonoBehaviour {
                     //Debug.Log("Can See Player. Attacking.."); - Yes the enemy is constantly updating to check that it can see player.
                     //need to store this and reference it once enemy loses sight
                     //Attack();
-                    Vector3 lastKnownPos = (playerPosition.position);
+                    lastKnownPos = (playerPosition.position);
                     Debug.Log(lastKnownPos);
                     return true;
                 }
             }
         }
         return false;
+    }
+
+    IEnumerator PlayerLastPos() // return the transform of the player the moment CanSeePlayer is true
+    {
+        Debug.Log(lastKnownPos);
+        return null;
     }
 
     private void OnCollisionEnter(Collision collision)
