@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class RandomSoundManager : MonoBehaviour {
 
-    private AudioSource audioSource;
+    private AudioSource audioSource; // add audioSource to same gameobject
     public AudioClip[] sound;
     private AudioClip soundPlaying;
+    public bool playOnAwake = false; // check to enable looping random sounds on startup 
     private float timeBetweenSounds;
     public float SoonestTime;
     public float FurthestTime;
 
     public void Start()
     {
-        timeBetweenSounds = Random.Range(SoonestTime, FurthestTime);
-        StartCoroutine("InteractingSound");
+        if (playOnAwake)
+        {
+            StartCoroutine("InteractingSound");
+        }
+
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -28,7 +32,6 @@ public class RandomSoundManager : MonoBehaviour {
             soundPlaying = sound[index];
             audioSource.clip = soundPlaying;
             audioSource.Play();
-            //yield return new WaitForSeconds(timeBetweenSounds);
         }
     }
 }

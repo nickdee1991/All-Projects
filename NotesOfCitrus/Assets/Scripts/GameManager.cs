@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         }
         #endregion
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             SceneManager.LoadScene("Menu");
         }
@@ -90,11 +90,6 @@ public class GameManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
-    }
-    IEnumerator UpdateMesh()
-    {
-        yield return new WaitForSeconds(1.5f);
-        //NavMeshBuilder.UpdateNavMeshData();
     }
 
     public void Captured()

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerSimpleMovement : MonoBehaviour
 {
-    public int defaultMovementSpeed = 3;
+    public int defaultMovementSpeed;
 
     public int movementSpeed;
     private int stoppedSpeed = 0;
-    public int sprintSpeed = 6;
+    public int sprintSpeed;
     public Animator anim;
 
     public SphereCollider noiseRange;

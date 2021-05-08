@@ -5,6 +5,7 @@ using UnityEngine;
 public class BirdTrigger : MonoBehaviour
 {
     private Animator anim;
+    private AudioSource aud;
     public string triggerName;
     public float moveSpeed = 5;
     public float timeToDelete;
@@ -13,6 +14,7 @@ public class BirdTrigger : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        aud = GetComponent<AudioSource>();
         BirdMove = false;
     }
 
@@ -20,6 +22,8 @@ public class BirdTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+
+            GetComponent<RandomSoundTrigger>().StartCoroutine("InteractingSound");
             anim.SetTrigger(triggerName);
             BirdMove = true;
             StartCoroutine("BirdTimer");

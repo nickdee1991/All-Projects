@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5927594884999921256}
   - component: {fileID: 7988005870025937220}
   - component: {fileID: 3787541591969728962}
+  - component: {fileID: -5400969077702921457}
   m_Layer: 0
   m_Name: DeckStairs
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5138869407642408537}
   m_LocalRotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
-  m_LocalPosition: {x: -9.110395, y: -0.26819414, z: 5.7877145}
-  m_LocalScale: {x: 3.1406465, y: 4, z: 3.429629}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &-5400969077702921457
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5138869407642408537}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3480335011311852573, guid: 96fd51308ecb80149820b47e95c7a43a, type: 3}

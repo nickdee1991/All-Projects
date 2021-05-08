@@ -135,8 +135,8 @@ Material:
     - _FoamEdge: 1
     - _FoamFalloff: 0
     - _FoamOpacity: 1
-    - _FoamReach: 0
-    - _FoamScale: 0
+    - _FoamReach: 0.355
+    - _FoamScale: 0.348
     - _FoamScale1: 0
     - _FoamScale2: 1
     - _FoamSize: 1
@@ -158,7 +158,7 @@ Material:
     - _ShadowStrength: 0.5
     - _ShallowOpacity: 0.2
     - _Shininess: 0.15
-    - _Size: 0.25
+    - _Size: 0.02
     - _Smoothness: 5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -168,7 +168,7 @@ Material:
     - _TessValue: 16
     - _Tiling: 0.05
     - _TranslucencyViewDependency: 0
-    - _Transparency: 2
+    - _Transparency: 0.25
     - _UVSec: 0
     - _WaterDepth: 0
     - _WaterFalloff: -0.5
@@ -182,7 +182,7 @@ Material:
     - _ZWrite: 0
     - __dirty: 0
     m_Colors:
-    - _BottomColor: {r: 0.2781999, g: 0.09594162, b: 0.41509432, a: 1}
+    - _BottomColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.09545212, g: 0.31258285, b: 0.3679245, a: 0.42745098}
     - _Color0: {r: 1, g: 1, b: 1, a: 1}
     - _DeepColor: {r: 0.02990388, g: 0.16228628, b: 0.30188626, a: 1}
@@ -190,11 +190,11 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _HueVariation: {r: 1, g: 1, b: 1, a: 1}
-    - _MidColor: {r: 0.113725476, g: 0.5294118, b: 0.4537716, a: 1}
+    - _MidColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 0.40032038, g: 0.49056602, b: 0.45731762, a: 1}
     - _ShallowColor: {r: 0.16019884, g: 0.45282984, b: 0.35354424, a: 1}
     - _ShalowColor: {r: 0.06421317, g: 0.36792442, b: 0.33499187, a: 0.6156863}
-    - _TopColor: {r: 0.44872433, g: 0.4716981, b: 0, a: 1}
+    - _TopColor: {r: 0, g: 0, b: 0, a: 1}
     - _TranslucencyColor: {r: 0.72321427, g: 1, b: 0, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
