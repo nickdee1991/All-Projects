@@ -12,7 +12,6 @@ public class RandomSpawner : MonoBehaviour
 
     void Awake()
     {
-
         SpawnObjects();
     }
 
@@ -27,21 +26,22 @@ public class RandomSpawner : MonoBehaviour
     //Adds object to list of available spawn points
     public void SpawnObjects()
     {
-
         foreach (Transform spawnPoint in spawnPoints) // for every spawnpoint in the list *
         {
             GameObject spawnedObjectContainer = new GameObject("SpawnedObjectContainer"); // create a container
-            SpawnedObjectContainer = spawnedObjectContainer;
 
             int destPoint = (Random.Range(0, objectContainer.Length));
             GameObject spawnedObject = Instantiate(objectContainer[destPoint], spawnPoint); // * instantiate a random gameobject from the container
             spawnedObject.transform.parent = spawnedObjectContainer.transform; // parent all random spawned objects to new container for tidyness
-        }    
+
+            SpawnedObjectContainer = spawnedObjectContainer;
+        }
     }
 
     public void RespawnObjects()
     {
         Destroy(SpawnedObjectContainer);
+        //SpawnedObjectContainer.SetActive(false);
         SpawnObjects();
     }
 }
