@@ -17,7 +17,7 @@ public class RandomSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             RespawnObjects();
         }
@@ -40,8 +40,8 @@ public class RandomSpawner : MonoBehaviour
 
     public void RespawnObjects()
     {
-        Destroy(SpawnedObjectContainer);
-        //SpawnedObjectContainer.SetActive(false);
+        //Destroy(SpawnedObjectContainer);
+        SpawnedObjectContainer.SetActive(false);
         SpawnObjects();
     }
 }

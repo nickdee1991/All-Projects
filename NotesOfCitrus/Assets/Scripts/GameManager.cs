@@ -136,4 +136,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene("Menu");
     }
+
+    public void LevelComplete()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
