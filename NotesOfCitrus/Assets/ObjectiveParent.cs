@@ -11,11 +11,14 @@ public class ObjectiveParent : MonoBehaviour
     private GameManager gm;
     private AudioManager aud;
     private TextMeshProUGUI text;
+    private Animator textAnim;
 
+    public GameObject[] Objectives;
 
-    public GameObject ObjectiveItem; // item to bring here
     public string ObjectiveCompleteText;
     public string ObjectiveParentName;
+    public float textFadeTime = 1;
+    public int ObjectivesToComplete;
     public bool hasItem;
     private bool playerInRange;
 
@@ -24,29 +27,34 @@ public class ObjectiveParent : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        text = player.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        text = GameObject.FindGameObjectWithTag("UItext").GetComponentInChildren<TextMeshProUGUI>();
+        textAnim = GameObject.FindGameObjectWithTag("UItext").GetComponentInChildren<Animator>();
         aud = FindObjectOfType<AudioManager>();
         gm = FindObjectOfType<GameManager>();
 
         playerInRange = false;
     }
 
+    private void OnMouseEnter()
+    {
+        text.text = ObjectiveParentName;
+        StartCoroutine("TextFadeIn");
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            text.enabled = true;
             playerInRange = true;
         }
     }
 
     private void OnMouseOver()
     {
-
         if (playerInRange)
         {
-            text.enabled = true;
-            text.text = ObjectiveParentName;
-            if (hasItem && Input.GetKeyDown(KeyCode.E))
+            if (ObjectivesToComplete >= Objectives.Length && hasItem && Input.GetKeyDown(KeyCode.E))
             {
                 ObjectiveComplete();
             }
@@ -56,7 +64,12 @@ public class ObjectiveParent : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         playerInRange = false;
-        text.enabled = false;
+        StartCoroutine("TextFadeOut");
+    }
+
+    private void OnMouseExit()
+    {
+        StartCoroutine("TextFadeOut");
     }
 
     public void ObjectiveComplete()
@@ -71,5 +84,19 @@ public class ObjectiveParent : MonoBehaviour
         {
             gm.LevelComplete();
         }
+    }
+
+    public IEnumerator TextFadeIn()
+    {
+        text.enabled = true;
+        textAnim.SetBool("fadeText", true);
+        yield return new WaitForSeconds(textFadeTime);
+    }
+
+    public IEnumerator TextFadeOut()
+    {
+        textAnim.SetBool("fadeText", false);
+        yield return new WaitForSeconds(textFadeTime);
+        text.enabled = false;
     }
 }

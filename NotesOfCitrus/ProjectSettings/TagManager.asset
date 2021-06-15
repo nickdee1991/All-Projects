@@ -9,6 +9,7 @@ TagManager:
   - Father
   - Mother
   - Junior
+  - UItext
   layers:
   - Default
   - TransparentFX

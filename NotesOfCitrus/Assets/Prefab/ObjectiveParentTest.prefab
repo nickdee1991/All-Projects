@@ -121,8 +121,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLevelObjective: 1
-  text: {fileID: 0}
-  ObjectiveItem: {fileID: 4061663973191458926, guid: 68fcbb731da8b1f4ab1514c830cd8365,
-    type: 3}
+  Objectives:
+  - {fileID: 0}
+  - {fileID: 0}
   ObjectiveCompleteText: You did it
+  ObjectiveParentName: Sewer Finish
+  textFadeTime: 0.5
+  ObjectivesComplete: 2
   hasItem: 0

@@ -93,7 +93,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &4061663973191458928
 SphereCollider:
@@ -106,7 +106,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4061663973191458927
 MonoBehaviour:
@@ -120,5 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2088bff777700478f3c72e04236e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectName: Gate Key
+  ObjectName: Farm Obj 1
+  Parent: {fileID: 0}
+  ObjectiveAnim: {fileID: 0}
   text: {fileID: 0}
+  textFadeTime: 1
+  spawnPoints: []

@@ -94,6 +94,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2979826150292517684}
     m_Modifications:
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1508108043716967034, guid: 4e90941df59e6c34c98dffe349fc3165,
         type: 3}
       propertyPath: m_Name
@@ -169,6 +184,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2979826150292517684}
     m_Modifications:
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1508108043716967034, guid: 4e90941df59e6c34c98dffe349fc3165,
         type: 3}
       propertyPath: m_Name
@@ -244,6 +274,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2979826150292517684}
     m_Modifications:
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1508108043716967034, guid: 4e90941df59e6c34c98dffe349fc3165,
         type: 3}
       propertyPath: m_Name
@@ -319,6 +364,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2979826150292517684}
     m_Modifications:
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1508108043716967034, guid: 4e90941df59e6c34c98dffe349fc3165,
         type: 3}
       propertyPath: m_Name
@@ -394,6 +454,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2979826150292517684}
     m_Modifications:
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1508108043716967034, guid: 4e90941df59e6c34c98dffe349fc3165,
         type: 3}
       propertyPath: m_Name
@@ -474,6 +549,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2979826150292517684}
     m_Modifications:
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1508108043716967034, guid: 4e90941df59e6c34c98dffe349fc3165,
         type: 3}
       propertyPath: m_Name
@@ -549,6 +639,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2979826150292517684}
     m_Modifications:
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1508108043716967034, guid: 4e90941df59e6c34c98dffe349fc3165,
         type: 3}
       propertyPath: m_Name
@@ -624,6 +729,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2979826150292517684}
     m_Modifications:
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 700191105020348782, guid: 4e90941df59e6c34c98dffe349fc3165,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1508108043716967034, guid: 4e90941df59e6c34c98dffe349fc3165,
         type: 3}
       propertyPath: m_Name

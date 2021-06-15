@@ -18,9 +18,27 @@ EditorBuildSettings:
     path: Assets/Scenes/2Forest.unity
     guid: e1a03c3df9fe1c447a93b34a17de0c88
   - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: 9ea25d6ca232de84ab1e4e67e1a9c281
+    path: Assets/Scenes/3Town.unity
+    guid: 75c464435885fb74a8e22b620ee94e58
+  - enabled: 1
+    path: Assets/Scenes/4aPoliceStation.unity
+    guid: 9a2355600d675124d9c53f63354b9871
+  - enabled: 1
+    path: Assets/Scenes/4bSewerPassage.unity
+    guid: 07ae24115caf3f54380083dda56a40f1
+  - enabled: 1
+    path: Assets/Scenes/5Farm.unity
+    guid: 2ba45a996cb4bdf42ad28b8eb025bfe5
+  - enabled: 1
+    path: Assets/Scenes/6Road.unity
+    guid: 3b6c8fae523365848a1bf7c25843c0d4
+  - enabled: 1
+    path: Assets/Scenes/7Finale.unity
+    guid: 50b6a1341853cab4da49462f3fcec256
   - enabled: 1
     path: Assets/Scenes/Outro.unity
     guid: 0e33a8e47e163534a858c5c3b2172fb2
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 9ea25d6ca232de84ab1e4e67e1a9c281
   m_configObjects: {}

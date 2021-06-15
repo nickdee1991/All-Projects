@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 using UnityEngine.AI;
-
 
 public class GameManager : MonoBehaviour
 {
     private GameObject player;
-    public Transform StartSpawn;
+
+    public Transform[] spawnPoints;
+    public Transform startSpawn;
+
     private AudioManager Aud;
 
     public MeshRenderer keyHand;
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour
     private Animator anim;
 
     public int timesCaptured = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -122,8 +126,8 @@ public class GameManager : MonoBehaviour
         Hammer = false;
         Chisel = false;
         anim.SetBool("CapturedTransition", false);
-        player.transform.position = StartSpawn.transform.position;
-        player.transform.rotation = StartSpawn.transform.rotation;
+        player.transform.position = startSpawn.transform.position;
+        player.transform.rotation = startSpawn.transform.rotation;
         player.GetComponent<PlayerSimpleMovement>().movementSpeed = 3;
         yield return new WaitForSeconds(3f);
         player.GetComponent<PlayerCaught>().Captured = false;
