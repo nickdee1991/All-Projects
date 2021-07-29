@@ -150,10 +150,8 @@ namespace Invector.vCharacterController
         void Start()
         {
             // store the Animator component
-            animator = GetComponent<Animator>();
             _parentRigb = GetComponent<Rigidbody>();
             iChar = GetComponent<vICharacter>();
-
             if (iChar != null)
             {
                 iChar.onActiveRagdoll.AddListener(ActivateRagdoll);
@@ -166,15 +164,21 @@ namespace Invector.vCharacterController
                 _collisionPrefab.transform.position = transform.position;
                 collisionSource = _collisionPrefab.AddComponent<AudioSource>();
             }
+            LoadBodyPart();
+            CreateRagdollContainer();
+            if (startRagdolled) Invoke("ActivateRagdoll", 0.1f);
+        }
 
+        public void LoadBodyPart()
+        {
+            bodyParts.Clear();
             // find character chest and hips
+            if(!animator)animator = GetComponent<Animator>();        
             characterChest = animator.GetBoneTransform(HumanBodyBones.Chest);
-            characterHips = animator.GetBoneTransform(HumanBodyBones.Hips);
+            characterHips = animator.GetBoneTransform(HumanBodyBones.Hips);           
             hipsParent = characterHips.parent;
             // set all RigidBodies to kinematic so that they can be controlled with Mecanim
-            // and there will be no glitches when transitioning to a ragdoll
-            CreateRagdollContainer();
-
+            // and there will be no glitches when transitioning to a ragdoll 
             // find all the transforms in the character, assuming that this script is attached to the root
             if (characterHips)
             {
@@ -202,8 +206,6 @@ namespace Invector.vCharacterController
                 setKinematic(true);
                 setCollider(true);
             }
-
-            if (startRagdolled) Invoke("ActivateRagdoll", 0.1f);
         }
 
         void CreateRagdollContainer()

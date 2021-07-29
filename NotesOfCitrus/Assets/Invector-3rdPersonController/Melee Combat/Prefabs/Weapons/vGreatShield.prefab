@@ -100,14 +100,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000012147819750}
-  m_LocalRotation: {x: -0.34749585, y: -0.4903784, z: -0.7623931, w: 0.23985904}
-  m_LocalPosition: {x: 0.005, y: -0.036, z: 0.013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000013590389754}
   m_Father: {fileID: 4000013860568284}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -66.124, y: 46.708004, z: 183.53}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1000012874595254
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +171,7 @@ MonoBehaviour:
     recoil_id: 0
     reaction_id: 0
     damageType: 
+    force: {x: 0, y: 0, z: 0}
   overrideDamageSender: {fileID: 0}
   hitBoxes: []
   damageModifier: 0
@@ -179,6 +180,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onRecoilHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onPassDamage:
     m_PersistentCalls:
       m_Calls: []
   onEnableDamage:
@@ -254,3 +258,4 @@ MonoBehaviour:
   onUnequip:
     m_PersistentCalls:
       m_Calls: []
+  referenceItem: {fileID: 0}

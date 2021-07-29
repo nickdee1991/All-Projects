@@ -3,8 +3,42 @@ using UnityEngine;
 
 namespace Invector.vEventSystems
 {
+    public interface vIAnimatorStateInfoController
+    {       
+        vAnimatorStateInfos animatorStateInfos { get; }
+    }
+    public static class vIAnimatorStateInfoHelper
+    {
+        /// <summary>
+        /// Register all listener to <see cref="vAnimatorTagBase"/> listener
+        /// </summary>
+        /// <param name="animatorStateInfos"></param>
+        public static void Register(this vIAnimatorStateInfoController animatorStateInfos)
+        {
+            if (animatorStateInfos.isValid()) animatorStateInfos.animatorStateInfos.RegisterListener();
+        }
+        /// <summary>
+        /// Remove all listener from <see cref="vAnimatorTagBase"/> 
+        /// </summary>
+        /// <param name="animatorStateInfos"></param>
+        public static void UnRegister(this vIAnimatorStateInfoController animatorStateInfos)
+        {
+            if (animatorStateInfos.isValid()) animatorStateInfos.animatorStateInfos.RemoveListener();
+        }
+        /// <summary>
+        /// Check if is valid 
+        /// </summary>
+        /// <param name="animatorStateInfos"></param>
+        /// <returns></returns>
+        public static bool isValid(this vIAnimatorStateInfoController animatorStateInfos)
+        {
+            return animatorStateInfos != null && animatorStateInfos.animatorStateInfos != null && animatorStateInfos.animatorStateInfos.animator != null;
+        }
+
+    }
     public class vAnimatorStateInfos
     {
+        public bool debug;
         public Animator animator;
         public vAnimatorStateInfos(Animator animator)
         {
@@ -33,7 +67,9 @@ namespace Invector.vEventSystems
             {
                 bhv[i].RemoveStateInfoListener(this);
                 bhv[i].AddStateInfoListener(this);
+               
             }
+            if (debug) Debug.Log($"Listeners Registered", animator);
         }
 
         public void RemoveListener()
@@ -46,6 +82,7 @@ namespace Invector.vEventSystems
                 {
                     bhv[i].RemoveStateInfoListener(this);
                 }
+                if (debug) Debug.Log($"Listeners Removed", animator );
             }
         }
 
@@ -58,8 +95,11 @@ namespace Invector.vEventSystems
         /// <param name="layer">Animator layer</param>
         public void AddStateInfo(string tag, int layer)
         {
+           // Debug.Log($"ADD {tag}  to  Layer {layer}");
             if (!statesRunning.ContainsKey(tag)) statesRunning.Add(tag, new List<int>() { layer });
             else statesRunning[tag].Add(layer);
+
+            if (debug) Debug.Log($"<color=green>Add tag : <b><i>{tag}</i></b></color>,in the animator layer :{layer}", animator);
         }
         /// <summary>
         /// Remove Tag of the layer
@@ -74,6 +114,7 @@ namespace Invector.vEventSystems
                 statesRunning[tag].Remove(inforef);
                 if (statesRunning[tag].Count == 0)
                     statesRunning.Remove(tag);
+                if (debug) Debug.Log($"<color=red>Remove tag : <b><i>{tag}</i></b></color>, in the animator layer :{layer}", animator);
             }           
         }
 

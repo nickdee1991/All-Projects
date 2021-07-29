@@ -37,7 +37,7 @@ namespace Invector.vShooter
         }
 
         public void OnChangePowerCharger(float charger)
-        {
+        {            
             if (animator) animator.SetFloat("PowerCharger", charger);
         }
 

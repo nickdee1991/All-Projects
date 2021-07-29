@@ -130,25 +130,39 @@ namespace Invector.vShooter
         /// <param name="sender">ender to reference of the damage</param>
         /// <param name="successfulShot">Action to check if shoot is sucessful</param>
         public virtual void Shoot(Vector3 aimPosition, Transform _sender = null, UnityAction<bool> successfulShot = null)
-        {          
+        {
             if (HasAmmo())
             {
-                if (!CanDoShot) return;
-               
+                if (!CanDoShot)
+                {
+                    return;
+                }
+
                 UseAmmo();
                 this.sender = _sender != null ? _sender : transform;
                 HandleShot(aimPosition);
-                if (successfulShot != null) successfulShot.Invoke(true);
+                if (successfulShot != null)
+                {
+                    successfulShot.Invoke(true);
+                }
+
                 _nextShootTime = Time.time + shootFrequency;
                 _nextEmptyClipTime = _nextShootTime;
             }
             else
             {
-                if (!CanDoEmptyClip) return;
-              
+                if (!CanDoEmptyClip)
+                {
+                    return;
+                }
+
                 EmptyClipEffect();
-                if (successfulShot != null) successfulShot.Invoke(false);
-                  _nextEmptyClipTime = Time.time + shootFrequency;
+                if (successfulShot != null)
+                {
+                    successfulShot.Invoke(false);
+                }
+
+                _nextEmptyClipTime = Time.time + shootFrequency;
             }
         }
 
@@ -162,9 +176,11 @@ namespace Invector.vShooter
                 bool _canShot = _nextShootTime < Time.time;
                 return _canShot;
             }
-        }     
-
-        protected virtual bool CanDoEmptyClip
+        }
+        /// <summary>
+        /// Check if can do empty clip effect, <seealso cref="shootFrequency"/>
+        /// </summary>
+        public virtual bool CanDoEmptyClip
         {
             get
             {
@@ -179,9 +195,16 @@ namespace Invector.vShooter
         /// <param name="count">count to use</param>
         public virtual void UseAmmo(int count = 1)
         {
-            if (ammo <= 0) return;
+            if (ammo <= 0)
+            {
+                return;
+            }
+
             ammo -= count;
-            if (ammo <= 0) ammo = 0;
+            if (ammo <= 0)
+            {
+                ammo = 0;
+            }
         }
 
         /// <summary>
@@ -190,7 +213,7 @@ namespace Invector.vShooter
         /// <returns></returns>
         public virtual bool HasAmmo()
         {
-            
+
             return isInfinityAmmo || ammo > 0;
         }
         #endregion
@@ -227,7 +250,7 @@ namespace Invector.vShooter
         }
 
         protected virtual void ShootBullet(Vector3 aimPosition)
-        {            
+        {
             var dir = aimPosition - muzzle.position;
 
             var rotation = Quaternion.LookRotation(dir);
@@ -239,13 +262,13 @@ namespace Invector.vShooter
                 {
                     var dispersionDir = Dispersion(dir.normalized, maxDamageDistance, dispersion);
                     var spreadRotation = Quaternion.LookRotation(dispersionDir);
-                    bulletObject = Instantiate(projectile, muzzle.transform.position, spreadRotation) as GameObject;
+                    bulletObject = Instantiate(projectile, muzzle.transform.position, spreadRotation);
 
-                    var pCtrl = bulletObject.GetComponent<vProjectileControl>();                    
+                    var pCtrl = bulletObject.GetComponent<vProjectileControl>();
 
                     pCtrl.shooterTransform = sender;
-                    pCtrl.ignoreTags = ignoreTags;                    
-                    pCtrl.hitLayer = hitLayer;                    
+                    pCtrl.ignoreTags = ignoreTags;
+                    pCtrl.hitLayer = hitLayer;
                     pCtrl.damage.sender = sender;
                     pCtrl.startPosition = bulletObject.transform.position;
                     pCtrl.damageByDistance = damageByDistance;
@@ -262,7 +285,7 @@ namespace Invector.vShooter
             }
             else if (projectilesPerShot > 0 && projectile)
             {
-                bulletObject = Instantiate(projectile, muzzle.transform.position, rotation) as GameObject;
+                bulletObject = Instantiate(projectile, muzzle.transform.position, rotation);
                 var pCtrl = bulletObject.GetComponent<vProjectileControl>();
                 pCtrl.shooterTransform = sender;
                 pCtrl.ignoreTags = ignoreTags;
@@ -343,7 +366,9 @@ namespace Invector.vShooter
         protected virtual void StopSound()
         {
             if (source)
+            {
                 source.Stop();
+            }
         }
 
         protected virtual IEnumerator LightOnShoot(float time = 0)
@@ -362,7 +387,9 @@ namespace Invector.vShooter
             if (emittShurykenParticle != null)
             {
                 foreach (ParticleSystem pe in emittShurykenParticle)
+                {
                     pe.Emit(1);
+                }
             }
         }
 
@@ -371,7 +398,9 @@ namespace Invector.vShooter
             if (emittShurykenParticle != null)
             {
                 foreach (ParticleSystem pe in emittShurykenParticle)
+                {
                     pe.Stop();
+                }
             }
         }
 
@@ -386,6 +415,7 @@ namespace Invector.vShooter
             onEmptyClip.Invoke();
         }
         #endregion
+
         #endregion
     }
 }

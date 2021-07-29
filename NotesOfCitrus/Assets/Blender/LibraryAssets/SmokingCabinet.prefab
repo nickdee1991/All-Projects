@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 168881769367706432}
   m_Layer: 0
   m_Name: SmokingCabinet
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1890306174438474277}
   m_LocalRotation: {x: -0.5, y: 0.50000006, z: 0.50000006, w: 0.5}
   m_LocalPosition: {x: -2.1330512, y: 0.94860846, z: 49.729855}
-  m_LocalScale: {x: 28.924103, y: 28.924103, z: 28.924103}
+  m_LocalScale: {x: 38.565475, y: 38.56547, z: 38.56547}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ff0dc2127e6af1c45889d03dbec9bc66, type: 2}
+  - {fileID: 2100000, guid: b012073f1a28d7c48983138837a1c5ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

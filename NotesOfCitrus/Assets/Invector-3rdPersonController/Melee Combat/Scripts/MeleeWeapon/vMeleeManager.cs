@@ -53,7 +53,7 @@ namespace Invector.vMelee
         /// <summary>
         /// Init properties
         /// </summary>
-        protected virtual void Init()
+        public virtual void Init()
         {
             fighter = gameObject.GetMeleeFighter();
             ///Initialize all bodyMembers and weapons
@@ -481,7 +481,7 @@ namespace Invector.vMelee
     public enum vHumanBones
     {
         RightHand, RightLowerArm, RightUpperArm, RightShoulder,
-        LeftHand, LeftLowerArm, LetfUpperArm, LeftShoulder,
+        LeftHand, LeftLowerArm, LeftUpperArm, LeftShoulder,
         RightFoot, RightLowerLeg, RightUpperLeg,
         LeftFoot, LeftLowerLeg, LeftUpperLeg,
         Chest,

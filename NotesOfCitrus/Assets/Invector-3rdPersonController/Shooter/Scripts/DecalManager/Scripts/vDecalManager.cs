@@ -7,6 +7,7 @@ namespace Invector.vShooter
     public class vDecalManager : vMonoBehaviour
     {
         public LayerMask layermask;
+      
         public List<DecalObject> decalObjects;
 
         public virtual void CreateDecal(RaycastHit hitInfo)
@@ -18,53 +19,45 @@ namespace Invector.vShooter
         {
             if (layermask == (layermask | (1 << target.layer)))
             {
-                var decalObj = decalObjects.Find(d => d.tag.Equals(target.tag));
+                DecalObject decalObj = GetDecal(target.tag);
                 if (decalObj != null)
                 {
                     RaycastHit hit;
                     if (Physics.SphereCast(new Ray(position + (normal * 0.1f), -normal), 0.0001f, out hit, 1f, layermask))
                     {
+
                         if (hit.collider.gameObject == target)
                         {
                             var rotation = Quaternion.LookRotation(hit.normal, Vector3.up);
-                            // instantiate hit effect particle
-                            if (decalObj.hitEffect != null)
-                            {
-                                var effect = Instantiate(decalObj.hitEffect, hit.point, rotation)as GameObject;
-                                effect.transform.SetParent(vObjectContainer.root,true);
-                            }
-
-                            // instantiate decal based on the gameobject tag
-                            var decal = decalObj.GetDecal();
-                            if (decal != null)
-                            {
-                                var _decal = Instantiate(decal, hit.point, rotation) as GameObject;
-                                _decal.transform.SetParent(target.gameObject.transform,true);
-                            }
+                            var point = hit.point;
+                            decalObj.CreateEffect(point, rotation,gameObject, target);
+                           
                         }
                     }
                 }
             }
         }
 
+        protected virtual DecalObject GetDecal(string tag)
+        {
+            return decalObjects.Find(d=>d.tag.Equals(tag));
+        }
+
         [System.Serializable]
         public class DecalObject
         {
-            public string tag;
-            public GameObject hitEffect;
-            public List<GameObject> decals;
-
-            public GameObject GetDecal()
+            public string tag;          
+             
+            [SerializeField] protected vImpactEffectBase impactEffect;
+            [SerializeField] protected List<vImpactEffectBase> additionalEffects;
+            public void CreateEffect(Vector3 position,Quaternion rotation,GameObject impactSender, GameObject impactReceiver)
             {
-                if (decals.Count > 1)
+                impactEffect.DoImpactEffect(position, rotation,impactSender, impactReceiver);
+                for(int i=0;i<additionalEffects.Count;i++)
                 {
-                    var index = Random.Range(0, decals.Count - 1);
-                    return decals[index];
-                }
-                else if (decals.Count == 1)
-                    return decals[0];
-                else
-                    return null;
+                    additionalEffects[i].DoImpactEffect(position, rotation,impactSender, impactReceiver);
+            }
+             
             }
         }
     }

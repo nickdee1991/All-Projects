@@ -11,14 +11,14 @@ namespace Invector.vCharacterController
             if ((ragdoll && !ragdoll.iChar.isDead))
             {
                 var _damage = ApplyDamageModifiers(damage);
-                ragdoll.gameObject.ApplyDamage(ApplyDamageModifiers(_damage), attacker);
-                onReceiveDamage.Invoke(ApplyDamageModifiers(_damage));
+                ragdoll.gameObject.ApplyDamage(_damage, attacker);
+                onReceiveDamage.Invoke(_damage);
             }
             else if(targetReceiver)
             {
                 var _damage = ApplyDamageModifiers(damage);
-                targetReceiver.gameObject.ApplyDamage(ApplyDamageModifiers(_damage), attacker);
-                onReceiveDamage.Invoke(ApplyDamageModifiers(_damage));
+                targetReceiver.gameObject.ApplyDamage(_damage, attacker);
+                onReceiveDamage.Invoke(_damage);
             }
             else
             {

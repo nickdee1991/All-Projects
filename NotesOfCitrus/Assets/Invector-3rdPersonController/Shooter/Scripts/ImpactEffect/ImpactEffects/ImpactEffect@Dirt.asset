@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f334876bec89dc40a58d294e54231d4, type: 3}
+  m_Name: ImpactEffect@Dirt
+  m_EditorClassIdentifier: 
+  decals:
+  - {fileID: 183892, guid: 7dd479543444c5144b3c1966b17fca06, type: 3}
+  - {fileID: 165142, guid: b62b4fc2cd5b8c546b387fa2ee56b37e, type: 3}
+  - {fileID: 115440, guid: e92784863bb9a5c4084cf43e1844386f, type: 3}
+  - {fileID: 163668, guid: ed6aff054fba40c44afd9720ff3c913b, type: 3}
+  - {fileID: 155644, guid: 574f790ed6b88694897032b472cb87c1, type: 3}
+  hitEffects:
+  - {fileID: 100000, guid: ce6790aad23ca5444ac5ab151aea9cec, type: 3}

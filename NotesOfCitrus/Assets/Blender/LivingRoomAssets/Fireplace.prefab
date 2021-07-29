@@ -5846,8 +5846,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000007, y: 1.0000007, z: 1.0000007}
-  m_Center: {x: -0.000005245211, y: 0.000006079677, z: -0.000011444097}
+  m_Size: {x: 1, y: 1, z: 1.1924024}
+  m_Center: {x: 0, y: 0, z: 0.09620121}
 --- !u!114 &5876020900194038561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6181,7 +6181,7 @@ GameObject:
   - component: {fileID: 8648432565126705767}
   m_Layer: 8
   m_Name: Fireplace
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -6195,7 +6195,7 @@ Transform:
   m_GameObject: {fileID: 4193135228519781319}
   m_LocalRotation: {x: -0.5, y: 0.50000006, z: 0.50000006, w: 0.5}
   m_LocalPosition: {x: -4.0714574, y: 1.3300004, z: 49.382725}
-  m_LocalScale: {x: 38, y: 38, z: 38}
+  m_LocalScale: {x: 60, y: 60, z: 60}
   m_Children:
   - {fileID: 1762535968}
   - {fileID: 595406260}
@@ -6232,7 +6232,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ff0dc2127e6af1c45889d03dbec9bc66, type: 2}
+  - {fileID: 2100000, guid: b012073f1a28d7c48983138837a1c5ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6358,8 +6358,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000007, y: 1.0000007, z: 1.0000007}
-  m_Center: {x: -0.000005245211, y: 0.000006079677, z: -0.000011444097}
+  m_Size: {x: 1, y: 1, z: 1.0000048}
+  m_Center: {x: 0, y: 0, z: 0.0000023543835}
 --- !u!114 &8011825108185023051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6776,8 +6776,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000007, y: 1.0000007, z: 1.0000007}
-  m_Center: {x: -0.000005245211, y: 0.000006079677, z: -0.000011444097}
+  m_Size: {x: 1, y: 1, z: 1.1924024}
+  m_Center: {x: 0, y: 0, z: 0.09620121}
 --- !u!114 &5140884142044929328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7285,8 +7285,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000007, y: 1.0000007, z: 1.0000007}
-  m_Center: {x: -0.000005245211, y: 0.000006079677, z: -0.000011444097}
+  m_Size: {x: 1, y: 1, z: 1.1924024}
+  m_Center: {x: 0, y: 0, z: 0.09620121}
 --- !u!114 &1000374474852119766
 MonoBehaviour:
   m_ObjectHideFlags: 0

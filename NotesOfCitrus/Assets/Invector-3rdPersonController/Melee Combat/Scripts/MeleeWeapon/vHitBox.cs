@@ -9,17 +9,24 @@ namespace Invector.vMelee
         [HideInInspector]
         public vMeleeAttackObject attackObject;
         // [HideInInspector]
-        public Collider trigger;
+        public Collider trigger
+        {
+            get
+            {
+                _trigger = gameObject.GetComponent<Collider>();
+
+                if (!_trigger) _trigger = gameObject.AddComponent<BoxCollider>();
+                return _trigger;
+            }
+        }
         public int damagePercentage = 100;
         [vEnumFlag]
         public vHitBoxType triggerType = vHitBoxType.Damage | vHitBoxType.Recoil;
-        private bool canHit;
-
+        protected bool canHit;
+        protected Collider _trigger;
         void OnDrawGizmos()
         {
-            trigger = gameObject.GetComponent<Collider>();
-
-            if (!trigger) trigger = gameObject.AddComponent<BoxCollider>();
+           
             Color color = (triggerType & vHitBoxType.Damage) != 0 && (triggerType & vHitBoxType.Recoil) == 0 ? Color.green :
                            (triggerType & vHitBoxType.Damage) != 0 && (triggerType & vHitBoxType.Recoil) != 0 ? Color.yellow :
                            (triggerType & vHitBoxType.Recoil) != 0 && (triggerType & vHitBoxType.Damage) == 0 ? Color.red : Color.black;
@@ -46,9 +53,7 @@ namespace Invector.vMelee
         }
 
         void Start()
-        {
-            trigger = GetComponent<Collider>();
-            if (!trigger) trigger = gameObject.AddComponent<BoxCollider>();
+        {          
             if (trigger)
             {
                 trigger.isTrigger = true;

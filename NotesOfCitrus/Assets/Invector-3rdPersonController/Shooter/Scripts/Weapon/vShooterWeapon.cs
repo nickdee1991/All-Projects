@@ -196,7 +196,7 @@ namespace Invector.vShooter
             {
                 if (value != _charge)
                 {
-                    _charge = value;
+                    _charge = value;                    
                     onPowerChargerChanged.Invoke(_charge);
                     if (_charge >= 1)
                     {
@@ -336,7 +336,7 @@ namespace Invector.vShooter
                     return base.damageMultiplier;
                 }
 
-                return (int)(1 + Mathf.Lerp(0, chargeDamageMultiplier, _charge)) + damageMultiplierMod;
+                return (float)System.Math.Round((1 + Mathf.Lerp(0, chargeDamageMultiplier, _charge)) + damageMultiplierMod,1);
             }
         }
 

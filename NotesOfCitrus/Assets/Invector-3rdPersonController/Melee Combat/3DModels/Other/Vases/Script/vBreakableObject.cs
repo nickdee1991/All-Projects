@@ -37,7 +37,7 @@ namespace Invector
                 isBroken = true;
                 StartCoroutine(BreakObjet());
             }
-            if (damage.damageValue > 0)
+            if(damage.damageValue>0)
             {
                 onReceiveDamage.Invoke(damage);
             }

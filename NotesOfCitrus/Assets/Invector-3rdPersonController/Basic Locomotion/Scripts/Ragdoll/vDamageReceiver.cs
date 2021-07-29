@@ -65,7 +65,7 @@ namespace Invector.vCharacterController
         }
 
         public virtual vDamage ApplyDamageModifiers(vDamage damage)
-        {
+        {          
             float multiplier = (useRandomValues && !fixedValues) ? Random.Range(minDamageMultiplier, maxDamageMultiplier) :
                                (useRandomValues && fixedValues) ? randomChange ? maxDamageMultiplier : minDamageMultiplier : damageMultiplier;
             var _damage = new vDamage(damage);

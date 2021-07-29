@@ -54,6 +54,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -65,6 +66,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -185,18 +187,6 @@ MonoBehaviour:
   onDestroyProjectile:
     m_PersistentCalls:
       m_Calls: []
-  damageByDistance: 0
-  minDamage: 0
-  maxDamage: 0
-  DropOffStart: 8
-  velocity: 580
-  DropOffEnd: 50
-  startPosition: {x: 0, y: 0, z: 0}
-  hitLayer:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  ignoreTags: []
-  shooterTransform: {fileID: 0}
   instantiateData:
     aimPos: {x: 0, y: 0, z: 0}
     dir: {x: 0, y: 0, z: 0}
@@ -216,6 +206,7 @@ TrailRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -227,6 +218,7 @@ TrailRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -344,30 +336,23 @@ MonoBehaviour:
     m_Bits: 32769
   decalObjects:
   - tag: Metal
-    hitEffect: {fileID: 100000, guid: 89525715262953844a40648bc626df55, type: 3}
-    decals:
-    - {fileID: 183892, guid: 84f28c6a10dbe8148aaa8fe054515689, type: 3}
+    impactEffect: {fileID: 11400000, guid: bafe0df184460ad48959c8cfbaa6df5d, type: 2}
+    additionalEffects: []
   - tag: Wood
-    hitEffect: {fileID: 100000, guid: 72bfe83995b92e94fad5ba375db97947, type: 3}
-    decals:
-    - {fileID: 183892, guid: 57dda1262bff1c541a37c7eb3df8ff68, type: 3}
+    impactEffect: {fileID: 11400000, guid: ec647edb005ce054292afe6b66e8edfa, type: 2}
+    additionalEffects: []
   - tag: Glass
-    hitEffect: {fileID: 100000, guid: 96604447a5f8e9e4a834cba7d5fbd25d, type: 3}
-    decals:
-    - {fileID: 183892, guid: e90698275d0219e4197e3021925bd22f, type: 3}
+    impactEffect: {fileID: 11400000, guid: 8527e9d390af89a4daabd35d3516123b, type: 2}
+    additionalEffects: []
   - tag: Concrete
-    hitEffect: {fileID: 100000, guid: 623c02857372d0e4c9a8dc809104498c, type: 3}
-    decals:
-    - {fileID: 183892, guid: adcc07c1b4d949244958f04e8b4afad7, type: 3}
+    impactEffect: {fileID: 11400000, guid: c0ff2d16bbab9f44ba42c0191a303694, type: 2}
+    additionalEffects: []
   - tag: Dirt
-    hitEffect: {fileID: 100000, guid: ce6790aad23ca5444ac5ab151aea9cec, type: 3}
-    decals:
-    - {fileID: 183892, guid: 7dd479543444c5144b3c1966b17fca06, type: 3}
-    - {fileID: 165142, guid: b62b4fc2cd5b8c546b387fa2ee56b37e, type: 3}
-    - {fileID: 115440, guid: e92784863bb9a5c4084cf43e1844386f, type: 3}
-    - {fileID: 163668, guid: ed6aff054fba40c44afd9720ff3c913b, type: 3}
-    - {fileID: 155644, guid: 574f790ed6b88694897032b472cb87c1, type: 3}
+    impactEffect: {fileID: 11400000, guid: e1a8fa6bf2308344993f0b8168b5a00c, type: 2}
+    additionalEffects: []
+  - tag: Untagged
+    impactEffect: {fileID: 11400000, guid: e1a8fa6bf2308344993f0b8168b5a00c, type: 2}
+    additionalEffects: []
   - tag: Barrel
-    hitEffect: {fileID: 100000, guid: 89525715262953844a40648bc626df55, type: 3}
-    decals:
-    - {fileID: 152848, guid: e2c2f874f7e808a4bb99b90c5c0d3652, type: 3}
+    impactEffect: {fileID: 11400000, guid: fcc7248b6f746954384a23fff2e8676e, type: 2}
+    additionalEffects: []

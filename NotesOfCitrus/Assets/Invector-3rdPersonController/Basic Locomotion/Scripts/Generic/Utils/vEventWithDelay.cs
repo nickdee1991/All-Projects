@@ -14,7 +14,7 @@ namespace Invector.Utils
         [vHideInInspector("triggerOnStart")]
         public int eventIndex;
 
-        private void Enable()
+        private void OnEnable()
         {
             if (triggerOnEnable)
             {
@@ -32,6 +32,10 @@ namespace Invector.Utils
             }
         }
 
+        private void OnDisable()
+        {
+            StopAllCoroutines();
+        }
         [SerializeField] private vEventWithDelayObject[] events = new vEventWithDelayObject[0];
         public void DoEvents()
         {
