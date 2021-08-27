@@ -16,8 +16,8 @@ GameObject:
   m_Name: Lounge
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &3429679136360653185
 Transform:
@@ -91,5 +91,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.036746897, y: 0.087801516, z: 0.045438632}
-  m_Center: {x: 0.0046848124, y: 0.000000029802322, z: 0.0073042847}
+  m_Size: {x: 0.0367469, y: 0.08780154, z: 0.04543864}
+  m_Center: {x: 0.0046850513, y: 0, z: 0.007304285}

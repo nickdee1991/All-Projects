@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     private GameManager gm;  
     public GameObject player;
+    public GameObject InvestigateLocation;
+
     private Animator anim;
     public LayerMask viewMask;
     private PatrolRandom patrolRandom;
@@ -40,7 +42,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerPosition = player.transform;
 
-        StartCoroutine(LateStart(lateStart));
+        //StartCoroutine(LateStart(lateStart)); //disable this for now
 
         viewAngle = spotlight.spotAngle;
         originalSpotlightColour = spotlight.color;
@@ -73,7 +75,7 @@ private void Update()
             detectedEnemy = false;
             patrolRandom.enabled = true;
             playerVisibleTimer -= Time.deltaTime;
-            patrolRandom.agent.speed = patrolSpeed;
+            patrolRandom.agent.speed = patrolSpeed; //Commented this to stop beartrap trigger from reverting speed
             if (patrolRandom == null) // check for patrolRandom script
             {
                 patrolRandom = GetComponent<PatrolRandom>();
@@ -119,6 +121,13 @@ private void Update()
 
     }
 
+    public void Investigate()
+    {
+        Transform InvestigateLocationPosition; // create a transform of the position of noise/evidence etc
+        InvestigateLocationPosition = InvestigateLocation.transform; // any noise that enemy is within radius of will become "InvestigateLocation"
+        patrolRandom.agent.destination = InvestigateLocationPosition.transform.position; // next new patrol point becomes "InvestigateLocationPosition"
+    }
+
     public void Attack()
     {
         if (player.GetComponent<PlayerCaught>().Captured == false)
@@ -136,6 +145,7 @@ private void Update()
     {
         //store last known player position
         //move there and wait a set amount
+        //look around a bit
         //resume patrol
     }
 }

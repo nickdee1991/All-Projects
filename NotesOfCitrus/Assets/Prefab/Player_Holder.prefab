@@ -1270,10 +1270,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b624a5eb7285d5a4cb9f9f88c1cf4300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMovementSpeed: 3
+  defaultMovementSpeed: 4
   movementSpeed: 0
-  sprintSpeed: 12
+  stoppedSpeed: 0
+  sprintSpeed: 9
   anim: {fileID: 0}
+  isTrapped: 0
   noiseRange: {fileID: 4741670433750294414}
 --- !u!108 &4741670433750294415
 Light:

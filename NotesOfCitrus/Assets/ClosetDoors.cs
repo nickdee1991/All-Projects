@@ -15,13 +15,13 @@ public class ClosetDoors : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E)&& doorOpened == false)
         {
-            doorOpened = true;
             GetComponent<Animator>().SetBool("open", true);
+            doorOpened = true;
         }
         else if (Input.GetKeyDown(KeyCode.E) && doorOpened)
         {
-            doorOpened = false;
             GetComponent<Animator>().SetBool("open", false);
+            doorOpened = false;
         }
     }
 }
