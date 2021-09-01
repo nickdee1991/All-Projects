@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3852500298325913624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 27.04, y: 2.687, z: -22.538}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3852500298325913624}
-  m_Mesh: {fileID: -5495902117074765545, guid: 3b27e64d747a13a4c805b2af3df8b1c9, type: 3}
+  m_Mesh: {fileID: 8082454493720880963, guid: 37eb23115b828c947a1a3cc0ac49e89d, type: 3}
 --- !u!23 &3852500298325913620
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -106,10 +106,10 @@ HingeJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3852500298325913624}
   m_ConnectedBody: {fileID: 0}
-  m_Anchor: {x: 2.1, y: 1.5, z: -0.05}
-  m_Axis: {x: 1, y: -90, z: 0}
+  m_Anchor: {x: -2.25, y: 0, z: 0}
+  m_Axis: {x: 1, y: 0, z: 90}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 53.57362, y: 52.25, z: -316.69138}
+  m_ConnectedAnchor: {x: 47.4396, y: 51.903, z: -329.11615}
   m_UseSpring: 1
   m_Spring:
     spring: 1
@@ -122,8 +122,8 @@ HingeJoint:
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
-    min: -159.25989
-    max: 145.60956
+    min: -135.31972
+    max: 132.31952
     bounciness: 0.5
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -144,5 +144,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.5344582, y: 6.6033335, z: 0.2}
-  m_Center: {x: 0.313982, y: 0.6733817, z: -0.000038146973}
+  m_Size: {x: 3.45, y: 0.1, z: 6.6}
+  m_Center: {x: -0.313982, y: -0.000045884724, z: 0.6733818}

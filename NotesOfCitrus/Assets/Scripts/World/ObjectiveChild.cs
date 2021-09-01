@@ -14,6 +14,10 @@ public class ObjectiveChild : MonoBehaviour
     private TextMeshProUGUI text;
     private Animator textAnim;
 
+
+    private MeshRenderer mesh;
+    public GameObject ObjectMesh;
+
     private bool hasPickedUp;
     private bool playerInRange;
 
@@ -26,13 +30,22 @@ public class ObjectiveChild : MonoBehaviour
 
     private void Awake()
     {
+        mesh = GetComponent<MeshRenderer>();
+
+        if (ObjectMesh == false)
+        {
+            mesh.enabled = true;
+        }else{
+            mesh.enabled = false;
+            Instantiate(ObjectMesh, gameObject.transform);
+        }
+
         gm = FindObjectOfType<GameManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         text = GameObject.FindGameObjectWithTag("UItext").GetComponentInChildren<TextMeshProUGUI>();
         textAnim = GameObject.FindGameObjectWithTag("UItext").GetComponentInChildren<Animator>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         //destPoint is assigned a random number = to the length of the spawnpoint array
